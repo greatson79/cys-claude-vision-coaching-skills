@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "모드 C 간이 진단 17문항. 에니어그램 9문항 + 다중지능 8문항.",
+    "source_spec": "skills/vision-values-visioncoding/SKILL.md > '#### 모드 C 간이 진단'"
+  },
+  "enneagram": {
+    "instruction": "가장 공감하는 1개(1차) + 두 번째 공감 1개(윙 후보). 각 문항 번호가 곧 Type 번호.",
+    "items": [
+      {"type": 1, "text": "나는 옳고 그름이 분명한 윤리적·정의로운 세상을 만들고 싶다."},
+      {"type": 2, "text": "나는 돕고 사랑하는 따뜻한 세상을 만들고 싶다."},
+      {"type": 3, "text": "나는 모두가 탁월·성공·다양성을 이루는 세상을 만들고 싶다."},
+      {"type": 4, "text": "나는 자유로운 자기표현·예술이 꽃피는 아름다운 세상을 만들고 싶다."},
+      {"type": 5, "text": "나는 지적 탐구·창의가 활발한 진화하는 세상을 만들고 싶다."},
+      {"type": 6, "text": "나는 서로 믿고 안전한 공동체가 있는 세상을 만들고 싶다."},
+      {"type": 7, "text": "나는 새로움·모험·재미가 살아있는 세상을 만들고 싶다."},
+      {"type": 8, "text": "나는 강하고 독립적·질서·권력 있는 세상을 만들고 싶다."},
+      {"type": 9, "text": "나는 절제·평화·균형의 세상을 만들고 싶다."}
+    ]
+  },
+  "multiple_intelligences": {
+    "instruction": "각 문항 1~5 척도 (1=전혀 아님, 5=매우 그렇다). 상위 3개를 채택.",
+    "scale": {"min": 1, "max": 5},
+    "items": [
+      {"intelligence": "Linguistic",           "text": "글쓰기·말하기·언어 학습이 즐겁고 잘 한다."},
+      {"intelligence": "Logical-Mathematical", "text": "숫자·논리·시스템 분석이 즐겁고 잘 한다."},
+      {"intelligence": "Spatial",              "text": "그림·디자인·공간 시각화가 즐겁고 잘 한다."},
+      {"intelligence": "Musical",              "text": "멜로디·리듬·소리에 민감하고 잘 표현한다."},
+      {"intelligence": "Bodily-Kinesthetic",   "text": "몸을 움직이는 활동·스포츠·손기술이 즐겁다."},
+      {"intelligence": "Interpersonal",        "text": "다른 사람의 감정·동기를 빨리 읽고 잘 어울린다."},
+      {"intelligence": "Intrapersonal",        "text": "내 감정·동기를 깊이 알고 자기 탐구를 즐긴다."},
+      {"intelligence": "Naturalist",           "text": "자연·동식물·환경에 깊이 연결되고 잘 분류한다."}
+    ]
+  }
+}

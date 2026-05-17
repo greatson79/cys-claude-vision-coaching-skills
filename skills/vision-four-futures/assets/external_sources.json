@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "note": "박사님 4가지 미래 분류의 학술적 위상을 뒷받침하는 외부 출처. 모두 web search/web fetch로 실존·내용 확인 완료(2026-05-17 기준).",
+  "sources": [
+    {
+      "id": "S1",
+      "author": "Henchey, Norman",
+      "year": 1978,
+      "title": "Making sense of futures studies",
+      "venue": "Alternatives 7(2): 24-28 (캐나다, 미래연구 학술지)",
+      "contribution_to_four_futures": "미래의 4분류(possible, plausible, probable, preferable)를 최초로 학술 문헌에 정착시킴.",
+      "evidence_url": "https://thevoroscope.com/2017/02/24/the-futures-cone-use-and-history/",
+      "verification_date": "2026-05-17",
+      "verbatim_categories": ["possible", "plausible", "probable", "preferable"],
+      "mapping_to_choi_yoonsik": {
+        "possible (Henchey) → 가능 미래들 (F2)": true,
+        "plausible (Henchey) → 기본미래 (F1)": true,
+        "preferable (Henchey) → 바람직한 미래 (F4)": true,
+        "probable (Henchey) → 4분류 중 박사님은 별도 명시 안 함, F1과 통합되어 다뤄짐": true
+      }
+    },
+    {
+      "id": "S2",
+      "author": "Hancock, Trevor & Bezold, Clement",
+      "year": 1994,
+      "title": "Possible futures, preferable futures",
+      "venue": "Healthcare Forum Journal 37(2): 23-29",
+      "contribution_to_four_futures": "최초의 '미래 원뿔(Futures Cone)' 그래픽 표현 — possible·plausible·probable·preferable 4종을 시간축에 펼침. Henchey 1978 분류를 시각화.",
+      "evidence_urls": [
+        "https://www.semanticscholar.org/paper/Possible-futures,-preferable-futures.-Hancock-Bezold/83c3b42b9fb46417b3d8d078ea3cdff1e441c9d9",
+        "https://www.researchgate.net/figure/Futures-cone-Source-Bezold-C-and-Hancock-T-1994-An-Overview-of-the-Health_fig2_338502728"
+      ],
+      "verification_date": "2026-05-17",
+      "mapping_to_choi_yoonsik": "박사님 책의 원뿔 다이어그램은 Hancock & Bezold 1994 cone과 동형."
+    },
+    {
+      "id": "S3",
+      "author": "Voros, Joseph",
+      "year": 2003,
+      "title": "A generic foresight process framework",
+      "venue": "Foresight 5(3): 10-21 (Emerald Publishing)",
+      "predecessor": "Voros 2001 'A Primer on Futures Studies'",
+      "contribution_to_four_futures": "Hancock & Bezold cone을 Generic Foresight Process의 prospection 단계 도구로 정착시키고, 시각·정의를 표준화.",
+      "evidence_urls": [
+        "https://thevoroscope.com/2017/02/24/the-futures-cone-use-and-history/",
+        "https://foresightinternational.com.au/wp-content/uploads/2020/03/Voros-Primer-on-FS-2001-Final.pdf"
+      ],
+      "verification_date": "2026-05-17",
+      "verbatim_categories": ["possible", "plausible", "probable", "preferable"]
+    },
+    {
+      "id": "S4",
+      "author": "Taylor, Charles W.",
+      "year": 1990,
+      "title": "Alternative World Scenarios for Strategic Planning (1988, 개정 1990)",
+      "venue": "U.S. Army War College, Strategic Studies Institute",
+      "related_works": [
+        "A World 2010: A New Order of Nations (1992)",
+        "Alternative World Scenarios for a New Order of Nations (1993)"
+      ],
+      "contribution_to_four_futures": "'Cone of Plausibility'를 군사·전략 기획에 적용 — 10~30년 미래 시나리오를 plausibility 차원으로 펼침.",
+      "evidence_urls": [
+        "https://press.armywarcollege.edu/monographs/286/",
+        "https://www.globalsecurity.org/military/library/report/1993/ssi_taylor.pdf"
+      ],
+      "verification_date": "2026-05-17"
+    },
+    {
+      "id": "S5",
+      "author": "Petersen, John L.",
+      "year": 1997,
+      "title": "Out of the Blue: Wild Cards and Other Big Future Surprises — How to Anticipate and Respond to Profound Change",
+      "publisher": "The Arlington Institute (1997 초판) / Madison Books (1999 재판)",
+      "contribution_to_four_futures": "Wildcard 개념을 미래학·foresight 분야에 대중화. 정의: 'low probability, high impact events'.",
+      "evidence_urls": [
+        "https://en.wikipedia.org/wiki/Wild_card_(foresight)",
+        "https://www.amazon.com/Out-blue-surprises-anticipate-profound/dp/0965902722"
+      ],
+      "verification_date": "2026-05-17",
+      "predecessor_definition": "1992 Copenhagen Institute for Futures Studies + BIPE Conseil + Institute for the Future — '낮은 확률·높은 영향력 사건'."
+    },
+    {
+      "id": "S6",
+      "publisher": "Wikipedia / 알라딘 / KISDI 도서관 / RISS",
+      "title": "최윤식의 미래준비학교 (2016, 지식노마드)",
+      "isbn13": "9788993322972",
+      "evidence_urls": [
+        "https://library.kisdi.re.kr/&/10110/contents/1400047",
+        "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=85723802",
+        "https://m.riss.kr/search/detail/DetailView.do?p_mat_type=d7345961987b50bf&control_no=cdcf74c385ad877affe0bdc3ef48d419"
+      ],
+      "verification_date": "2026-05-17",
+      "verified_metadata": {
+        "year": 2016,
+        "publisher": "지식노마드",
+        "authors": ["최윤식", "최현식"]
+      }
+    }
+  ]
+}

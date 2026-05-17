@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "skill_name": "vision-statement-writer",
+  "purpose": "결정론 환원 불가능한 항목(다중지능 9유형 분류, Plausible/Possible/Wildcard 미래 분류의 학술적 위상)의 외부 학술 출처를 1:1 명시. 출처 없는 판정은 자동 FAIL.",
+  "sources": [
+    {
+      "id": "MI1",
+      "domain": "Multiple Intelligences",
+      "author": "Howard Gardner",
+      "year": 1983,
+      "title": "Frames of Mind: The Theory of Multiple Intelligences",
+      "publisher": "Basic Books",
+      "isbn13": "9780465025091",
+      "claim": "원본 7개 지능 — Linguistic·Logical-Mathematical·Spatial·Musical·Bodily-Kinesthetic·Interpersonal·Intrapersonal.",
+      "verification_status": "학계 주류 표준 — 교육·심리학 교과서 표준 등재."
+    },
+    {
+      "id": "MI2",
+      "domain": "Multiple Intelligences",
+      "author": "Howard Gardner",
+      "year": 1995,
+      "title": "Reflections on Multiple Intelligences: Myths and Messages",
+      "journal": "Phi Delta Kappan",
+      "volume": "77(3)",
+      "claim": "8번째 지능 Naturalist 추가.",
+      "verification_status": "Gardner 본인 학술지 발표."
+    },
+    {
+      "id": "MI3",
+      "domain": "Multiple Intelligences",
+      "author": "Howard Gardner",
+      "year": 1999,
+      "title": "Intelligence Reframed: Multiple Intelligences for the 21st Century",
+      "publisher": "Basic Books",
+      "isbn13": "9780465026111",
+      "claim": "9번째 지능으로 Existential을 잠정 제안 ('8.5번째' 지위). 종교적 함의 회피 차원에서 'Spiritual'이 아닌 'Existential' 명명.",
+      "verification_status": "Gardner 단행본 명시. '영성지능' 표기는 부정확."
+    },
+    {
+      "id": "FS1",
+      "domain": "Futures Studies",
+      "author": "Joseph Voros",
+      "year": 2003,
+      "title": "A generic foresight process framework",
+      "journal": "Foresight",
+      "volume": "5(3)",
+      "claim": "미래 분류(Cone of Plausibility) — Possible·Plausible·Probable·Preferable 4범주. 박사님의 Plausible·Possible·Wildcard·Normative 분류와 동형.",
+      "verification_status": "미래학계 표준 인용 도식 (Futures Cone)."
+    },
+    {
+      "id": "FS2",
+      "domain": "Futures Studies",
+      "author": "Sohail Inayatullah",
+      "year": 2008,
+      "title": "Six Pillars: Futures Thinking for Transforming",
+      "journal": "Foresight",
+      "volume": "10(1)",
+      "claim": "Futures Studies 6 Pillars — Mapping·Anticipation·Timing·Deepening·Creating Alternatives·Transforming. 4분류 미래 시나리오 방법론의 학술적 토대.",
+      "verification_status": "Futures Studies 표준 교과서 인용."
+    },
+    {
+      "id": "FS3",
+      "domain": "Futures Studies — Wildcards",
+      "author": "John L. Petersen",
+      "year": 1997,
+      "title": "Out of the Blue: Wild Cards and Other Big Future Surprises",
+      "publisher": "Arlington Institute",
+      "claim": "Wildcard 정의 — '발생 확률은 낮으나 발생 시 파급력은 매우 큰 사건(low probability, high impact)'. 박사님 정의와 일치.",
+      "verification_status": "Wildcard 용어 학계 표준 정의의 원천 중 하나."
+    },
+    {
+      "id": "FS4",
+      "domain": "Futures Studies — Wildcards",
+      "author": "Copenhagen Institute for Futures Studies",
+      "year": 1992,
+      "title": "Wild Cards: A Multinational Perspective",
+      "publisher": "Copenhagen Institute for Futures Studies",
+      "claim": "Wildcard 다국 시각 정리. Petersen 1997과 함께 학계 표준 인용.",
+      "verification_status": "미래학계 다국 보고서."
+    }
+  ]
+}

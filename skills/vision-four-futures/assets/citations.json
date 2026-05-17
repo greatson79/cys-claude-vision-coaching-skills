@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "note": "각 인용문에 provenance_status 표시 — verified_book / unverifiable_online / interpretation. unverifiable_online은 실물 원서 직접 참조 필요.",
+  "citations": [
+    {
+      "id": "Q1",
+      "context": "박사님 미래학 기본 정의 — 5개 세계상",
+      "text_ko": "학문적으로 엄정한 방법론에 따라 예측된 미래는 일어날 가능성이 논리적으로 충분히 있을 수 있는 세계(Plausible World), 확률적으로 그럴싸한 세계(Possible World), 꿈과 가치가 어우러진 바람직한 세계(Normative or Preferred World)의 모습을 조언한다. 또한, 일어날 가능성이 현저히 낮더라도 특정한 조건이 충족되면 발생할 수 있는 세계(Wildcard World), 우리가 전혀 예측하거나 상상도 할 수 없는 세계(Unexpected or Unimaginable World)에 대해서도 생각해 보게 한다.",
+      "source_book": "최윤식의 미래준비학교 (2016, 지식노마드, ISBN 9788993322972)",
+      "page": null,
+      "provenance_status": "unverifiable_online",
+      "provenance_note": "책 전문 비공개로 온라인 1:1 대조 불가. 본 스킬에 인용된 텍스트는 사전 검토자(스킬 작성 시점)가 실물 원서를 직접 참조하여 발췌한 것으로 가정. 사용자에게 인용할 때는 실물 원서 확인 권장 안내를 첨부한다."
+    },
+    {
+      "id": "Q2",
+      "context": "박사님 미래학 학문 정의",
+      "text_ko": "'하나의 미래(a Future)' 또는 '그 미래(the Future)'가 아닌, '대안적 미래들(Alternative Futures)'과 '다양한 가능성의 미래들(Possible Futures)'을 예측(Prospect, Foresee, Forecast)하고 연구(Futures Studies)하는 것을 학문의 탐구 목적으로 삼는다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online",
+      "external_alignment": "Voros 2003; Inayatullah 2008; Bell 1997 — 'alternative futures' 표현은 미래학계 통용."
+    },
+    {
+      "id": "Q3",
+      "context": "기본미래 정의",
+      "text_ko": "미래에 일어날 가능성이 '논리적으로' 충분한 미래... 일어날 개연성이 높은 미래로서 기본미래(Baseline Future)라고도 한다. 과거, 현재, 미래의 징후들을 논리적, 체계적, 생태학적으로 분석하여 볼 때 가장 논리적으로 타당하고 이치에 맞아 수긍할 만한, 그럴듯한 미래를 말한다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online",
+      "external_alignment": "Henchey 1978 'plausible'; Hancock & Bezold 1994 cone center"
+    },
+    {
+      "id": "Q4",
+      "context": "가능 미래들 정의",
+      "text_ko": "확률적으로 그럴싸한 미래들이다. 이 미래는 앞으로 일어날 가능성이 '논리적으로' 충분한 미래를 기반으로 해서, 그 위에 풍부한 상상력을 활용하여 좀 더 폭넓게 확장된 가능성과 추가할 수 있는 사항(Option)을 넣은 미래다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online",
+      "external_alignment": "Henchey 1978 'possible'"
+    },
+    {
+      "id": "Q5",
+      "context": "가능 미래들 — 비관 전환 대처",
+      "text_ko": "개연성이 높은 미래가 비관적인 방향으로 전개될 것이 예상되는 경우... 우리는 방향을 바꿀 새로운 계기를 만들어야 한다. 이때 생각의 폭을 넓혀 기회의 가능성과 성공의 가능성을 찾아내고, 위기와 위협을 극복할 창의적 미래를 구상해야 한다. 즉 기본미래에 존재하지 않았던 새로운 가능성, 새로운 길, 새로운 미래 모습을 찾아내는 것이다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online"
+    },
+    {
+      "id": "Q6",
+      "context": "뜻밖의 미래 정의",
+      "text_ko": "일어날 가능성이 현저히 낮더라도 특정 조건이 충족되면 발생하여 파괴적 영향력을 발휘할 수 있는 '설마 하는' 혹은 '뜻밖의' 미래(an Unexpected or Wildcard Future)이다. 뜻밖의 미래는 일어날 가능성은 낮지만, 현실화하면 치명적이고 극단적인 미래 위협을 만들어낼 수 있으므로 반드시 생각해 보아야 할 미래다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online",
+      "external_alignment": "Petersen 1997/1999 'Out of the Blue' wild cards; Copenhagen Institute for Futures Studies 1992 정의 — low probability, high impact"
+    },
+    {
+      "id": "Q7",
+      "context": "뜻밖의 미래 — 거대 흐름 변화",
+      "text_ko": "미래의 골격이 될 거대한 흐름의 방향을 바꿀 뜻밖의 강력한 사건들은, 그 기본적인 행동 유형을 살피다 보면 필연적으로 드러나게 마련이다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online"
+    },
+    {
+      "id": "Q8",
+      "context": "바람직한 미래 정의",
+      "text_ko": "바람직한 가치가 최대로 반영된 '규범적' 미래(a Normative Future)이다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online",
+      "external_alignment": "Henchey 1978 'preferable'; Inayatullah CLA — normative dimension"
+    },
+    {
+      "id": "Q9",
+      "context": "바람직한 미래 — 가능한 미래와의 관계",
+      "text_ko": "원하는 미래는 가능한 미래에 일부만 걸쳐 있다. 그 이유는 인간의 예측 한계를 인정하기 때문이다... 원하는 미래의 나머지는 가능한 미래의 영역 밖에 존재한다. 이렇게 나머지 영역을 설정하는 것은 인간이 만들어가는 미래라는 가능성을 열어 놓는다는 뜻이다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online"
+    },
+    {
+      "id": "Q10",
+      "context": "비전가와 4가지 미래 연결",
+      "text_ko": "미래학자가 연구·예측하는 다양한 미래상이 바로 비전가가 살아가야 할 미래의 가능성을 이룬다. 비전가는 이런 미래들 중 어느 한 영역에서 자신에게 주어진 임무를 수행해야 한다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online"
+    },
+    {
+      "id": "Q11",
+      "context": "비전 3~4개 권장",
+      "text_ko": "미래준비학교에서는 3~4개의 비전을 디자인하도록 지도한다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online"
+    },
+    {
+      "id": "Q12",
+      "context": "미래 분기점 통합 시나리오",
+      "text_ko": "4가지 가능성의 경로가 나뉘는 순간, 즉 미래 분기점이 나타난다. 이 미래 분기점 이전까지의 전략이 '공통 전략'이 된다.",
+      "source_book": "최윤식의 미래준비학교 (2016)",
+      "page": null,
+      "provenance_status": "unverifiable_online"
+    }
+  ]
+}

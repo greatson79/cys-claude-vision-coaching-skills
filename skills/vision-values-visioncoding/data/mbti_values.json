@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "MBTI 16유형별 핵심 가치 7개 매핑. 모든 가치는 value_catalog.json 안의 단어만 사용.",
+    "source_spec": "skills/vision-values-visioncoding/SKILL.md > '## MBTI 16유형별 가치 매핑'"
+  },
+  "groups": {
+    "NT": ["INTJ", "INTP", "ENTJ", "ENTP"],
+    "NF": ["INFJ", "INFP", "ENFJ", "ENFP"],
+    "SJ": ["ISTJ", "ISFJ", "ESTJ", "ESFJ"],
+    "SP": ["ISTP", "ISFP", "ESTP", "ESFP"]
+  },
+  "types": {
+    "INTJ": {"group": "NT", "label": "Architect",       "values": ["Vision", "Strategy", "Wisdom", "Excellence", "Independence", "Truth", "Stewardship"]},
+    "INTP": {"group": "NT", "label": "Logician",        "values": ["Truth", "Knowledge", "Logic", "Creativity", "Independence", "Discernment", "Curiosity"]},
+    "ENTJ": {"group": "NT", "label": "Commander",       "values": ["Vision", "Excellence", "Stewardship", "Justice", "Strength", "Authority", "Achievement"]},
+    "ENTP": {"group": "NT", "label": "Debater",         "values": ["Creativity", "Curiosity", "Adventure", "Truth", "Innovation", "Freedom", "Vision"]},
+    "INFJ": {"group": "NF", "label": "Advocate",        "values": ["Vision", "Wisdom", "Compassion", "Insight", "Integrity", "Service", "Hope"]},
+    "INFP": {"group": "NF", "label": "Mediator",        "values": ["Authenticity", "Beauty", "Compassion", "Creativity", "Truth", "Hope", "Service"]},
+    "ENFJ": {"group": "NF", "label": "Protagonist",     "values": ["Service", "Vision", "Love", "Community", "Inspiration", "Stewardship", "Harmony"]},
+    "ENFP": {"group": "NF", "label": "Campaigner",      "values": ["Joy", "Creativity", "Authenticity", "Hope", "Freedom", "Connection", "Adventure"]},
+    "ISTJ": {"group": "SJ", "label": "Logistician",     "values": ["Loyalty", "Stewardship", "Order", "Truth", "Reliability", "Diligence", "Tradition"]},
+    "ISFJ": {"group": "SJ", "label": "Defender",        "values": ["Service", "Loyalty", "Compassion", "Faithfulness", "Humility", "Hospitality", "Tradition"]},
+    "ESTJ": {"group": "SJ", "label": "Executive",       "values": ["Order", "Justice", "Stewardship", "Discipline", "Excellence", "Loyalty", "Authority"]},
+    "ESFJ": {"group": "SJ", "label": "Consul",          "values": ["Service", "Community", "Harmony", "Hospitality", "Loyalty", "Tradition", "Love"]},
+    "ISTP": {"group": "SP", "label": "Virtuoso",        "values": ["Independence", "Excellence", "Curiosity", "Adventure", "Freedom", "Truth", "Resourcefulness"]},
+    "ISFP": {"group": "SP", "label": "Adventurer",      "values": ["Beauty", "Authenticity", "Compassion", "Freedom", "Harmony", "Sensitivity", "Peace"]},
+    "ESTP": {"group": "SP", "label": "Entrepreneur",    "values": ["Adventure", "Action", "Freedom", "Strength", "Vitality", "Resourcefulness", "Joy"]},
+    "ESFP": {"group": "SP", "label": "Entertainer",     "values": ["Joy", "Connection", "Beauty", "Adventure", "Hospitality", "Vitality", "Freedom"]}
+  }
+}

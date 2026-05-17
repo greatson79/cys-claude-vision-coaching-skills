@@ -1,0 +1,188 @@
+{
+  "_meta": {
+    "purpose": "결정론적 매핑 lookup — SKILL.md의 가중치 매핑 표 1~5를 lib/research_engine.py에서 사용",
+    "source_skill": "vision-personal-future-research/SKILL.md",
+    "frame": "최윤식 박사 STEEPS 6영역 (Society·Technology·Economy·Environment·Politics·Spirituality)",
+    "version": "1.0.0",
+    "last_updated": "2026-05-17"
+  },
+  "steeps_domains": [
+    "Society",
+    "Technology",
+    "Economy",
+    "Environment",
+    "Politics",
+    "Spirituality"
+  ],
+  "multiple_intelligence_to_steeps": {
+    "_source": "SKILL.md 가중치 매핑 §1 (Claude 휴리스틱·박사님 STEEPS 응용)",
+    "_note": "Howard Gardner Frames of Mind (1983) 7지능 + Naturalist (1995/1999) + Existential 잠정 (Intelligence Reframed 1999)",
+    "Logical-Mathematical": ["Technology", "Economy"],
+    "Linguistic": ["Society", "Spirituality"],
+    "Spatial": ["Technology", "Environment"],
+    "Bodily-Kinesthetic": ["Technology", "Society"],
+    "Musical": ["Society", "Technology"],
+    "Interpersonal": ["Society", "Politics"],
+    "Intrapersonal": ["Spirituality", "Society"],
+    "Naturalist": ["Environment"],
+    "Existential": ["Spirituality"]
+  },
+  "existential_provisional_coefficient": 0.5,
+  "riasec_to_steeps": {
+    "_source": "Holland (1985) RIASEC + SKILL.md §2 Claude 응용",
+    "R": ["Technology", "Environment"],
+    "I": ["Technology", "Economy"],
+    "A": ["Society", "Spirituality"],
+    "S": ["Society", "Spirituality"],
+    "E": ["Economy", "Politics"],
+    "C": ["Economy"]
+  },
+  "value_keywords_to_steeps": {
+    "_source": "SKILL.md §3 — 가치 단어 → STEEPS",
+    "정의": ["Politics", "Society"],
+    "공정": ["Politics", "Society"],
+    "평등": ["Politics", "Society"],
+    "영성": ["Spirituality"],
+    "초월": ["Spirituality"],
+    "신앙": ["Spirituality"],
+    "창의": ["Society", "Technology"],
+    "아름다움": ["Society", "Technology"],
+    "자유": ["Society", "Technology"],
+    "가족": ["Society"],
+    "공동체": ["Society"],
+    "관계": ["Society"],
+    "안정": ["Economy"],
+    "번영": ["Economy"],
+    "성취": ["Economy"],
+    "지구": ["Environment"],
+    "생명": ["Environment"],
+    "생태": ["Environment"],
+    "진리": ["Technology", "Spirituality"],
+    "지혜": ["Technology", "Spirituality"],
+    "학문": ["Technology", "Spirituality"],
+    "봉사": ["Spirituality", "Society"],
+    "헌신": ["Spirituality", "Society"],
+    "사역": ["Spirituality", "Society"]
+  },
+  "mbti_response_pattern": {
+    "_source": "SKILL.md §4 — 영역 가중치 X, 대응 패턴 O",
+    "NT": "비약적 진보(Quantum Progress)에 강한 관심",
+    "NF": "영적·문화 변화·인간 의미에 민감",
+    "ST": "현실적 단기 변화·산업 구조에 강함",
+    "SF": "생활 환경·교육·돌봄 변화에 민감"
+  },
+  "enneagram_response_pattern": {
+    "_source": "SKILL.md §4 — 영역 가중치 X, 대응 패턴 O",
+    "1": "정의·권력·구조 변화 민감",
+    "2": "관계·평화·공동체 변화 민감",
+    "3": "기회·성취·새로운 가능성 민감",
+    "4": "의미·진리·심층 변화 민감",
+    "5": "의미·진리·심층 변화 민감",
+    "6": "위기·안전·시스템 붕괴 민감",
+    "7": "기회·성취·새로운 가능성 민감",
+    "8": "정의·권력·구조 변화 민감",
+    "9": "관계·평화·공동체 변화 민감"
+  },
+  "cys_recoefficient": {
+    "_source": "SKILL.md §5 — Claude 휴리스틱",
+    "vision_direction_strong": 1.5,
+    "vision_potential_strong": 1.3,
+    "vision_skill_strong": 1.3
+  },
+  "job_domain_to_steeps": {
+    "_source": "SKILL.md 직업 도메인 → STEEPS 매핑 보조 표",
+    "법조": {"primary": ["Politics"], "secondary": ["Society"]},
+    "의료": {"primary": ["Technology", "Society"], "secondary": ["Spirituality"]},
+    "간호": {"primary": ["Technology", "Society"], "secondary": ["Spirituality"]},
+    "바이오": {"primary": ["Technology", "Society"], "secondary": ["Spirituality"]},
+    "교육": {"primary": ["Society"], "secondary": ["Technology", "Spirituality"]},
+    "연구": {"primary": ["Society"], "secondary": ["Technology", "Spirituality"]},
+    "학계": {"primary": ["Society"], "secondary": ["Technology", "Spirituality"]},
+    "금융": {"primary": ["Economy"], "secondary": ["Technology"]},
+    "회계": {"primary": ["Economy"], "secondary": ["Technology"]},
+    "재무": {"primary": ["Economy"], "secondary": ["Technology"]},
+    "미디어": {"primary": ["Society"], "secondary": ["Technology", "Politics"]},
+    "언론": {"primary": ["Society"], "secondary": ["Technology", "Politics"]},
+    "콘텐츠": {"primary": ["Society"], "secondary": ["Technology", "Politics"]},
+    "기술": {"primary": ["Technology"], "secondary": ["Economy"]},
+    "IT": {"primary": ["Technology"], "secondary": ["Economy"]},
+    "SW": {"primary": ["Technology"], "secondary": ["Economy"]},
+    "농업": {"primary": ["Environment"], "secondary": ["Economy", "Society"]},
+    "생태": {"primary": ["Environment"], "secondary": ["Economy", "Society"]},
+    "식품": {"primary": ["Environment"], "secondary": ["Economy", "Society"]},
+    "예술": {"primary": ["Society"], "secondary": ["Spirituality", "Technology"]},
+    "문화": {"primary": ["Society"], "secondary": ["Spirituality", "Technology"]},
+    "디자인": {"primary": ["Society"], "secondary": ["Spirituality", "Technology"]},
+    "종교": {"primary": ["Spirituality"], "secondary": ["Society"]},
+    "목회": {"primary": ["Spirituality"], "secondary": ["Society"]},
+    "선교": {"primary": ["Spirituality"], "secondary": ["Society"]},
+    "정치": {"primary": ["Politics"], "secondary": ["Society", "Economy"]},
+    "외교": {"primary": ["Politics"], "secondary": ["Society", "Economy"]},
+    "공공": {"primary": ["Politics"], "secondary": ["Society", "Economy"]},
+    "사회복지": {"primary": ["Society"], "secondary": ["Spirituality"]},
+    "NGO": {"primary": ["Society"], "secondary": ["Spirituality"]},
+    "코칭": {"primary": ["Society"], "secondary": ["Spirituality"]},
+    "무역": {"primary": ["Economy"], "secondary": ["Politics", "Environment"]},
+    "국제비즈니스": {"primary": ["Economy"], "secondary": ["Politics", "Environment"]},
+    "부동산": {"primary": ["Environment", "Economy"], "secondary": ["Society"]},
+    "건축": {"primary": ["Environment", "Economy"], "secondary": ["Society"]},
+    "도시": {"primary": ["Environment", "Economy"], "secondary": ["Society"]},
+    "군": {"primary": ["Politics"], "secondary": ["Technology"]},
+    "안보": {"primary": ["Politics"], "secondary": ["Technology"]}
+  },
+  "weighting_algorithm": {
+    "max_mapped_domains_per_diagnosis": 2,
+    "domain_cap_pct": 50,
+    "redistribute_excess_to_top_n": 2,
+    "normalize_to_pct": 100
+  },
+  "time_imminence_coefficient": {
+    "_source": "SKILL.md 3단계 압축 기준 Claude 휴리스틱",
+    "short": 1.5,
+    "mid": 1.0,
+    "long": 0.7
+  },
+  "personal_impact_coefficient": {
+    "_source": "SKILL.md 3단계 — 비전 영역 연관성",
+    "high": 1.5,
+    "mid": 1.0,
+    "low": 0.5
+  },
+  "compression_card_count": {
+    "_source": "SKILL.md 3단계·4단계 — 출력 분량 옵션",
+    "brief": [3, 5],
+    "standard": [10, 15],
+    "detailed": [15, 25]
+  },
+  "vision_split_thresholds": {
+    "_source": "SKILL.md — 진단 갈등·비전 다중 후보 처리",
+    "domain_stdev_pct_threshold": 10,
+    "top_two_diff_pct_threshold": 5
+  },
+  "missing_diagnosis_impact": {
+    "_source": "SKILL.md — 진단 누락 시 영향 안내",
+    "CYS": "종합 가중치 계수(×1.5·×1.3 등) 적용 불가 — 1~4번 가중치 원본 그대로 사용",
+    "MBTI": "변화 대응 스타일 매핑 불가 — 카드의 추천 대응 일반화",
+    "Enneagram": "변화 민감 영역 매핑 불가 — 카드의 심층 동기 일반화",
+    "STRONG": "직업·환경 매핑 1열 누락 — 가중치 산출에 빈자리",
+    "MultipleIntelligence": "산업·기술 매핑 1열 누락 — 가중치 산출에 빈자리",
+    "Values": "영성·정치·사회 매핑 1열 누락 — 가중치 산출에 빈자리",
+    "Readiness": "직접 매핑 영향 없음 — 시야·대응 강도 보조 신호만 누락"
+  },
+  "diagnosis_keys": [
+    "CYS",
+    "MBTI",
+    "Enneagram",
+    "STRONG",
+    "MultipleIntelligence",
+    "Values",
+    "Readiness"
+  ],
+  "minimum_input_requirement": {
+    "_source": "SKILL.md 절대 원칙 1",
+    "rule_a_min_diagnoses": 2,
+    "rule_a_requires_vision_candidate": true,
+    "rule_b_min_diagnoses": 3,
+    "rule_b_requires_vision_candidate": false
+  }
+}

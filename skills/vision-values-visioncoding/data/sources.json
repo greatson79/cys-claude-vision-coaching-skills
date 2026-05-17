@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "결정론으로 환원 불가능한 외부 인용·근거의 1:1 대조 출처표. 본 스킬이 산출에서 단정적으로 인용하는 모든 외부 지식은 반드시 이 파일에 등재된 출처를 가진다.",
+    "rule": "출처 없는 외부 단정은 자동 FAIL. 사양 원문 인용은 SKILL.md 본문 자체를 출처로 표시."
+  },
+  "biblical": {
+    "2_peter_1_5_7": {
+      "passage": "벧후 1:5-7",
+      "translation_used": "ESV / NA28 헬라어",
+      "claim": "Faith(πίστις)·Virtue(ἀρετή)·Knowledge(γνῶσις)·Self-Control(ἐγκράτεια)·Perseverance(ὑπομονή)·Godliness(εὐσέβεια)·Brotherly Kindness(φιλαδελφία)·Love(ἀγάπη) 8단계 덕목.",
+      "source": "Novum Testamentum Graece (Nestle-Aland 28th edition), 2 Peter 1:5-7; English Standard Version Bible (Crossway, 2016)."
+    },
+    "galatians_5_22_23": {
+      "passage": "갈 5:22-23",
+      "translation_used": "NA28 헬라어",
+      "claim": "성령의 열매에 πίστις(Faithfulness/신실)·μακροθυμία(Patience/오래 참음) 포함.",
+      "source": "Novum Testamentum Graece (Nestle-Aland 28th edition), Galatians 5:22-23."
+    },
+    "hebrews_13_2": {
+      "passage": "히 13:2",
+      "translation_used": "NA28 헬라어",
+      "claim": "Hospitality(환대)는 φιλοξενία (이방인 사랑) 어휘로 표기.",
+      "source": "Novum Testamentum Graece (Nestle-Aland 28th edition), Hebrews 13:2."
+    }
+  },
+  "enneagram": {
+    "riso_hudson_nine_types": {
+      "claim": "에니어그램 9유형의 표준 영문 명칭 — The Reformer, The Helper, The Achiever, The Individualist, The Investigator, The Loyalist, The Enthusiast, The Challenger, The Peacemaker.",
+      "source": "Don Richard Riso & Russ Hudson, 'The Wisdom of the Enneagram: The Complete Guide to Psychological and Spiritual Growth for the Nine Personality Types' (Bantam, 1999), Ch. 4."
+    },
+    "wing_theory": {
+      "claim": "각 에니어그램 유형은 인접 두 유형 중 하나가 윙(wing)으로 작동하며, 기본 유형의 변주를 만든다.",
+      "source": "Don Richard Riso, 'Personality Types' (Houghton Mifflin, 1987 / rev. 1996), Ch. 'Wings'; Riso & Hudson, 'Understanding the Enneagram' (Houghton Mifflin, 2000)."
+    }
+  },
+  "multiple_intelligences": {
+    "gardner_8_plus_1": {
+      "claim": "Gardner 다중지능 8지능: Linguistic, Logical-Mathematical, Spatial, Musical, Bodily-Kinesthetic, Interpersonal, Intrapersonal, Naturalist. 9번째 후보로 Existential(실존지능) 제안.",
+      "source": "Howard Gardner, 'Frames of Mind: The Theory of Multiple Intelligences' (Basic Books, 1983); 'Intelligence Reframed' (Basic Books, 1999) — Existential 후보 제안; 'Multiple Intelligences: New Horizons' (Basic Books, 2006)."
+    },
+    "naturalist_added_1995": {
+      "claim": "Naturalist 지능은 Gardner 1995년 추가 (원 7지능 → 8지능).",
+      "source": "Howard Gardner, 'Reflections on Multiple Intelligences: Myths and Messages', Phi Delta Kappan 77.3 (1995): 200-209."
+    }
+  },
+  "mbti": {
+    "myers_briggs": {
+      "claim": "MBTI 16유형은 Katharine Cook Briggs와 Isabel Briggs Myers가 칼 융(C. G. Jung)의 'Psychological Types' (1921)를 토대로 개발 (E/I·S/N·T/F·J/P 4축).",
+      "source": "Isabel Briggs Myers with Peter B. Myers, 'Gifts Differing: Understanding Personality Type' (Davies-Black, 1995, orig. 1980); C. G. Jung, 'Psychological Types' (Princeton University Press, 1971, orig. 1921)."
+    }
+  },
+  "internal": {
+    "skill_md": {
+      "claim": "본 스킬의 MBTI 16유형 가치 7개·에니어그램 9유형 가치 7개·다중지능 8(+1)지능 가치 매핑은 SKILL.md 본문이 1차 사양 출처.",
+      "source": "skills/vision-values-visioncoding/SKILL.md (Section '## MBTI 16유형별 가치 매핑', '## 9개 에니어그램 유형별 추구 세상', '## 다중지능 8지능별 가치 매핑')."
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "scenarios": [
+    {
+      "id": "s01_youth_high_school_dropout",
+      "description": "17세 중졸 진로탐색 청소년 — 의대·법대 자동 제외, Type 4 빈 슬롯 처리 검증",
+      "profile": {
+        "age": 17,
+        "education": "middle",
+        "mbti": "ENFP",
+        "enneagram": "7",
+        "interests": ["게임", "음악"],
+        "values": ["Joy", "Freedom"],
+        "raw_input": "저는 17살 중학교만 졸업했고 진로를 모르겠어요. 직업 추천해주세요."
+      }
+    },
+    {
+      "id": "s02_translator_career_pivot",
+      "description": "42세 석사 진로 전환자 — borderline 학력 처리 + 중복 제거 검증",
+      "profile": {
+        "age": 42,
+        "education": "master",
+        "mbti": "INFJ",
+        "enneagram": "1",
+        "riasec": "AIS",
+        "multiple_intel": ["언어", "자기성찰", "대인관계"],
+        "values": ["Justice", "Wisdom", "Service"],
+        "interests": ["AI 윤리", "교육", "글쓰기"],
+        "current_job": "번역가",
+        "location": "한국",
+        "raw_input": "42세 번역가입니다. AI 시대에 진로 전환을 고민하고 있어요."
+      }
+    },
+    {
+      "id": "s03_english_input",
+      "description": "영어 입력 — 언어 감지 'en' 정확 산출 검증",
+      "profile": {
+        "age": 28,
+        "education": "bachelor",
+        "mbti": "ENTJ",
+        "enneagram": "3",
+        "riasec": "ESC",
+        "values": ["Excellence", "Achievement"],
+        "raw_input": "I am a 28-year-old college graduate seeking career recommendations. Please respond in English."
+      }
+    },
+    {
+      "id": "s04_elderly_82_retiree",
+      "description": "82세 고령 권사 신앙명시 — Type 3 가중치 + 신체부담 큰 미래 직업 자동 제외 검증",
+      "profile": {
+        "age": 82,
+        "education": "high",
+        "values": ["Faith", "Love", "Wisdom"],
+        "interests": ["성경공부", "전도"],
+        "faith_disclosed": true,
+        "raw_input": "82세 권사입니다. 신앙 안에서 봉사할 수 있는 일이 무엇이 있을까요?"
+      }
+    },
+    {
+      "id": "s05_phd_wants_cafe",
+      "description": "박사 학력이 카페 사장 원함 — 학력 초과 허용 검증 (제외 없음)",
+      "profile": {
+        "age": 38,
+        "education": "doctorate",
+        "interests": ["커피", "독립 사업"],
+        "raw_input": "박사 학위 있는데 카페 운영하고 싶습니다."
+      }
+    },
+    {
+      "id": "s06_age_unknown",
+      "description": "유형 C — 나이·학력 미제공, 검사 결과만 — unknown 처리 검증",
+      "profile": {
+        "mbti": "ISTP",
+        "enneagram": "5",
+        "riasec": "RIC",
+        "multiple_intel": ["논리수학", "신체운동", "공간"],
+        "raw_input": "MBTI ISTP, 에니어그램 5번, RIASEC RIC인데 직업 추천해주세요. 나이는 안 알려드릴게요."
+      }
+    },
+    {
+      "id": "s07_high_pay_high_school",
+      "description": "30세 고졸 — Type 4 슬롯에서 의사·변호사·교수 자동 제외 검증",
+      "profile": {
+        "age": 30,
+        "education": "high",
+        "mbti": "ESTJ",
+        "enneagram": "8",
+        "values": ["Power", "Excellence"],
+        "interests": ["고소득", "사업"],
+        "raw_input": "30세 고졸입니다. 고소득 직업 추천해주세요."
+      }
+    },
+    {
+      "id": "s08_synonym_education",
+      "description": "학력 동의어 '대학원' 처리 + 거주지 해외 — normalize_education 검증",
+      "profile": {
+        "age": 33,
+        "education": "대학원",
+        "mbti": "INTJ",
+        "location": "해외",
+        "raw_input": "33세 대학원 졸업했고 해외 거주 중입니다. 직업 추천 부탁드립니다."
+      }
+    },
+    {
+      "id": "s09_secular_no_faith",
+      "description": "60세 비신앙자 — 종교 봉사 직업 자동 제외 검증 (faith_disclosed=false)",
+      "profile": {
+        "age": 60,
+        "education": "bachelor",
+        "values": ["Justice", "Community"],
+        "interests": ["사회 기여"],
+        "faith_disclosed": false,
+        "raw_input": "60세 은퇴기인데 신앙은 없습니다. 사회 봉사 직업 추천해주세요."
+      }
+    },
+    {
+      "id": "s10_min_age_borderline",
+      "description": "23세 학사 → 미래학 컨설턴트(min_age 32) borderline 처리 + 우선순위 dedup 검증",
+      "profile": {
+        "age": 23,
+        "education": "bachelor",
+        "mbti": "INTP",
+        "enneagram": "5",
+        "values": ["Wisdom", "Innovation"],
+        "interests": ["미래학", "전략"],
+        "raw_input": "23세 학사입니다. 미래학자가 되고 싶은데 추천 부탁드립니다."
+      }
+    }
+  ]
+}

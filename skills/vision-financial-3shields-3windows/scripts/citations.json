@@ -1,0 +1,161 @@
+{
+  "_meta": {
+    "purpose": "박사님 핵심 주장 7개의 학술 근거 — 모든 인용은 외부 데이터베이스(Google Scholar·CrossRef·PubMed·출판사)에서 1:1 대조 검증된 사실. LLM 추론으로 재생성하지 말 것.",
+    "verification_date": "2026-05-17"
+  },
+
+  "C1": {
+    "claim_supported": "7~10% 연 복리 투자 목표 (창②)",
+    "type": "book",
+    "authors": ["Siegel, Jeremy J."],
+    "year": 2014,
+    "title": "Stocks for the Long Run: The Definitive Guide to Financial Market Returns & Long-Term Investment Strategies",
+    "edition": "5th",
+    "publisher": "McGraw-Hill",
+    "isbn_13": "978-0071800518",
+    "key_finding": "200년 이상 미국 주식시장 실질 복리 수익률 약 6.6~6.7%, 명목 약 10%. 장기 분산 포트폴리오 7~10% 목표가 학계 주류 투자론과 일치",
+    "verification_sources": [
+      "https://www.amazon.com/Stocks-Long-Run-Definitive-Investment/dp/0071800514",
+      "https://books.google.com/books/about/Stocks_for_the_Long_Run.html?id=9qbiWJXnCu8C"
+    ]
+  },
+
+  "C2": {
+    "claim_supported": "1만 시간 전문성 개발 — SMART A역량 (창①)",
+    "type": "journal_article",
+    "authors": ["Ericsson, K. A.", "Krampe, R. Th.", "Tesch-Römer, C."],
+    "year": 1993,
+    "title": "The role of deliberate practice in the acquisition of expert performance",
+    "journal": "Psychological Review",
+    "volume": 100,
+    "issue": 3,
+    "pages": "363-406",
+    "key_finding": "전문성은 재능이 아닌 의도적 연습(deliberate practice) 누적량에 의해 결정. 최소 10년 집중 연습 필요. Google Scholar 9000회 이상 인용된 학계 확립 연구",
+    "verification_sources": [
+      "https://psycnet.apa.org/record/1993-40718-001",
+      "https://gwern.net/doc/psychology/writing/1993-ericsson.pdf"
+    ]
+  },
+
+  "C3a": {
+    "claim_supported": "100세 시대 전제 (절대 원칙 3) — 글로벌",
+    "type": "report",
+    "authors": ["World Health Organization"],
+    "year": 2023,
+    "title": "World Health Statistics 2023",
+    "publisher": "World Health Organization",
+    "key_finding": "글로벌 평균 기대수명 상승 추세. 100세 시대 진입 추세 확인",
+    "verification_sources": [
+      "https://www.who.int/data/gho/publications/world-health-statistics"
+    ]
+  },
+
+  "C3b": {
+    "claim_supported": "100세 시대 전제 (절대 원칙 3) — 한국",
+    "type": "report",
+    "authors": ["통계청"],
+    "year": 2023,
+    "title": "장래인구추계 2020~2070",
+    "publisher": "통계청 (Statistics Korea)",
+    "key_finding": "한국 기대수명 남성 80.5세·여성 86.5세(2023), 2070년까지 지속 상승 전망 — 100세 시대 진입 추세 확인",
+    "verification_sources": [
+      "https://kostat.go.kr/board.es?mid=a10301010000&bid=207"
+    ],
+    "note_on_specific_numbers": "기대수명 수치는 통계청 공식 발표를 따르며, 발표 연도별로 미세 갱신될 수 있음. 응답 시 '통계청 발표 기준'을 명시할 것"
+  },
+
+  "C4a": {
+    "claim_supported": "장기 저성장 전제 (절대 원칙 4 / 방패②) — 한국 잠재성장률",
+    "type": "report",
+    "authors": ["OECD"],
+    "year": null,
+    "annual": true,
+    "title": "OECD Economic Outlook",
+    "publisher": "OECD Publishing",
+    "key_finding": "한국 잠재성장률은 2000년대 약 5% → 2010년대 약 3% → 2020년대 약 2% 수준으로 구조적 하락 중. OECD Economic Outlook 역대 보고서 기준",
+    "verification_sources": [
+      "https://www.oecd.org/economic-outlook/"
+    ]
+  },
+
+  "C4b": {
+    "claim_supported": "장기 저성장 전제 (절대 원칙 4) — 글로벌",
+    "type": "report",
+    "authors": ["IMF"],
+    "year": null,
+    "annual": true,
+    "title": "World Economic Outlook",
+    "publisher": "International Monetary Fund",
+    "key_finding": "글로벌 구조적 저성장 진단",
+    "verification_sources": [
+      "https://www.imf.org/en/Publications/WEO"
+    ]
+  },
+
+  "C5a": {
+    "claim_supported": "지식 노동의 소득 원천 (창①) — 인적자본이론",
+    "type": "book",
+    "authors": ["Becker, Gary S."],
+    "year": 1964,
+    "title": "Human Capital: A Theoretical and Empirical Analysis, with Special Reference to Education",
+    "publisher": "National Bureau of Economic Research (NBER)",
+    "key_finding": "지식(교육·훈련) 투자 = 미래 소득 증가의 학술적 기반. Becker는 인적자본 이론으로 1992년 노벨 경제학상 수상",
+    "verification_sources": [
+      "https://www.nber.org/books-and-chapters/human-capital-theoretical-and-empirical-analysis-special-reference-education-first-edition"
+    ]
+  },
+
+  "C5b": {
+    "claim_supported": "네트워크 노동의 소득 원천 (창①)",
+    "type": "journal_article",
+    "authors": ["Granovetter, Mark S."],
+    "year": 1973,
+    "title": "The strength of weak ties",
+    "journal": "American Journal of Sociology",
+    "volume": 78,
+    "issue": 6,
+    "pages": "1360-1380",
+    "doi": "10.1086/225469",
+    "key_finding": "네트워크(약한 연결)가 취업·기회·소득 창출에 핵심 역할을 함을 실증. 사회학에서 가장 많이 인용되는 논문 중 하나",
+    "verification_sources": [
+      "https://www.cs.cmu.edu/~jure/pub/papers/granovetter73ties.pdf",
+      "https://snap.stanford.edu/class/cs224w-readings/granovetter73weakties.pdf"
+    ]
+  },
+
+  "C6": {
+    "claim_supported": "소비 패턴 = 가치관 / 의미 있는 소비 (방패③)",
+    "type": "journal_article",
+    "authors": ["Dunn, Elizabeth W.", "Gilbert, Daniel T.", "Wilson, Timothy D."],
+    "affiliations": ["University of British Columbia", "Harvard University", "University of Virginia"],
+    "year": 2011,
+    "title": "If money doesn't make you happy, then you probably aren't spending it right",
+    "journal": "Journal of Consumer Psychology",
+    "volume": 21,
+    "issue": null,
+    "pages": "115-125",
+    "doi": "10.1016/j.jcps.2011.02.002",
+    "key_finding": "가치 일치·의미 있는 지출이 행복을 높임을 실증. 경험 구매·타인을 위한 소비·작은 즐거움이 행복 증진",
+    "verification_sources": [
+      "https://myscp.onlinelibrary.wiley.com/doi/abs/10.1016/j.jcps.2011.02.002",
+      "https://dtg.sites.fas.harvard.edu/DUNN%20GILBERT%20&%20WILSON%20(2011).pdf"
+    ]
+  },
+
+  "C7": {
+    "claim_supported": "비전 우선 원칙 (절대 원칙 2 / 인생 설계 → 자산 설계)",
+    "type": "journal_article",
+    "authors": ["Locke, Edwin A.", "Latham, Gary P."],
+    "year": 2002,
+    "title": "Building a practically useful theory of goal setting and task motivation: A 35-year odyssey",
+    "journal": "American Psychologist",
+    "volume": 57,
+    "issue": 9,
+    "pages": "705-717",
+    "key_finding": "명확하고 구체적인 목표 설정이 성과·동기를 유의미하게 높임. 조직심리학 학계 확립 이론 (35년 경험연구 종합)",
+    "verification_sources": [
+      "https://www-2.rotman.utoronto.ca/facbios/file/09%20-%20Locke%20&%20Latham%202002%20AP.pdf",
+      "https://psycnet.apa.org/record/2002-15790-003"
+    ]
+  }
+}

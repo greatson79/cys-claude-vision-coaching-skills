@@ -1,0 +1,110 @@
+{
+  "_meta": {
+    "purpose": "vision-strategy-coach 스킬에서 사용되는 모든 학술·실무 출처의 정본(canonical) 인용 데이터. LLM의 자연어 추론을 차단하고 결정론적 조회로 인용을 보증한다.",
+    "verification_principle": "각 항목은 1차 자료(원전 또는 학계 표준 데이터베이스)에서 확인된 정보만 기록한다. 추정·간접 인용은 제외.",
+    "last_verified": "2026-05-17"
+  },
+  "SMART": {
+    "author": "George T. Doran",
+    "year": 1981,
+    "title": "There's a S.M.A.R.T. Way to Write Management's Goals and Objectives",
+    "venue": "Management Review",
+    "volume": 70,
+    "issue": 11,
+    "month": "November",
+    "pages": "35-36",
+    "original_elements": ["Specific", "Measurable", "Assignable", "Realistic", "Time-related"],
+    "modern_elements": ["Specific", "Measurable", "Achievable", "Relevant", "Time-bound"],
+    "publisher": "American Management Association",
+    "citation_full": "Doran, George T. (1981). \"There's a S.M.A.R.T. Way to Write Management's Goals and Objectives.\" Management Review, 70(11), 35-36."
+  },
+  "MBO": {
+    "author": "Peter F. Drucker",
+    "year": 1954,
+    "title": "The Practice of Management",
+    "publisher": "Harper & Brothers",
+    "citation_full": "Drucker, Peter F. (1954). The Practice of Management. New York: Harper & Brothers."
+  },
+  "GoalSettingTheory": {
+    "author": "Edwin A. Locke & Gary P. Latham",
+    "year": 1990,
+    "title": "A Theory of Goal Setting and Task Performance",
+    "publisher": "Prentice Hall",
+    "location": "Englewood Cliffs, NJ",
+    "citation_full": "Locke, Edwin A., & Latham, Gary P. (1990). A Theory of Goal Setting and Task Performance. Englewood Cliffs, NJ: Prentice Hall."
+  },
+  "ImplementationIntentions": {
+    "author": "Peter M. Gollwitzer",
+    "year": 1999,
+    "title": "Implementation Intentions: Strong Effects of Simple Plans",
+    "venue": "American Psychologist",
+    "volume": 54,
+    "issue": 7,
+    "pages": "493-503",
+    "doi": "10.1037/0003-066X.54.7.493",
+    "format_template": "When situation X arises, I will perform response Y",
+    "citation_full": "Gollwitzer, Peter M. (1999). \"Implementation Intentions: Strong Effects of Simple Plans.\" American Psychologist, 54(7), 493-503."
+  },
+  "PDCA": {
+    "originator": "Walter A. Shewhart",
+    "originator_year": 1939,
+    "originator_title": "Statistical Method from the Viewpoint of Quality Control",
+    "originator_publisher": "Graduate School of the Department of Agriculture, Washington, D.C.",
+    "popularizer": "W. Edwards Deming",
+    "popularizer_period": "1950s Japan lectures",
+    "alternate_names": ["Shewhart Cycle", "Deming Cycle", "PDCA Cycle", "PDSA Cycle"],
+    "citation_full": "Shewhart, Walter A. (1939). Statistical Method from the Viewpoint of Quality Control. Washington, D.C.: Graduate School of the Department of Agriculture. (PDCA 보급: Deming, W. Edwards, 1950s Japan lectures.)"
+  },
+  "BalancedScorecard": {
+    "author": "Robert S. Kaplan & David P. Norton",
+    "year": 1996,
+    "title": "The Balanced Scorecard: Translating Strategy into Action",
+    "publisher": "Harvard Business School Press",
+    "location": "Boston, MA",
+    "citation_full": "Kaplan, Robert S., & Norton, David P. (1996). The Balanced Scorecard: Translating Strategy into Action. Boston, MA: Harvard Business School Press."
+  },
+  "IntentionalChangeTheory": {
+    "author": "Richard E. Boyatzis",
+    "year": 2008,
+    "title": "Leadership Development from a Complexity Perspective",
+    "venue": "Consulting Psychology Journal: Practice and Research",
+    "volume": 60,
+    "issue": 4,
+    "pages": "298-313",
+    "doi": "10.1037/1065-9293.60.4.298",
+    "citation_full": "Boyatzis, Richard E. (2008). \"Leadership Development from a Complexity Perspective.\" Consulting Psychology Journal: Practice and Research, 60(4), 298-313."
+  },
+  "PersonalVision": {
+    "author": "Peter M. Senge",
+    "year": 1990,
+    "title": "The Fifth Discipline: The Art and Practice of the Learning Organization",
+    "publisher": "Doubleday/Currency",
+    "location": "New York",
+    "citation_full": "Senge, Peter M. (1990). The Fifth Discipline: The Art and Practice of the Learning Organization. New York: Doubleday/Currency."
+  },
+  "GettingThingsDone": {
+    "author": "David Allen",
+    "year": 2001,
+    "title": "Getting Things Done: The Art of Stress-Free Productivity",
+    "publisher": "Penguin Books",
+    "location": "New York",
+    "key_concept": "next action",
+    "citation_full": "Allen, David (2001). Getting Things Done: The Art of Stress-Free Productivity. New York: Penguin Books."
+  },
+  "Switch": {
+    "author": "Chip Heath & Dan Heath",
+    "year": 2010,
+    "title": "Switch: How to Change Things When Change Is Hard",
+    "publisher": "Broadway Books",
+    "location": "New York",
+    "key_concept": "shrink the change",
+    "citation_full": "Heath, Chip, & Heath, Dan (2010). Switch: How to Change Things When Change Is Hard. New York: Broadway Books."
+  },
+  "VisionReadinessQ08": {
+    "source": "vision-readiness-visioncoding skill",
+    "question_id": "Q08",
+    "canonical_text_english": "I am good at trimming a giant dream into a first step I can take tomorrow morning",
+    "concept": "first step articulation",
+    "do_not": ["paraphrase", "rewrite", "translate without marking"]
+  }
+}

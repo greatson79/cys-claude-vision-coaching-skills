@@ -1,0 +1,126 @@
+{
+  "_meta": {
+    "purpose": "vision-goal-reframing 스킬의 모든 외부 인용을 결정론적으로 고정한다. LLM이 자연어 추론으로 인용 정보를 변형하는 것을 차단한다.",
+    "policy": "여기 등록되지 않은 인용은 출력 워크북에 포함될 수 없다. 새 인용을 추가하려면 WebSearch로 1차 출처 확인 후 본 파일에 등록한다.",
+    "verified_at": "2026-05-17",
+    "verifier": "Claude Opus 4.7 + WebSearch"
+  },
+  "SMART_DORAN_1981": {
+    "key": "SMART_DORAN_1981",
+    "author": "Doran, G. T.",
+    "year": 1981,
+    "title": "There's a S.M.A.R.T. way to write management's goals and objectives",
+    "journal": "Management Review",
+    "volume": 70,
+    "issue": 11,
+    "pages": "35-36",
+    "original_axes": ["Specific", "Measurable", "Assignable", "Realistic", "Time-related"],
+    "modern_axes": ["Specific", "Measurable", "Achievable", "Relevant", "Time-bound"],
+    "note": "Doran 원안의 Assignable·Realistic·Time-related는 현대 코칭에서 Achievable·Relevant·Time-bound로 통용되며 이는 학계 주류에서 인정된 변형이다.",
+    "source_urls": [
+      "https://en.wikipedia.org/wiki/SMART_criteria",
+      "https://www.whatmatters.com/resources/okrs-smart-goals-difference-between"
+    ],
+    "citation": "Doran, G. T. (1981). There's a S.M.A.R.T. way to write management's goals and objectives. Management Review, 70(11), 35-36."
+  },
+  "BACKCASTING_ROBINSON_1982": {
+    "key": "BACKCASTING_ROBINSON_1982",
+    "author": "Robinson, J. B.",
+    "year": 1982,
+    "title": "Energy backcasting: A proposed method of policy analysis",
+    "journal": "Energy Policy",
+    "volume": 10,
+    "issue": 4,
+    "pages": "337-344",
+    "doi": "10.1016/0301-4215(82)90048-9",
+    "note": "Backcasting 방법론을 에너지 정책 분석에 최초 정립한 논문.",
+    "source_urls": [
+      "https://www.sciencedirect.com/science/article/abs/pii/0301421582900489",
+      "https://ideas.repec.org/a/eee/enepol/v10y1982i4p337-344.html"
+    ],
+    "citation": "Robinson, J. B. (1982). Energy backcasting: A proposed method of policy analysis. Energy Policy, 10(4), 337-344."
+  },
+  "BACKCASTING_ROBINSON_1990": {
+    "key": "BACKCASTING_ROBINSON_1990",
+    "author": "Robinson, J. B.",
+    "year": 1990,
+    "title": "Futures under glass: A recipe for people who hate to predict",
+    "journal": "Futures",
+    "volume": 22,
+    "issue": 8,
+    "pages": "820-842",
+    "doi": "10.1016/0016-3287(90)90018-D",
+    "affiliation": "University of Waterloo, Department of Environment and Resource Studies",
+    "note": "1982년 에너지 분석에 한정됐던 backcasting을 일반 미래학 방법론으로 확장.",
+    "source_urls": [
+      "https://www.sciencedirect.com/science/article/abs/pii/001632879090018D"
+    ],
+    "citation": "Robinson, J. B. (1990). Futures under glass: A recipe for people who hate to predict. Futures, 22(8), 820-842."
+  },
+  "OKR_GROVE_1983": {
+    "key": "OKR_GROVE_1983",
+    "author": "Grove, A. S.",
+    "year": 1983,
+    "title": "High Output Management",
+    "publisher": "Random House",
+    "isbn": "9780679762881",
+    "context": "Grove가 Intel에서 1971년 도입한 iMbO(Intel Management by Objectives)에서 출발. John Doerr는 1975년 Intel iMbO 코스에서 학습.",
+    "predecessor": "Peter Drucker MBO (The Practice of Management, 1954)",
+    "source_urls": [
+      "https://en.wikipedia.org/wiki/Objectives_and_key_results",
+      "https://en.wikipedia.org/wiki/High_Output_Management"
+    ],
+    "citation": "Grove, A. S. (1983). High Output Management. New York: Random House. (Intel iMbO 1971; Doerr 학습 1975)"
+  },
+  "OKR_DOERR_2018": {
+    "key": "OKR_DOERR_2018",
+    "author": "Doerr, J.",
+    "year": 2018,
+    "title": "Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs",
+    "publisher": "Portfolio/Penguin",
+    "isbn": "9780525536222",
+    "google_introduction_year": 1999,
+    "source_urls": [
+      "https://www.whatmatters.com/",
+      "https://en.wikipedia.org/wiki/Objectives_and_key_results"
+    ],
+    "citation": "Doerr, J. (2018). Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs. New York: Portfolio/Penguin. (Doerr Google 도입 1999)"
+  },
+  "OKR_GOOGLE_GRADING": {
+    "key": "OKR_GOOGLE_GRADING",
+    "source": "Google re:Work · whatmatters.com (Doerr)",
+    "scale": "0.0 ~ 1.0",
+    "color_bands": {
+      "red": "0.0 ~ 0.3",
+      "yellow": "0.4 ~ 0.6",
+      "green": "0.7 ~ 1.0"
+    },
+    "okr_types": {
+      "committed": {
+        "expected_score": 1.0,
+        "definition": "달성 의무가 있는 OKR. 1.0 미만 시 계획·실행 오류 분석 필요."
+      },
+      "aspirational": {
+        "expected_score": 0.7,
+        "definition": "도전적·확장형 OKR. 평균 0.7이 이상적. 1.0 달성은 목표가 너무 낮았다는 신호."
+      }
+    },
+    "source_urls": [
+      "https://www.whatmatters.com/faqs/okr-meaning-definition-example",
+      "https://rework.withgoogle.com/guides/set-goals-with-okrs/"
+    ],
+    "citation": "Google re:Work \"Set goals with OKRs\" Guide; Doerr (2018), Measure What Matters, 채점 척도 장."
+  },
+  "DRUCKER_MBO_1954": {
+    "key": "DRUCKER_MBO_1954",
+    "author": "Drucker, P. F.",
+    "year": 1954,
+    "title": "The Practice of Management",
+    "publisher": "Harper & Brothers",
+    "note": "OKR의 전신인 MBO(Management by Objectives)의 원조. Andy Grove가 iMbO로 확장.",
+    "source_urls": [
+      "https://en.wikipedia.org/wiki/Management_by_objectives"
+    ],
+    "citation": "Drucker, P. F. (1954). The Practice of Management. New York: Harper & Brothers."
+  }
+}

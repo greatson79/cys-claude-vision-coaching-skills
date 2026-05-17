@@ -5,6 +5,64 @@ description: 사용자의 *Vision Coding 진단 7종 결과*(CYS 비전 역량·
 
 # Vision Personal Future Research (개인 맞춤 미래 변화 리서치)
 
+## ⚙️ 결정론 환원 (할루시네이션 구조적 차단)
+
+본 스킬은 다음 단계를 *반드시* 동봉된 `lib/research_engine.py`(또는 `scripts/research_cli.py` 진입점)를 호출해 산출한다. LLM 자연어로 다시 추론·재계산·재기억하지 *않는다* (결정론 환원 절대 원칙).
+
+| 단계 | 결정론 호출 | LLM 금지 사항 |
+|---|---|---|
+| 입력 검증 (MBTI 4글자 / 에니어그램 1-9w0-9 / 다중지능 9키 / STRONG 6키 / 최소 입력) | `eng.validate_mbti`·`validate_enneagram`·`validate_multiple_intelligence`·`validate_strong`·`check_minimum_input` 또는 `python3 scripts/research_cli.py weights` | "INTJ인 것 같다" 같은 자연어 추정 금지 |
+| 가중치 매핑 (다중지능 → STEEPS·RIASEC → STEEPS·가치 → STEEPS·MBTI/에니어그램 대응 패턴·CYS 재가중·직업 도메인) | `eng.compute_weights` | 매핑 표를 LLM이 다시 외워서 출력 금지 |
+| 영역 상한 캡 50% + 잉여 비례 분배 + 100% 정규화 | `eng.cap_and_normalize` | 자연어 산수 금지 |
+| 영역 표준편차 < 10% / 상위 1·2 차이 < 5%p 비전 다중 후보 판정 | `eng.detect_vision_split` | 자연어 분산 판정 금지 |
+| 연령대별 시야 비율 (단기/중기/장기 %) | `eng.vision_ratio_for_age` 또는 `vision-ratio --age N` | 연령대 비율을 LLM이 다시 외워 출력 금지 |
+| 시간축 절대 연도 변환 (Y → Y/Y+5/Y+15/Y+30) | `eng.absolute_time_axis(current_year)` 또는 `time-axis --year N` | 연도 산수 LLM 금지 |
+| 종합 점수 (영역 가중치 × 시간 임박도 × 개인 임팩트) | `eng.composite_score` | 계수 자연어 곱셈 금지 |
+| 우선순위 ★/★★/★★★ 분위 배정 | `eng.rank_priority` | 자연어 분위 추정 금지 |
+| 진단 누락 영향 안내 | `eng.missing_diagnosis_notice` 또는 `missing-notice --present` | 영향 문구 LLM 재기억 금지 |
+| 외부 출처(통계청·IPCC·OECD·Pew·UN 등) 인용 | `eng.get_source(domain, horizon, id)` 또는 `source --domain --horizon --id` lookup | **출처는 `data/sources.json`에 등재된 id에서만 사용**. 미등재 인용 = 자동 FAIL |
+| 변화 카드 후보 빌드 + 6영역 최소 1개 보장 | `eng.build_change_cards` → `select_top_cards` → `ensure_six_domain_min_one` | LLM 임의 카드 생성 금지 |
+| Existential 잠정 0.5 계수 | `eng.map_multiple_intelligence(existential_full_weight=False)` | "Existential은 절반쯤" 같은 자연어 금지 |
+
+**산출물 헤더에 *반드시* 다음 한 줄 명시**:
+
+> *"본 산출은 `vision-personal-future-research/lib/research_engine.py` 결정론 엔진을 통해 산출되었으며, 외부 출처는 `data/sources.json`에 등재된 항목만 사용했습니다."*
+
+**`data/sources.json`에 등재되지 않은 외부 주장은 산출 금지**. 사용자가 새 출처를 요구하면 *"카탈로그 외 약한 신호로 처리 — 외부 검증 권장"* 라벨로 별도 표기 (절대 원칙 6 + '카탈로그 외 최근 사건·약한 신호 입력 처리' 절).
+
+**호출 흐름 (LLM이 따라야 하는 결정론 라인)**:
+```bash
+# 0. 자기 검증 (세션 시작 시 1회)
+python3 scripts/research_cli.py self-check
+
+# 1. 풀 파이프라인 (한 번에)
+python3 scripts/research_cli.py pipeline \\
+  --vision-candidate --year <Y> --age <AGE> --mode <brief|standard|detailed> \\
+  --target-recoef-domain <Society|Technology|Economy|Environment|Politics|Spirituality> \\
+  [--include-wildcards] [--existential-full] < input.json
+```
+
+`input.json` 스키마:
+```json
+{
+  "diagnoses": {
+    "MBTI": "INTJ",
+    "Enneagram": "5w4",
+    "MultipleIntelligence": {"Logical-Mathematical": 9, "Linguistic": 8, ...},
+    "STRONG": {"I": 9, "A": 7, "S": 5, "R": 4, "E": 4, "C": 3},
+    "Values": ["진리", "지혜", "영성"],
+    "CYS": {"vision_direction": "강", "vision_potential": "강", "vision_skill": "중"},
+    "Readiness": {"big_picture": 8, "reframing": 7, "strategy": 8, "follow_through": 6}
+  },
+  "job_domains": ["연구", "교육"],
+  "personal_impact_by_id": {"agi_timing": "high", "kr_population_cliff": "high"}
+}
+```
+
+엔진 산출(JSON)을 그대로 변환 표시한다. LLM은 *서술·해석·연결 문장*만 작성한다. 수치·매핑·출처는 엔진 산출을 *그대로* 인용한다.
+
+---
+
 ## 저자 및 학술적 배경 (검증)
 
 - **저자**: 최윤식 (Choi Yoon-Sik), 한국 미래학자, 아시아미래연구소 소장
@@ -739,30 +797,60 @@ Spirituality  │                  │                     │
 
 ### 1단계 — 가중치 산출 + 투명 공개
 
-1. 가중치 매핑 1~5 적용.
-2. 6영역 *상대 비율* 환산 (총합 100%).
-3. *사용자에게 표 1개로 공개* — "본 매핑은 다음과 같은 계산을 거쳤습니다."
-4. 사용자가 *직관과 다르다*고 하면 *수동 조정* 옵션 제공.
-5. 시간축 시야 비율 — Claude 권장값 + *사용자 본인 의향 확인*.
+**결정론 호출 강제**: 본 단계의 가중치 매핑·CYS 재가중·캡 50%·100% 정규화·시야 비율·시간축 변환·분산 판정·진단 누락 안내는 *반드시* `eng.compute_weights` + `eng.vision_ratio_for_age` + `eng.absolute_time_axis`를 호출해 산출한다. LLM이 영역 비율을 자연어로 산정하거나 매핑 표를 다시 외워 출력하지 않는다.
+
+```bash
+python3 scripts/research_cli.py weights \\
+  --vision-candidate --target-recoef-domain <DOMAIN> < input.json
+python3 scripts/research_cli.py vision-ratio --age <AGE>
+python3 scripts/research_cli.py time-axis --year <Y>
+```
+
+1. 가중치 매핑 1~5 적용 → `eng.compute_weights`.
+2. 6영역 *상대 비율* 환산 (총합 100%) → `eng.cap_and_normalize` 내부 처리.
+3. *사용자에게 표 1개로 공개* — 엔진 산출 JSON의 `weights_pct`를 *그대로* 표로 변환.
+4. 사용자가 *직관과 다르다*고 하면 *수동 조정* 옵션 제공 (수정된 가중치는 `cap_and_normalize`에 재투입).
+5. 시간축 시야 비율 — `eng.vision_ratio_for_age(age)` 산출값 + *사용자 본인 의향 확인*.
 
 ### 2단계 — 6영역 × 3시간축 매트릭스 채우기
 
-1. 각 셀에 *사용자 가중치 상위 우선* 변화 1~3개 추출.
-2. 외부 출처(통계·기관·보고서) *각 항목에* 표기.
-3. 학계 갈림 항목은 *"의견 갈림"* 명시.
+**결정론 호출 강제**: 셀에 들어갈 변화 항목은 `eng.list_sources(domain, horizon)` 또는 `eng.get_source(domain, horizon, id)` 결과만 사용한다. 출처 미등재 변화는 매트릭스에 포함 금지.
+
+```bash
+python3 scripts/research_cli.py list-sources --domain <Society|Technology|...> --horizon <short|mid|long>
+```
+
+1. 각 셀에 *사용자 가중치 상위 우선* 변화 1~3개 추출 (등재 출처만).
+2. 외부 출처(통계·기관·보고서) *각 항목에* 표기 — `data/sources.json`의 `source` 필드 *그대로* 인용.
+3. 학계 갈림 항목은 *"의견 갈림"* 명시 — `certainty: "low"` + `note: "의견 갈림"` 자동 출력.
 4. 1차 신호(early signals) — 현재 관찰 가능한 징후 2~3개.
 
 ### 3단계 — 우선순위 상위 10~15개 선별 (압축 기준 명시)
 
-압축 기준 (Claude 휴리스틱·박사님 책 직접 수록 아님):
+**결정론 호출 강제**: 종합 점수 산출과 ★/★★/★★★ 우선순위 배정은 `eng.composite_score` + `eng.rank_priority`를 사용한다. 곱셈·분위 판정을 LLM이 자연어로 다시 하지 않는다.
+
+```bash
+python3 scripts/research_cli.py score --weight <PCT> --horizon <short|mid|long> --impact <high|mid|low>
+python3 scripts/research_cli.py cards --mode <brief|standard|detailed> [--include-wildcards] < weights.json
+```
+
+압축 기준 (Claude 휴리스틱·박사님 책 직접 수록 아님, 결정론 환원 완료):
 - *영역 가중치* (1단계 산출) × *시간 임박도* × *개인 임팩트* = 종합 점수
 - *영역 가중치*: 1단계 사용자 6영역 비율
-- *시간 임박도*: 단기 1.5 · 중기 1.0 · 장기 0.7 (Claude 휴리스틱)
+- *시간 임박도*: 단기 1.5 · 중기 1.0 · 장기 0.7 (`MAPPINGS.time_imminence_coefficient`)
 - *개인 임팩트*: 사용자 비전 영역과의 직접 연관성 (high 1.5 · mid 1.0 · low 0.5)
 
-종합 점수 상위 10~15개를 *변화 카드*로 정리.
+종합 점수 상위 N개를 *변화 카드*로 정리 (N은 `card_count_for_mode(mode)` 결정).
 
 ### 4단계 — 변화 카드 산출
+
+**결정론 호출 강제**: 카드 후보 빌드·정렬·6영역 최소 1개 보장은 `eng.build_change_cards` → `eng.select_top_cards` → `eng.ensure_six_domain_min_one`으로 산출한다. LLM은 *카드 내용을 새로 만들지 않고* 엔진이 반환한 카드의 필드(domain·horizon·title·source·certainty·priority)를 *그대로* 렌더링한다.
+
+```bash
+python3 scripts/research_cli.py pipeline \\
+  --vision-candidate --year <Y> --age <AGE> --mode <brief|standard|detailed> \\
+  --target-recoef-domain <DOMAIN> [--include-wildcards] < input.json
+```
 
 기본 양식은 *카드*. 사용자가 *표·그래프·간단 목록* 등 다른 양식을 요청하면 그에 맞춰 변환 (정보 내용은 동일).
 
@@ -851,6 +939,7 @@ Spirituality  │                  │                     │
 8. **다음 스킬 *흐름* 안내** — `foresight-futures-wheel` → `vision-four-futures` → `vision-futures-timeline-map` 순서.
 9. **이중 시간축 처리** — 사용자가 *타인을 위한 비전 영역*(예: 청소년 멘토링) 선언 시 *본인 시간축 + 대상 시간축* 둘 다 매트릭스에 반영.
 10. **자료 갱신 권장** — 카탈로그의 통계·기술·기후 수치는 *작성 시점*(2026 5월) 기준. 산출 시 *최신 자료 확인 권장* 고지.
+11. **결정론 호출 강제** — 입력 검증·가중치 매핑·CYS 재가중·캡/정규화·시야 비율·시간축 변환·종합 점수·우선순위·진단 누락 안내·출처 lookup·변화 카드 빌드는 *반드시* `lib/research_engine.py`(또는 `scripts/research_cli.py`)를 호출해 산출한다. LLM 자연어 추론·재계산·재기억 금지. 미등재 출처 인용은 자동 FAIL. 산출물 헤더에 *"결정론 엔진 산출"* 명시.
 
 ---
 

@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "purpose": "연령대별 시야 비율 결정론 lookup — SKILL.md 시야 비율 휴리스틱(Claude 권장)",
+    "source": "SKILL.md 'STEEPS 6영역 × 시간축 3구간 매트릭스' 시야 비율 휴리스틱",
+    "note": "박사님 책 시야 비율 명시 없음 — Claude 권장 휴리스틱",
+    "version": "1.0.0"
+  },
+  "vision_ratios_by_age_band": [
+    {"band": "child_under10", "age_min": 0, "age_max": 9, "short_pct": 15, "mid_pct": 35, "long_pct": 50, "note": "본인 직접 진단 부적합 — 부모/보호자 대리. 아이의 인생 60~80년 전체 다룸"},
+    {"band": "teen", "age_min": 10, "age_max": 19, "short_pct": 20, "mid_pct": 45, "long_pct": 35, "note": "잔여 60+년 — 장기 비중 가장 높음"},
+    {"band": "twenties", "age_min": 20, "age_max": 29, "short_pct": 25, "mid_pct": 50, "long_pct": 25, "note": "청년 중기 비중 최대"},
+    {"band": "thirties_forties", "age_min": 30, "age_max": 49, "short_pct": 35, "mid_pct": 45, "long_pct": 20, "note": "활동 정점 — 중기 우선"},
+    {"band": "fifties_sixties", "age_min": 50, "age_max": 69, "short_pct": 50, "mid_pct": 35, "long_pct": 15, "note": "시니어 진입 — 단기 우선"},
+    {"band": "seventies_plus", "age_min": 70, "age_max": 120, "short_pct": 60, "mid_pct": 30, "long_pct": 10, "note": "본인 시간축 + 대상 시간축 분리 권장 (절대 원칙 9)"}
+  ],
+  "time_horizon_bands": {
+    "_source": "SKILL.md 시간축 3구간 — vision-futures-timeline-map 일관",
+    "short": {"years_from_now_min": 0, "years_from_now_max": 5, "label": "단기 (Y ~ Y+5년)"},
+    "mid": {"years_from_now_min": 5, "years_from_now_max": 15, "label": "중기 (Y+5 ~ Y+15년)"},
+    "long": {"years_from_now_min": 15, "years_from_now_max": 30, "label": "장기 (Y+15 ~ Y+30년)"}
+  },
+  "time_unit_options": {
+    "_source": "SKILL.md '시간축 단위 옵션'",
+    "month": {"short_max": 24, "unit": "개월"},
+    "quarter": {"short_max": 8, "unit": "분기"},
+    "half_year": {"short_max": 12, "unit": "반기"},
+    "year_5_block": {"short_max": 1, "unit": "5년 블록"},
+    "year_10_block": {"short_max": 1, "unit": "10년 블록"}
+  }
+}

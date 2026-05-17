@@ -11,6 +11,20 @@ description: 미래 사회 변화로부터 발생할 *잠재적 기회·위기·
 
 대상은 박사님 본인(미래학자·아시아미래인재연구소) + 박사님 강의 청중·정책 입안자·기업 경영진·연구자다.
 
+## 외부 출처·1차 자료 (학계 주류 문헌과 1:1 대조)
+
+본 스킬이 사용하는 모든 비-결정론 개념은 다음 학계 주류 문헌과 1:1 대조된다. 출처 없는 판정은 자동 FAIL이다.
+
+| 본 스킬의 개념 | 1차 출처 | 인용 |
+|---|---|---|
+| **STEEPS 6차원** (S·T·E·E·P + Spirituality) | Aguilar, F. J. (1967). *Scanning the Business Environment*. New York: Macmillan. (원어: ETPS) → Brown (1968 Institute of Life Insurance) STEP → Fahey & Narayanan (1986), *Macroenvironmental Analysis for Strategic Management* (St. Paul: West) STEEP → Slaughter (2002)·Hines & Bishop (2015)에서 Spirituality 차원 추가 통합. | "ETPS — Economic, Technical, Political, Social. The four-fold classification scheme of Aguilar (1967)." |
+| **Maslow 욕구 계층** (생리·안전·소속·존중·자아실현) | Maslow, A. H. (1943). "A Theory of Human Motivation." *Psychological Review*, 50(4), 370–396. DOI: 10.1037/h0054346 | "There are at least five sets of goals which we may call basic needs: physiological, safety, love, esteem, and self-actualization." (p. 372) |
+| **3축 분석 프레임** (Opportunities/Challenges · Needs Filled/Deprivations Created · Problems Solved/New Problems) | Bell, W. (1996/2003). *Foundations of Futures Studies, Vols. I–II*. New Brunswick: Transaction. — "alternative futures must include both gains and losses, both desirable and undesirable consequences." (Vol. I, Ch. 5) / Hines & Bishop (2015), *Thinking about the Future: Guidelines for Strategic Foresight*, 2nd ed. — Framing·Scanning·Forecasting·Visioning·Planning·Acting 6-phase guidelines에서 *balanced inquiry* 원칙. | 균형 분석은 미래학의 *방법론적 의무* — 한 방향 단정 금지. |
+| **시간 분리 분석 (단기·중기·장기)** | Inayatullah, S. (2008). "Six Pillars: Futures Thinking for Transforming." *Foresight*, 10(1), 4–21. — Pillar 1 "Mapping the Future" / Voros, J. (2003). "A Generic Foresight Process Framework." *Foresight*, 5(3), 10–21. | "Time horizons must be explicit; mixing short-term operational concerns with long-term structural change creates analytical confusion." |
+| **Discontinuity·질적 단계 전환** | Gordon, T. J. (1992). "The Methods of Futures Research." *Annals of the American Academy of Political and Social Science*, 522, 25–35. / Glenn & Gordon (2009), *Futures Research Methodology V3.0* (Millennium Project). | Trend-break analysis·wild cards. |
+
+위 출처는 모두 학계 표준이며, 본 스킬의 모든 분석은 이 출처들에 환원 가능해야 한다. 환원 불가능한 주장은 `[추정]` 명시 의무.
+
 ## 다른 vision·foresight 스킬과의 분담
 
 본 스킬은 vision 시리즈에서 *예측 분석* 가지로 자리하지만, 실질적 짝은 foresight 시리즈다.
@@ -162,6 +176,53 @@ description: 미래 사회 변화로부터 발생할 *잠재적 기회·위기·
 
 3축 분석을 STEEPS 6차원 *각각*에 적용. 한 차원에 쏠리면 균형 보강.
 
+## 결정론 환원 — 파이썬 모듈 강제 (할루시네이션 차단)
+
+본 스킬은 다음 결정론 작업을 LLM 자연어 추론에서 분리해 파이썬 함수에 강제로 위임한다. LLM이 자연어로 다시 추론하지 못한다.
+
+| 작업 | 환원 모듈 | 호출 위치 |
+|---|---|---|
+| 주제 키워드 → 추가 집단·영역·고위험 프레이밍 매핑 | `scripts/topic_classifier.py` | 처리 흐름 **1단계 직후** (분석 시작 전) |
+| 시간 범위 → 방식 B 의무·권장 자동 판정 | `scripts/topic_classifier.py` | 동상 |
+| 분석 contract 산출 (LLM 입력의 결정론 부분 고정) | `scripts/run_pipeline.py contract` | 동상 |
+| 최종 산출물 14항목 *구조* 자가검증 | `scripts/output_validator.py` | 처리 흐름 **7단계 직후** (사용자 출력 전) |
+| 최종 산출물 *내용·출처* 자가검증 — 화이트리스트·수치 라벨링·추정 비율·단정 어휘·가공 기관명 | `scripts/fact_check.py` | 처리 흐름 **7단계 직후** (output_validator와 함께 실행) |
+| 출처 화이트리스트 (한국 공공기관·국제기구·학계 표준) | `scripts/source_whitelist.py` | fact_check.py가 참조 |
+
+**강제 흐름**:
+
+```bash
+# 1단계 직후 — contract 산출
+python3 ./scripts/run_pipeline.py contract --topic "<주제 한 문장>" --years <N>
+# → 출력 JSON을 그대로 받아 LLM이 분석 본문 작성에 사용
+#    LLM은 required_groups_axis1, required_domains_axis3, framing_warnings,
+#    time_mode_b_required 값을 무조건 적용한다. 자연어 추론으로 재해석 금지.
+
+# 분석 본문(1~7단계) 작성 → 임시 파일 저장 → 7단계 직후 *2종 검증 필수*
+python3 ./scripts/run_pipeline.py verify --topic "<주제>" --years <N> --file /tmp/output.md
+# → 구조 14항목 — {"pass": true} 보장
+
+python3 ./scripts/fact_check.py --file /tmp/output.md
+# → 내용·출처 5항목 — {"pass": true} 보장
+#   ① 모든 [출처:] 인용이 source_whitelist.py 화이트리스트와 매칭
+#   ② 표 안 수치 80%+ 가 [출처:] 또는 [추정:]로 라벨링
+#   ③ [추정] 비율 ≤ 80% (학계 지지 부족 차단)
+#   ④ 단정·과장 어휘 0건
+#   ⑤ 가공 기관명 패턴 0건
+```
+
+**구조 검증과 내용 검증 모두 PASS 전까지 사용자에게 출력 금지.**
+
+**FAIL 시 행동**: validator가 blocker를 리포트하면 LLM은 그 항목을 명시적으로 보강한 후 동일 파일을 재검증한다. PASS 전까지 사용자에게 노출 금지.
+
+**카탈로그 동기화 의무**: `scripts/topic_classifier.py`의 `TOPIC_CATEGORIES`는 본 SKILL.md 의 "축 1 집단 조정 필수"·"축 3 영역 조정 필수"·"고위험 프레이밍" 목록과 1:1 동기화되어야 한다. SKILL.md 변경 시 코드도 즉시 갱신.
+
+**Sanity 자가 시험** — 카탈로그·검증기 무결성 점검(스킬 변경 시 1회 실행):
+```bash
+python3 ./scripts/sanity_suite.py
+# → 4/4 ALL GREEN 이어야 한다. FAIL이 나오면 코드·SKILL.md 동기화 깨짐.
+```
+
 ## 처리 흐름
 
 ### 1단계 — 변화 주제·시간 범위 정의
@@ -192,6 +253,15 @@ description: 미래 사회 변화로부터 발생할 *잠재적 기회·위기·
 기본값: 응답 안 주시면 *입력하신 변화 주제를 한국·10년 범위·상세*로 분석합니다.
 ```
 
+#### 1단계 직후 — contract 산출 (결정론 환원 의무)
+
+```bash
+python3 ./scripts/run_pipeline.py contract --topic "<주제>" --years <N>
+```
+- 출력 JSON의 `required_groups_axis1`·`required_domains_axis3`·`framing_warnings`·`time_mode_b_required` 값을 그대로 4단계 분석에 적용한다.
+- LLM이 "이 주제에는 어떤 집단을 추가할까?"를 자연어로 다시 추론하지 않는다.
+- `unmatched_warning` 이 있으면 분석가가 직접 카탈로그 외 주제임을 사용자에게 공지하고 SKILL.md "축 1 집단 조정 필수"에 따라 수기 추가.
+
 ### 2단계 — 변화 정의 한 문장
 
 받은 주제를 *4요소*(무엇/언제/어디서/누구)로 한 문장 진술.
@@ -214,9 +284,9 @@ STEEPS 6차원별 표 산출.
 #### 축 3 — Problems Solved vs New Problems
 영역별 표 산출.
 
-### 5단계 — 핵심 통찰 5선
+### 5단계 — 핵심 통찰 (기본 5선 / 유형 D 단행본 챕터 모드만 10선)
 
-3축 분석에서 *가장 중요한 발견* 5개를 한 문장씩. **선정 기준**: ① 규모(영향받는 인구·경제가 가장 큰 것) ② 비직관성(통념과 반대 방향) ③ 비대칭성(누군가에게 집중 이득/손해) — 이 세 기준으로 판단하여 선정.
+3축 분석에서 *가장 중요한 발견*을 한 문장씩 산출. 일반 모드(A·B·C·E)는 **정확히 5선**, 유형 D(단행본 챕터 수준)만 **10선**. 유형 B(시간 비교)·C(지리 비교)에서 각 구간별 "통찰 3선"이 산출되더라도, *최종 통합 통찰 5선*은 별도로 1회 더 산출한다(중복 카운트 금지). **선정 기준**: ① 규모(영향받는 인구·경제가 가장 큰 것) ② 비직관성(통념과 반대 방향) ③ 비대칭성(누군가에게 집중 이득/손해) — 이 세 기준으로 판단하여 선정. `output_validator.py`의 `insights_5` 검사는 5개 또는 10개만 PASS.
 
 ```
 1. [가장 큰 기회]: ... (영향 집단·규모 병기)
@@ -394,25 +464,37 @@ STEEPS 6차원별 표 산출.
 | 메가시티화·지방소멸 | 10~30년 |
 | AI 영성·디지털 종교 | 10~30년 |
 
-## 출력 체크리스트 — 산출 직전
+## 출력 체크리스트 — 산출 직전 (결정론 검증 강제)
 
-- [ ] 변화 정의가 4요소(무엇/언제/어디서/누구)로 한 문장인가?
-- [ ] STEEPS 6차원 사전 점검이 진행되었는가?
-- [ ] 축 1 (기회/도전) 집단이 **주제에 맞게 조정**되었는가? (기본 8개 + 주제 특화 추가)
-- [ ] 축 2 (필요/결핍) STEEPS 6차원 분리되었는가? (N/A 처리 시 근거 명시)
-- [ ] 축 2와 축 3 내용이 중복 없이 구분되었는가? (욕구 vs 문제 관점 분리)
-- [ ] 축 3 (해결/신규) 영역이 **주제에 맞게 조정**되었는가? (주제 특화 영역 필수 추가)
-- [ ] 핵심 통찰 5선이 산출되었는가?
-- [ ] 의사결정자 액션 3그룹(개인·기업·정책)이 모두 다뤄졌는가?
-- [ ] 톤이 정보적·중립적인가? (일방적 단정 회피)
-- [ ] 데이터 인용 형식이 적용되었는가? ([출처: ...] 또는 [추정: ...])
-- [ ] 통계·인물 *사실 기반*이며 불확실은 "[추정]" 명시되었는가?
-- [ ] 한계·불확실성 문단이 끝에 포함되었는가? (핵심 가정 1~2개 + 점검 신호 + 재검토 권장 필수)
-- [ ] 한국 맥락(또는 사용자 지정 지역)이 우선 반영되었는가?
-- [ ] 20년 이상 주제라면 방식 B(시간 분리 보충 분석)가 권장·적용되었는가? 30년+ 는 의무.
-- [ ] 일방적 낙관·비관 고위험 주제라면 반대 방향 명시가 이루어졌는가?
+**자연어 self-check 금지**. 사용자에게 출력 직전 반드시 `output_validator.py`를 호출하고 `{"pass": true}` 가 나와야 한다. FAIL 항목은 보강 후 재검증, PASS 전까지 사용자 노출 금지.
 
-미통과 항목 있으면 보강 후 출력.
+```bash
+python3 ./scripts/output_validator.py \
+  --file /tmp/output.md \
+  --time-years <N> \
+  --topic "<주제>" \
+  --required-groups "<contract의 required_groups_axis1 콤마구분>" \
+  --required-domains "<contract의 required_domains_axis3 콤마구분>" \
+  --framing-warnings "<contract의 framing_warnings 세미콜론구분>"
+```
+
+검증 항목 (14개, 모두 코드가 결정론적으로 판정):
+1. `def_4_elements` — 변화 정의 4요소(무엇/언제/어디서/누구) 모두 포함
+2. `steeps_premem` — STEEPS 6차원 사전 점검 섹션 + 6차원 모두 언급
+3. `axis1_table` — 축 1 표 8행+ + 주제 특화 집단 포함
+4. `axis2_steeps` — 축 2 STEEPS 6차원 표 모두 + N/A 2개 이하
+5. `axis3_table` — 축 3 표 6행+ + 주제 특화 영역 포함
+6. `a2_a3_overlap` — 축 2/3 동일 문장 중복 없음
+7. `insights_5` — 핵심 통찰 정확히 5개(유형 D는 10개)
+8. `actions_3` — 의사결정자 액션 3그룹(개인·기업·정책) 모두 존재
+9. `limit_4` — 한계·불확실성 4항목(핵심 가정·점검 신호·재검토·면책)
+10. `citation_format` — 수치 인용 형식 [출처:...] 또는 [추정:...] 부착
+11. `framing_balanced` — 고위험 프레이밍 주제일 때 반대 방향 명시
+12. `time_mode_b` — 20년+ 권장 / 30년+ 의무 시간 분리 보충 분석
+13. `korean_context` — 한국 맥락(또는 지정 지역) 명시
+14. `neutral_tone` — 과장·일방 단정 어휘 0건
+
+**중요**: LLM은 위 14항목을 자연어로 재검토하지 않는다. validator의 JSON 결과를 그대로 따른다.
 
 ## 마무리 — 본 스킬의 약속
 

@@ -1,0 +1,310 @@
+{
+  "schema_version": "1.0.0",
+  "skill_name": "vision-statement-writer",
+  "book": {
+    "title_ko": "최윤식의 미래준비학교",
+    "title_subtitle_ko": "흔들림 없는 인생을 계획하는 5단계 비전 방법론",
+    "authors": ["최윤식", "최현식"],
+    "publisher": "지식노마드",
+    "year": 2016,
+    "pages": 272,
+    "isbn13": "9788993322972",
+    "existence_verified": true,
+    "existence_sources": [
+      "교보문고",
+      "리디북스",
+      "알라딘 (ItemId 85723802)",
+      "KISDI 도서관",
+      "RISS",
+      "북코아"
+    ],
+    "online_full_text_available": false,
+    "quote_verification_caveat": "책 전문이 온라인에 공개되지 않아 개별 인용문의 온라인 1:1 대조는 불가능하다. 정확한 원문 확인은 ISBN 9788993322972 실물 원서 직접 참조가 필요하다.",
+    "form_template_caveat": "박사님 책 원본 양식의 정확한 빈칸 줄 수와 문구는 실물 원서 직접 참조 권장. 본 스킬에 명시된 양식은 책 양식의 충실한 재현이며, 빈칸 줄 길이는 시각 가독성을 위해 통일했다."
+  },
+  "author_credentials": {
+    "name": "최윤식",
+    "degree": "미국 휴스턴대학교(University of Houston) 미래학부 학위",
+    "affiliation": "아시아미래연구소 소장",
+    "verification_sources": ["위키백과", "교보문고", "KBS 방송 출연"],
+    "major_works": ["2030 대담한 미래", "제4의 물결이 온다"]
+  },
+  "vision_statement_form": {
+    "korean_title": "Vision Statement 비전선언문",
+    "purpose": "비전 디자인 단계의 마무리 결과물 — 3~4개 비전 가능성을 하나로 묶어 통합 시나리오·통합 비전 선언문을 구축",
+    "structure_total_blanks": 12,
+    "structure_total_sections": 8,
+    "section_layout": [
+      {"id": "header", "korean": "Vision 임무", "blanks": ["F1_name"]},
+      {"id": "future_block", "korean": "3가지 미래 사회 모습 + 문제·욕구·결핍", "blanks": ["F2_plausible", "F3_possible", "F4_unexpected", "F5_problem"]},
+      {"id": "innate_block", "korean": "내가 타고난", "blanks": ["F6_interest", "F7_talent", "F8_personality"]},
+      {"id": "work_block", "korean": "직업/일", "blanks": ["F9_work"]},
+      {"id": "value_block", "korean": "가치", "blanks": ["F10_value"]},
+      {"id": "purposes", "korean": "Purposes 목적들", "blanks": ["F11_purposes"]},
+      {"id": "date", "korean": "작성 일자", "blanks": ["F12_date"]}
+    ],
+    "fields": [
+      {
+        "id": "F1_name",
+        "order": 1,
+        "label_ko": "이름",
+        "form_phrase": "나 _____ 은/는",
+        "required": true,
+        "min_chars": 1,
+        "max_chars": 60,
+        "type": "name",
+        "linked_skill": null,
+        "question": "성함을 알려주세요. (양식 첫 줄 '나 _____ 은/는')"
+      },
+      {
+        "id": "F2_plausible",
+        "order": 2,
+        "label_ko": "기본미래 사회 모습",
+        "label_en": "Plausible Future",
+        "form_phrase": "_____ 한 기본미래(Plausible Future) 사회에 나타날",
+        "required": true,
+        "min_chars": 15,
+        "max_chars": 400,
+        "type": "paragraph",
+        "linked_skill": "vision-four-futures",
+        "question": "사용자 비전 영역에서 가장 가능성이 큰 미래 사회 모습을 한 문단으로 묘사해 주세요. (트렌드·계획·심층원동력·대중 이미지 4요소 종합)"
+      },
+      {
+        "id": "F3_possible",
+        "order": 3,
+        "label_ko": "또 다른 가능성의 미래 사회 모습",
+        "label_en": "Possible Future",
+        "form_phrase": "_____ 한 또 다른 가능성의 미래(Possible Future) 사회에 나타날",
+        "required": true,
+        "min_chars": 15,
+        "max_chars": 400,
+        "type": "paragraph",
+        "linked_skill": "vision-four-futures",
+        "question": "기본미래 외에 또 그럴싸한 미래 시나리오 1~2개를 묘사해 주세요. (기본미래 위에 풍부한 상상력으로 확장한 가능성·옵션)"
+      },
+      {
+        "id": "F4_unexpected",
+        "order": 4,
+        "label_ko": "뜻밖의 미래 사회 모습",
+        "label_en": "Unexpected/Wildcard Future",
+        "form_phrase": "_____ 한 뜻 밖의 미래(Unexpected Future) 사회에 나타날",
+        "required": true,
+        "min_chars": 15,
+        "max_chars": 400,
+        "type": "paragraph",
+        "linked_skill": "vision-four-futures",
+        "question": "사용자 비전 영역에 큰 충격을 줄 수 있는 뜻밖의 변화 1~2개를 묘사해 주세요. (비약적 진보 또는 붕괴)"
+      },
+      {
+        "id": "F5_problem",
+        "order": 5,
+        "label_ko": "해결할 문제·욕구·결핍",
+        "form_phrase": "_____ 문제, 욕구, 결핍을 해결하기 위해",
+        "required": true,
+        "min_chars": 8,
+        "max_chars": 300,
+        "type": "sentence",
+        "linked_skill": null,
+        "question": "위 3가지 미래 사회에 나타날 문제·욕구·결핍 중 사용자가 해결하고 싶은 것을 한 문장으로 적어 주세요."
+      },
+      {
+        "id": "F6_interest",
+        "order": 6,
+        "label_ko": "타고난 관심",
+        "form_phrase": "_____ 에 대한 관심과",
+        "required": true,
+        "min_chars": 2,
+        "max_chars": 200,
+        "type": "short",
+        "linked_skill": "vision-cys-competence-visioncoding",
+        "question": "사용자가 평생 지속해 온 관심사는 무엇입니까? (한 단어 또는 짧은 구)"
+      },
+      {
+        "id": "F7_talent",
+        "order": 7,
+        "label_ko": "타고난 재능 (다중지능·기술발달)",
+        "form_phrase": "_____ 한 재능(다중지능, 기술발달)과",
+        "required": true,
+        "min_chars": 5,
+        "max_chars": 300,
+        "type": "short",
+        "linked_skill": "vision-multipleintel-visioncoding",
+        "question": "사용자의 상위 다중지능 3가지 + 기술 발달 관련 강점을 적어 주세요. (다중지능 점수는 본 스킬이 임의 부여하지 않으며, vision-multipleintel-visioncoding의 진단 결과를 인용한다.)"
+      },
+      {
+        "id": "F8_personality",
+        "order": 8,
+        "label_ko": "타고난 행동성향·성격",
+        "form_phrase": "_____ 행동성향, 성격들을 사용하는",
+        "required": true,
+        "min_chars": 5,
+        "max_chars": 300,
+        "type": "short",
+        "linked_skill": ["vision-mbti-visioncoding", "vision-enneagram-visioncoding"],
+        "question": "MBTI 16유형 중 1개 + 에니어그램 9유형 + 날개 + 핵심 성격 키워드 3~5개를 적어 주세요."
+      },
+      {
+        "id": "F9_work",
+        "order": 9,
+        "label_ko": "직업 또는 일",
+        "form_phrase": "_____ 직업 또는 일을 통해",
+        "required": true,
+        "min_chars": 3,
+        "max_chars": 300,
+        "type": "short",
+        "linked_skill": "vision-career-recommendation",
+        "question": "위 관심·재능·성격을 사용하는 구체적 직업/일/사역을 적어 주세요."
+      },
+      {
+        "id": "F10_value",
+        "order": 10,
+        "label_ko": "실현될 가치",
+        "form_phrase": "_____ 한 가치가 실현되는 더 나은 사회를 만드는 일에",
+        "required": true,
+        "min_chars": 3,
+        "max_chars": 300,
+        "type": "sentence",
+        "linked_skill": "vision-values-visioncoding",
+        "question": "사용자의 핵심 가치 + '더 나은 사회'가 어떤 모습인지 한 문장으로 적어 주세요."
+      },
+      {
+        "id": "F11_purposes",
+        "order": 11,
+        "label_ko": "Purposes — 우선 제공할 가치·서비스·제품·봉사·활동",
+        "form_phrase": "_____ 을 우선적으로 제공하겠습니다.",
+        "required": true,
+        "min_items": 1,
+        "max_items": 7,
+        "recommended_items": 5,
+        "type": "list",
+        "linked_skill": null,
+        "question": "위 비전을 성취하기 위해 우선적으로 제공할 항목(가치·서비스·제품·봉사·기타 활동) 5가지를 단계화하여 적어 주세요."
+      },
+      {
+        "id": "F12_date",
+        "order": 12,
+        "label_ko": "작성 일자",
+        "form_phrase": "20__ 년 __ 월 __ 일",
+        "required": true,
+        "min_chars": 8,
+        "max_chars": 30,
+        "type": "date",
+        "date_format_regex_extended": "^(20\\d{2})\\s*년\\s*(\\d{1,2})\\s*월\\s*(\\d{1,2})\\s*일$",
+        "linked_skill": null,
+        "question": "작성 일자를 적어 주세요. (예: 2026년 5월 17일)"
+      }
+    ]
+  },
+  "input_modes": [
+    {"id": "A", "korean": "풀 1:1 코칭", "english": "Full guided", "description": "12개 빈칸을 대화로 함께 작성", "is_default": true},
+    {"id": "B", "korean": "빠른 작성", "english": "Quick fill", "description": "사용자가 답변만 입력하면 양식 정리", "is_default": false},
+    {"id": "C", "korean": "양식만 출력", "english": "Form only", "description": "사용자가 혼자 작성용 — 양식 그대로 출력", "is_default": false},
+    {"id": "D", "korean": "시연 모드", "english": "Demo persona", "description": "가상 페르소나 예시 시연 — 학습·시연용", "is_default": false}
+  ],
+  "validation_tools": [
+    {
+      "id": "V1",
+      "name_ko": "비전 영역 3겹 교집합",
+      "source_skill": "vision-three-realm-balance",
+      "criteria": [
+        "나에게 기쁨? (개인 욕망)",
+        "가족·이웃·세상에 가치? (가족·세상)",
+        "정신적·도덕적 가치? (정신적 가치)"
+      ],
+      "pass_rule": "세 영역 모두 ○ — 한 영역만 만족하면 비전 아님"
+    },
+    {
+      "id": "V2",
+      "name_ko": "진선미 검증",
+      "source_skill": "vision-three-realm-balance",
+      "criteria": [
+        "진리(眞) — 사실에 부합하는가",
+        "올바름(善) — 윤리적으로 옳은가",
+        "아름다움(美) — 사람들에게 감동·매력을 주는가"
+      ],
+      "pass_rule": "세 항목 모두 ○"
+    },
+    {
+      "id": "V3",
+      "name_ko": "6대 행동 강령 부합 점검",
+      "source_skill": "vision-five-stages",
+      "criteria": [
+        "서두르지 마라 (Take a Time)",
+        "멀리 보라 (Foresee Futures)",
+        "비전을 품어라 (Make a Vision)",
+        "계획을 짜라 (Make a Plan)",
+        "어떻게 일할지 훈련하고 생각하라 (Train and Think about How To Work)",
+        "작은 일을 소중하게 하라 (Be Faithful with a Few Things)"
+      ],
+      "pass_rule": "6개 모두 부합 권장"
+    }
+  ],
+  "excluded_validation_tools_with_reason": [
+    {
+      "name": "5대 공리",
+      "exclusion_reason": "박사님 책 출처가 vision 시리즈 다른 스킬에서 명확히 검증되지 않음. 본 스킬에서 인용하지 않음(할루시네이션 방지)."
+    }
+  ],
+  "preceding_skills": [
+    {"order": 1, "skill": "vision-cys-competence-visioncoding", "purpose": "비전 역량 진단"},
+    {"order": 2, "skill": "vision-mission-frame", "purpose": "비전 프레임 점검"},
+    {"order": 3, "skill": "vision-four-futures", "purpose": "4가지 미래 학습"},
+    {"order": 4, "skill": "vision-futures-timeline-map", "purpose": "미래지도"},
+    {"order": 5, "skill": "vision-three-realm-balance", "purpose": "비전 영역 3겹"},
+    {"order": 6, "skill": "vision-future-promise-five-criteria", "purpose": "미래 유망성 5기준"},
+    {"order": 7, "skill": "vision-multipleintel-visioncoding", "purpose": "다중지능 진단"},
+    {"order": 8, "skill": "vision-mbti-visioncoding", "purpose": "MBTI 성격유형"},
+    {"order": 9, "skill": "vision-enneagram-visioncoding", "purpose": "에니어그램"},
+    {"order": 10, "skill": "vision-values-visioncoding", "purpose": "핵심 가치"},
+    {"order": 11, "skill": "vision-career-recommendation", "purpose": "직업·진로 추천"}
+  ],
+  "subsequent_skills": [
+    {"skill": "vision-financial-3shields-3windows", "purpose": "재정 전략"},
+    {"skill": "vision-five-stages", "purpose": "Stage 3 비전 훈련 또는 Stage 4 재인식"},
+    {"skill": "vision-smart-five-competence", "purpose": "SMART 5역량"},
+    {"skill": "vision-eight-training-areas", "purpose": "8대 훈련"},
+    {"skill": "vision-progress-review", "purpose": "정기 점검"}
+  ],
+  "multiple_intelligences_canonical": {
+    "source_skill": "vision-multipleintel-visioncoding",
+    "external_source_ids_in_external_sources_json": ["MI1", "MI2", "MI3"],
+    "count_in_skill": 9,
+    "categories": [
+      "Linguistic (언어)",
+      "Logical-Mathematical (논리수학)",
+      "Spatial (공간)",
+      "Musical (음악)",
+      "Bodily-Kinesthetic (신체운동)",
+      "Interpersonal (대인)",
+      "Intrapersonal (자기성찰)",
+      "Naturalist (자연친화)",
+      "Existential (실존)"
+    ],
+    "naming_caveat": "Gardner는 종교적 함의를 우려해 9번째를 'Spiritual'이 아닌 'Existential'로 명명. '영성지능' 표기는 부정확하므로 '실존지능(Existential)'으로 통일."
+  },
+  "absolute_principles": [
+    "양식 그대로 — 12개 빈칸 항목·문구 변형 금지. 빈칸 줄 길이만 시각 가독성을 위해 통일 가능.",
+    "3가지 미래 모두 작성 — 기본·가능·뜻밖 누락 금지. 비전 선언문에서 Normative(바람직한 미래)는 ⑩ '실현될 가치'로 통합됨.",
+    "타고난 관심·재능·성격 — vision 진단 결과 활용 권장. 다중지능·MBTI·에니어그램 점수·유형은 해당 진단 스킬의 절차를 따른다.",
+    "부름을 받았습니다 — 박사님 표현 그대로 (소명 의식)",
+    "Purposes 5가지 — 구체적 가치·서비스·제품·봉사·활동",
+    "작성 일자 명시 — 일년에 한 번 갱신 권장",
+    "박사님 책 인용 범위 엄수 — SKILL.md·citations.json에 명시된 인용과 검증 출처가 명시된 다른 vision 시리즈 SKILL.md 인용만 박사님 책 출처로 제시한다.",
+    "검증 도구 출처 명시 — '비전 영역 3겹·진선미·6대 행동 강령'은 각각 vision-three-realm-balance·vision-three-realm-balance·vision-five-stages SKILL.md에 명시된 박사님 책 출처를 따른다.",
+    "확률 수치 해석치 라벨 — Plausible Future의 '51% 이상(대개 70~80%)' 수치는 vision-four-futures가 박사님 정의에서 유추한 해석치임을 명시한다.",
+    "다중지능 점수 자체 생성 금지 — vision-multipleintel-visioncoding 절차로 도출된 결과만 사용.",
+    "실존 인물 식별 정보 금지 — D 모드 시연은 가상 페르소나로 명시. 실존 인물(박사님 본인 포함)의 비전 선언문을 임의로 작성·공개하지 않는다.",
+    "결정론 환원 — 책 메타·12필드 정의·검증 도구·교차 스킬 목록·인용은 scripts/lookup.py·render_template.py를 호출하여 가져온다. LLM이 자연어로 자체 재진술하지 않는다."
+  ],
+  "tone_style": {
+    "tone": "박사님 책 어조 — 차분·통찰적·소명 의식",
+    "format": "양식 형식 그대로 — 빈칸 채우기 시각화",
+    "ending_phrase": "부름을 받았습니다! (양식 그대로 유지)"
+  },
+  "use_scenarios": [
+    "본인 비전 선언문 작성·갱신 — 1년에 1회 권장",
+    "강의·세미나 — 비전 디자인 워크샵 마지막 결과물",
+    "교회 청년부 — 셀모임 1:1 비전 코칭 결과",
+    "신학교 강의 — 박사님 책 부속 양식"
+  ]
+}

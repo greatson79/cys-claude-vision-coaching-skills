@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "source": "Howard Gardner, Frames of Mind (1983) + Intelligence Reframed (1999). See SOURCES.md.",
+  "scale": {
+    "min": 1,
+    "max": 5,
+    "labels": {
+      "ko": {"1": "전혀 그렇지 않다", "2": "별로 그렇지 않다", "3": "보통", "4": "그렇다", "5": "매우 그렇다"},
+      "en": {"1": "Strongly Disagree", "2": "Disagree", "3": "Neutral", "4": "Agree", "5": "Strongly Agree"},
+      "zh": {"1": "完全不符合", "2": "不太符合", "3": "一般", "4": "比较符合", "5": "非常符合"}
+    }
+  },
+  "intelligences": [
+    {"key": "Linguistic", "ko": "언어", "en": "Linguistic", "zh": "语言"},
+    {"key": "Logical-Mathematical", "ko": "논리수학", "en": "Logical-Mathematical", "zh": "逻辑数学"},
+    {"key": "Spatial", "ko": "공간", "en": "Spatial", "zh": "空间"},
+    {"key": "Musical", "ko": "음악", "en": "Musical", "zh": "音乐"},
+    {"key": "Bodily-Kinesthetic", "ko": "신체운동", "en": "Bodily-Kinesthetic", "zh": "身体运动"},
+    {"key": "Interpersonal", "ko": "대인관계", "en": "Interpersonal", "zh": "人际"},
+    {"key": "Intrapersonal", "ko": "자기성찰", "en": "Intrapersonal", "zh": "自省"},
+    {"key": "Naturalist", "ko": "자연친화", "en": "Naturalist", "zh": "自然观察"},
+    {"key": "Existential", "ko": "실존", "en": "Existential", "zh": "存在"}
+  ],
+  "items": [
+    {"qid": "Q01", "intel": "Linguistic",          "ko": "글쓰기·말하기·외국어 학습이 즐겁고 잘 한다.",                       "en": "I enjoy and excel at writing, speaking, and learning foreign languages.",           "zh": "我喜欢并擅长写作、口语表达和外语学习。"},
+    {"qid": "Q02", "intel": "Linguistic",          "ko": "단어·어휘·문장 표현에 민감하고 언어로 정밀하게 표현하는 것을 좋아한다.", "en": "I am sensitive to words, vocabulary, and sentence expression, and love precise verbal expression.", "zh": "我对词汇与句子表达很敏感,喜欢用语言精准表达。"},
+    {"qid": "Q03", "intel": "Linguistic",          "ko": "책·기사·시 같은 언어 콘텐츠를 깊이 감상하고 비평한다.",                 "en": "I deeply appreciate and critique books, articles, and poetry.",                     "zh": "我深入欣赏并评论书籍、文章、诗歌等语言类内容。"},
+    {"qid": "Q04", "intel": "Logical-Mathematical","ko": "숫자·계산·통계가 즐겁고 잘 한다.",                                   "en": "I enjoy and excel at numbers, calculation, and statistics.",                        "zh": "我喜欢并擅长数字、计算与统计。"},
+    {"qid": "Q05", "intel": "Logical-Mathematical","ko": "논리 퍼즐·체스·수학 문제 같은 추론 게임을 즐긴다.",                    "en": "I enjoy reasoning games such as logic puzzles, chess, and math problems.",          "zh": "我喜欢逻辑谜题、国际象棋、数学题等推理游戏。"},
+    {"qid": "Q06", "intel": "Logical-Mathematical","ko": "복잡한 시스템·인과 관계를 빠르게 파악한다.",                          "en": "I quickly grasp complex systems and causal relationships.",                         "zh": "我能够快速把握复杂的系统与因果关系。"},
+    {"qid": "Q07", "intel": "Spatial",             "ko": "그림·디자인·공간 시각화를 잘 한다.",                                "en": "I am good at drawing, design, and spatial visualization.",                          "zh": "我擅长绘画、设计与空间视觉化。"},
+    {"qid": "Q08", "intel": "Spatial",             "ko": "지도를 읽고 방향감각이 뛰어나며 길을 잘 찾는다.",                      "en": "I read maps well, have a strong sense of direction, and navigate easily.",          "zh": "我看地图能力强,方向感好,容易找路。"},
+    {"qid": "Q09", "intel": "Spatial",             "ko": "머릿속에서 입체 회전·조작이 자연스럽고, 3D 공간을 잘 상상한다.",        "en": "I naturally rotate and manipulate 3D objects in my mind and imagine 3D space well.","zh": "我能自然地在脑海中旋转、操作立体物体,擅长想象三维空间。"},
+    {"qid": "Q10", "intel": "Musical",             "ko": "멜로디·리듬·소리에 민감하고 잘 표현한다.",                            "en": "I am sensitive to melody, rhythm, and sound, and express them well.",               "zh": "我对旋律、节奏与声音很敏感,擅长音乐表达。"},
+    {"qid": "Q11", "intel": "Musical",             "ko": "노래를 한 번 듣고 따라 부르거나 화음을 맞출 수 있다.",                  "en": "After hearing a song once, I can sing along or harmonize.",                         "zh": "听过一遍歌就能跟唱或配和声。"},
+    {"qid": "Q12", "intel": "Musical",             "ko": "악기 연주·작곡·음악 분석에 끌린다.",                                "en": "I am drawn to playing instruments, composing, and analyzing music.",                "zh": "我被乐器演奏、作曲与音乐分析所吸引。"},
+    {"qid": "Q13", "intel": "Bodily-Kinesthetic",  "ko": "몸을 움직이는 활동·운동·춤·연기가 즐겁다.",                            "en": "I enjoy physical activities, sports, dance, and acting.",                           "zh": "我喜欢运动、舞蹈、表演等身体活动。"},
+    {"qid": "Q14", "intel": "Bodily-Kinesthetic",  "ko": "새로운 동작·운동 기술·손기술을 빠르게 익힌다.",                        "en": "I quickly pick up new movements, athletic skills, and manual techniques.",          "zh": "我能快速学会新动作、运动技能与手工技巧。"},
+    {"qid": "Q15", "intel": "Bodily-Kinesthetic",  "ko": "손으로 직접 만들거나 고치는 일을 잘 하고 좋아한다.",                    "en": "I am good at and enjoy making or fixing things with my hands.",                     "zh": "我擅长并喜欢用手制作或修理东西。"},
+    {"qid": "Q16", "intel": "Interpersonal",       "ko": "다른 사람의 감정·동기·생각을 빨리 읽는다.",                            "en": "I quickly read other people's emotions, motives, and thoughts.",                    "zh": "我能迅速读懂他人的情绪、动机与想法。"},
+    {"qid": "Q17", "intel": "Interpersonal",       "ko": "갈등 상황에서 중재·조정 역할이 자연스럽다.",                          "en": "I naturally take on mediating and adjusting roles in conflicts.",                   "zh": "在冲突中,我能自然地担任调解与协调的角色。"},
+    {"qid": "Q18", "intel": "Interpersonal",       "ko": "그룹 활동·팀워크·리더십에서 살아난다.",                              "en": "I come alive in group activities, teamwork, and leadership.",                       "zh": "在团队活动、合作与领导中我感到充满活力。"},
+    {"qid": "Q19", "intel": "Intrapersonal",       "ko": "내 감정·동기·가치를 깊이 알고 자기 분석을 즐긴다.",                    "en": "I deeply know my emotions, motives, and values, and enjoy self-analysis.",          "zh": "我深入了解自己的情绪、动机与价值观,喜欢自我分析。"},
+    {"qid": "Q20", "intel": "Intrapersonal",       "ko": "자기 성찰·일기 쓰기·명상이 의미 있고 자연스럽다.",                      "en": "Self-reflection, journaling, and meditation feel meaningful and natural.",          "zh": "自省、写日记与冥想对我有意义且自然。"},
+    {"qid": "Q21", "intel": "Intrapersonal",       "ko": "혼자 있는 시간이 회복적이고 자기 탐구의 기회가 된다.",                  "en": "Alone time is restorative and an opportunity for self-exploration.",                "zh": "独处时间让我恢复精力,是自我探索的机会。"},
+    {"qid": "Q22", "intel": "Naturalist",          "ko": "자연·동식물·환경에 깊이 연결되고 관심이 많다.",                        "en": "I am deeply connected to and interested in nature, plants, animals, and the environment.", "zh": "我与自然、动植物、环境有深刻的连接,且兴趣浓厚。"},
+    {"qid": "Q23", "intel": "Naturalist",          "ko": "식물·동물 종을 잘 분류·식별한다.",                                  "en": "I classify and identify plant and animal species well.",                            "zh": "我擅长分类与辨识植物与动物种类。"},
+    {"qid": "Q24", "intel": "Naturalist",          "ko": "야외·자연 환경에서 가장 살아있고 회복된다.",                          "en": "I feel most alive and restored in outdoor, natural environments.",                  "zh": "在户外与自然环境中我最有活力,也最能恢复。"},
+    {"qid": "Q25", "intel": "Existential",         "ko": "\"왜 사는가·죽음·우주의 의미\" 같은 큰 질문을 자주 던진다.",            "en": "I often pose big questions like 'Why do we live?', 'Death', 'The meaning of the universe.'", "zh": "我经常思考\"为何而活、死亡、宇宙的意义\"等终极问题。"},
+    {"qid": "Q26", "intel": "Existential",         "ko": "의미·목적·초월에 대한 탐구가 자연스럽다.",                            "en": "Exploring meaning, purpose, and transcendence comes naturally.",                    "zh": "对意义、目的与超越的探索对我而言很自然。"},
+    {"qid": "Q27", "intel": "Existential",         "ko": "종교·철학·영성·신비 주제에 깊이 끌린다.",                            "en": "I am deeply drawn to topics of religion, philosophy, spirituality, and mystery.",   "zh": "我对宗教、哲学、灵性与神秘的主题深感着迷。"}
+  ],
+  "intelligence_qids": {
+    "Linguistic":            ["Q01","Q02","Q03"],
+    "Logical-Mathematical":  ["Q04","Q05","Q06"],
+    "Spatial":               ["Q07","Q08","Q09"],
+    "Musical":               ["Q10","Q11","Q12"],
+    "Bodily-Kinesthetic":    ["Q13","Q14","Q15"],
+    "Interpersonal":         ["Q16","Q17","Q18"],
+    "Intrapersonal":         ["Q19","Q20","Q21"],
+    "Naturalist":            ["Q22","Q23","Q24"],
+    "Existential":           ["Q25","Q26","Q27"]
+  }
+}

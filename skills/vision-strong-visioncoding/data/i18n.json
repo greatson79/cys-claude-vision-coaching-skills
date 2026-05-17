@@ -1,0 +1,116 @@
+{
+  "_meta": {
+    "source": "공식 Strong Interest Inventory® 5점 척도(Strongly Dislike / Dislike / Indifferent / Like / Strongly Like) 영문 표기 준수. 한·중·일 라벨은 학계 합의 번역",
+    "schema_version": "1.0"
+  },
+  "languages": {
+    "ko": {
+      "scale": ["전혀 관심 없음", "별로 관심 없음", "보통", "관심 있음", "매우 관심 있음"],
+      "domain_full": {
+        "R": "Realistic (현실형)",
+        "I": "Investigative (탐구형)",
+        "A": "Artistic (예술형)",
+        "S": "Social (사회형)",
+        "E": "Enterprising (진취형)",
+        "C": "Conventional (관습형)"
+      },
+      "labels": {
+        "score": "점수",
+        "highest": "최고 영역",
+        "tricode": "트라이코드",
+        "consistency": "일관성",
+        "differentiation": "차별성",
+        "weak_area": "약한 영역",
+        "recommended_careers": "추천 직업군",
+        "warning_header": "본 결과 활용 시 주의",
+        "high_diff": "고도 분화 — 흥미 패턴이 또렷함",
+        "mid_diff": "중간 분화 — 일반적, 트라이코드 신뢰 가능",
+        "low_diff": "저분화(플랫) — 흥미 미발달·다재다능·미경험 영역 다수",
+        "high_consist": "높은 일관성 — 진로 방향 뚜렷",
+        "mid_consist": "중간 일관성 — 두 차원 결합 직무 탐색",
+        "low_consist": "낮은 일관성 — 분화된 흥미"
+      }
+    },
+    "en": {
+      "scale": ["Strongly Dislike", "Dislike", "Indifferent", "Like", "Strongly Like"],
+      "domain_full": {
+        "R": "Realistic",
+        "I": "Investigative",
+        "A": "Artistic",
+        "S": "Social",
+        "E": "Enterprising",
+        "C": "Conventional"
+      },
+      "labels": {
+        "score": "Score",
+        "highest": "Highest Domain",
+        "tricode": "Tricode",
+        "consistency": "Consistency",
+        "differentiation": "Differentiation",
+        "weak_area": "Weak Areas",
+        "recommended_careers": "Recommended Careers",
+        "warning_header": "Important Disclaimer",
+        "high_diff": "High differentiation — clear interest pattern",
+        "mid_diff": "Moderate differentiation — reliable tricode",
+        "low_diff": "Low (flat) differentiation — undeveloped or diverse interests",
+        "high_consist": "High consistency — clear career direction",
+        "mid_consist": "Moderate consistency — explore hybrid roles",
+        "low_consist": "Low consistency — divergent interests"
+      }
+    },
+    "zh": {
+      "scale": ["完全无兴趣", "不太感兴趣", "一般", "感兴趣", "非常感兴趣"],
+      "domain_full": {
+        "R": "现实型 (Realistic)",
+        "I": "研究型 (Investigative)",
+        "A": "艺术型 (Artistic)",
+        "S": "社会型 (Social)",
+        "E": "企业型 (Enterprising)",
+        "C": "常规型 (Conventional)"
+      },
+      "labels": {
+        "score": "分数",
+        "highest": "最高领域",
+        "tricode": "三字代码",
+        "consistency": "一致性",
+        "differentiation": "分化度",
+        "weak_area": "弱势领域",
+        "recommended_careers": "推荐职业",
+        "warning_header": "结果使用注意事项",
+        "high_diff": "高度分化 — 兴趣明确",
+        "mid_diff": "中度分化 — 三字代码可信",
+        "low_diff": "低分化（平缓型）— 兴趣未充分发展",
+        "high_consist": "高一致性 — 职业方向清晰",
+        "mid_consist": "中等一致性 — 探索复合职位",
+        "low_consist": "低一致性 — 兴趣分散"
+      }
+    },
+    "ja": {
+      "scale": ["まったく興味なし", "あまり興味なし", "普通", "興味あり", "とても興味あり"],
+      "domain_full": {
+        "R": "現実型 (Realistic)",
+        "I": "研究型 (Investigative)",
+        "A": "芸術型 (Artistic)",
+        "S": "社会型 (Social)",
+        "E": "企業型 (Enterprising)",
+        "C": "慣習型 (Conventional)"
+      },
+      "labels": {
+        "score": "スコア",
+        "highest": "最高領域",
+        "tricode": "トライコード",
+        "consistency": "一貫性",
+        "differentiation": "分化度",
+        "weak_area": "弱い領域",
+        "recommended_careers": "推奨職業群",
+        "warning_header": "結果利用上の注意",
+        "high_diff": "高分化 — 興味が明確",
+        "mid_diff": "中分化 — トライコード信頼可",
+        "low_diff": "低分化（平坦）— 興味未発達",
+        "high_consist": "高一貫性 — 進路方向明確",
+        "mid_consist": "中一貫性 — 複合職務探索",
+        "low_consist": "低一貫性 — 分化した興味"
+      }
+    }
+  }
+}

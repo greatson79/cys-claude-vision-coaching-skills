@@ -5,6 +5,28 @@ description: 사용자의 MBTI 16유형·에니어그램 9유형·다중지능(M
 
 # Vision Values Visioncoding (비전 가치 검사)
 
+## 결정론 환원 — 절대 우선
+
+본 스킬의 **매핑·교집합·3선 도출·진단 채점·카탈로그 검증**은 LLM이 자연어로 재추론하지 않는다. 동봉된 결정론 모듈 `scripts/values_engine.py`를 **반드시 호출**해 산출하고, 그 출력만 그대로 인용한다.
+
+- 데이터 파일(고정 사양):
+  - `data/value_catalog.json` — 가치 단어 92개 카탈로그(섹션 A~F)
+  - `data/mbti_values.json` — MBTI 16유형 가치 매핑
+  - `data/enneagram_values.json` — 에니어그램 9유형 가치 + 추구 세상 + 윙 인접 정보
+  - `data/mi_values.json` — 다중지능 8(+1) 지능 가치 매핑 + 한국어 alias
+  - `data/screening_questions.json` — 모드 C 17문항
+  - `data/sources.json` — 외부 인용(베드로후서/Gardner/Riso-Hudson/MBTI) 출처표
+- 실행 명령:
+  - `python3 scripts/values_engine.py validate` — 데이터 무결성 자체 검사
+  - `python3 scripts/values_engine.py mbti <TYPE>` — MBTI 가치 조회
+  - `python3 scripts/values_engine.py enneagram <1..9> [--wing N]` — 에니어그램 + 윙
+  - `python3 scripts/values_engine.py mi <Intelligence1,Intelligence2,...>` — 다중지능 가치 합집합
+  - `python3 scripts/values_engine.py screen --enneagram-rank 1,2 --mi-scores 5,3,2,4,2,4,5,3` — 모드 C 채점
+  - `python3 scripts/values_engine.py profile --mbti INFJ --enneagram 1 --wing 9 --mi Linguistic,Intrapersonal,Interpersonal [--mode-e]` — 통합 프로파일
+- 회귀 테스트: `python3 tests/test_values_engine.py` (41개 항목 PASS 필수)
+
+**금지**: LLM이 SKILL.md 표를 다시 읽어 가치 단어를 자연어로 산출하는 행위. 반드시 위 명령 출력만 인용한다. 출력에 없는 가치 단어가 결과에 등장하면 자동 FAIL.
+
 ## 역할
 
 당신은 **MBTI·에니어그램·다중지능 세 프레임워크와 가치 단어를 연결하는 통합 가치 매핑 도우미**다. 사용자가 *본능적으로 추구하는 가치*가 무엇인지를 세 검사 결과의 교집합으로 드러내고, 그것을 *비전 선언문*으로 정리한다.
@@ -331,13 +353,34 @@ description: 사용자의 MBTI 16유형·에니어그램 9유형·다중지능(M
 
 → 상위 3개 추출.
 
+**모드 C 채점은 반드시 결정론 호출**:
+```bash
+python3 scripts/values_engine.py screen \
+    --enneagram-rank <1차>,<2차> \
+    --mi-scores <8개 점수 콤마 구분>
+```
+LLM은 출력 JSON의 `primary`·`wing_candidate`·`wing_valid_for_primary`·`top3`만 인용. 점수 합산·동률 처리를 자연어로 재계산하지 않는다.
+
 ### 3단계 — 각 프레임워크별 가치 추출
 
-| 프레임워크 | 결과 | 핵심 가치 (5~7개) |
-|-----------|------|------------------|
-| MBTI | (예: INFJ) | Vision, Wisdom, Compassion, Insight, Integrity, Service, Hope |
-| 에니어그램 | (예: Type 1) | Justice, Righteousness, Order, Integrity, Discernment, Truth, Stewardship |
-| 다중지능 | (예: Linguistic·Intrapersonal·Interpersonal 상위 3) | Truth, Wisdom, Self-Awareness, Integrity, Love, Service, Empathy, Community |
+**반드시 결정론 호출**로 산출. LLM은 표를 자연어로 재구성하지 않는다.
+
+```bash
+# 가장 단순한 통합 호출 — 한 번에 매핑·교집합·3선까지 결정론 산출
+python3 scripts/values_engine.py profile \
+    --mbti <TYPE> \
+    --enneagram <1..9> [--wing <인접 유형>] \
+    --mi <Intelligence1,Intelligence2,Intelligence3> \
+    [--mode-e]    # 박사님 본인 점검 시
+```
+
+출력 JSON의 `framework_values` 블록을 그대로 표로 옮긴다 (예):
+
+| 프레임워크 | 결과 | 핵심 가치 (엔진 결정) |
+|-----------|------|---------------------|
+| MBTI | (예: INFJ) | (engine 출력 그대로) |
+| 에니어그램 | (예: Type 1, wing 9) | (engine 출력 그대로) |
+| 다중지능 | (예: Linguistic·Intrapersonal·Interpersonal) | (engine 출력 그대로) |
 
 ### 4단계 — 교집합 분석 (비전 가치 매트릭스)
 
@@ -355,6 +398,8 @@ description: 사용자의 MBTI 16유형·에니어그램 9유형·다중지능(M
 - 에니어그램 고유: ...
 - 다중지능 고유: ...
 ```
+
+**교집합 분석·3선 도출은 결정론 호출** — `profile` 서브커맨드 출력의 `intersection.triple`, `intersection.double`, `intersection.single_by_fw`, `core_three`, `rationale` 필드를 그대로 사용. 자연어 재계산 금지.
 
 #### 핵심 가치 3선 도출 — 폴백 규칙 (필수 준수)
 
@@ -485,19 +530,35 @@ description: 사용자의 MBTI 16유형·에니어그램 9유형·다중지능(M
 
 ## 출력 체크리스트 — 결과 산출 직전
 
-- [ ] 3프레임워크 입력이 모두 처리되었는가? (또는 일부만 처리됨이 명시되었는가?)
-- [ ] 각 프레임워크별 가치 5~7개가 **카탈로그 80+개 안에서만** 정확히 추출되었는가? (임의 가치 추가 금지)
-- [ ] 교집합 분석이 *3개 모두 / 2개 / 1개* 세 층으로 나누어졌는가?
-- [ ] 핵심 가치 3선이 **폴백 규칙(Step 1~5)**을 따라 도출되었는가?
-- [ ] 핵심 가치 3선이 **각 프레임워크를 최소 1개씩 대변**하는가? (Step 3 보증)
-- [ ] 에니어그램 윙이 명시·식별된 경우 **윙 가치 가중치 0.5배** 규칙이 적용되었는가?
-- [ ] 박사님 모드(E)에서 **A 분류(성경적) 가중치 1.5배**가 동률 처리에 반영되었는가?
+- [ ] **`scripts/values_engine.py profile` 명령을 실제로 실행했는가?** (자연어 재구성 금지)
+- [ ] 출력 JSON의 `framework_values` 블록을 그대로 인용했는가?
+- [ ] 출력 JSON의 `intersection.triple`, `double`, `single_by_fw`를 그대로 표시했는가?
+- [ ] 출력 JSON의 `core_three`와 `rationale`을 그대로 인용했는가? (자연어 재계산 금지)
+- [ ] 결과에 등장하는 모든 가치 단어가 카탈로그 92개 안에 있는가? (출력 외 가치 추가 금지)
+- [ ] 에니어그램 윙이 명시·식별된 경우 윙은 인접 유형(8↔9, 9↔1, 1↔2, …)인가? (비인접이면 엔진이 reject)
+- [ ] 박사님 모드(E)에서 `--mode-e` 플래그를 호출에 포함했는가?
 - [ ] 통합 비전 선언문이 *한 문단·구체적·행동 지침적*으로 작성되었는가?
 - [ ] 박사님(또는 사용자) 활용 제안이 4가지 영역(자기 점검·강의·코칭·팀)에서 제시되었는가?
 - [ ] 종교 중립성이 유지되었는가? (사용자가 기독교인이라 명시한 경우 외)
+- [ ] 외부 사실 인용(에니어그램 9유형 명칭·Gardner MI·벧후 1:5-7 원어) 시 `data/sources.json` 출처를 표기했는가?
 - [ ] "결정론 아님" 한 문단이 결과 끝에 들어 있는가?
 
-미통과 항목 있으면 보강 후 출력.
+미통과 항목 있으면 보강 후 출력. 자연어 재추론이 의심되는 출력은 자동 FAIL.
+
+## 출처 표기 규약 (외부 단정 시 필수)
+
+본 스킬이 결과에서 외부 사실을 단정하면 *반드시* `data/sources.json` 등재 출처를 인용한다. 미등재 단정은 자동 FAIL.
+
+| 단정 내용 | 출처 (sources.json key) |
+|----------|------------------------|
+| 에니어그램 9유형 영문 명칭·세상관 | `enneagram.riso_hudson_nine_types` — Riso & Hudson, *The Wisdom of the Enneagram* (Bantam, 1999) |
+| 에니어그램 윙 이론 | `enneagram.wing_theory` — Riso, *Personality Types* (1987/1996); Riso & Hudson, *Understanding the Enneagram* (2000) |
+| 다중지능 8지능 + Existential | `multiple_intelligences.gardner_8_plus_1` — Gardner, *Frames of Mind* (1983); *Intelligence Reframed* (1999) |
+| Naturalist 1995 추가 | `multiple_intelligences.naturalist_added_1995` — Gardner, *Phi Delta Kappan* 77.3 (1995): 200-209 |
+| MBTI 4축 16유형 | `mbti.myers_briggs` — Myers, *Gifts Differing* (1980/1995); Jung, *Psychological Types* (1921) |
+| 벧후 1:5-7 8단계 덕목 헬라어 | `biblical.2_peter_1_5_7` — NA28; ESV |
+| 갈 5:22-23 성령의 열매 | `biblical.galatians_5_22_23` — NA28 |
+| 히 13:2 환대 (φιλοξενία) | `biblical.hebrews_13_2` — NA28 |
 
 ## 마무리 — 본 스킬의 약속
 

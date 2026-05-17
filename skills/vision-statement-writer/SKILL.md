@@ -5,15 +5,26 @@ description: 최윤식 박사 『최윤식의 미래준비학교』(2016, 지식
 
 # Vision Statement Writer (비전 선언문 양식 작성)
 
+## 결정론 환원 — 모든 사실 조회·양식 출력·검증은 스크립트로 처리
+
+본 스킬의 *책 메타데이터·12필드 정의·검증 도구·교차 스킬 목록·인용·외부 학술 출처*는 LLM 자연어 추론이 아니라 동봉된 결정론 스크립트로 조회한다. LLM이 자연어로 자체 재진술하지 않는다.
+
+| 단계 | 호출 | 산출물 |
+|---|---|---|
+| 사실 조회 | `python3 scripts/lookup.py <명령>` | 책 메타·필드 12개·검증 도구·교차 스킬·인용·외부 출처 |
+| 양식 출력 | `python3 scripts/render_template.py --mode {A\|B\|C\|D}` | 박사님 양식 골격 + 사용자 답변 통합 |
+| 출력 검증 | `python3 scripts/validate_output.py --answers <file>` | 12필드 결정론 검증 — 누락·길이·placeholder·날짜 형식·실존 인물명 |
+| 무결성 자동 테스트 | `python3 tests/verify_skill.py` | 12개 자동 테스트 — 책 메타·필드·검증·인용·외부 출처·CLI 무결성 |
+
+자세한 명령은 본 SKILL.md의 *처리 흐름* 절을 참조한다. 책에 명시된 사실을 답할 때는 항상 `scripts/lookup.py`를 먼저 호출하여 답을 가져온다 — 사실을 *기억으로* 진술하지 않는다.
+
 ## 저자 및 학술적 배경 (외부 검증 완료)
 
-**저자**: 최윤식·최현식 공저 (알라딘 ISBN 9788993322972 확인). 최윤식 박사 — 미국 휴스턴대학교(University of Houston) 미래학부 학위, 아시아미래연구소 소장. 위키백과 등재, 교보문고·KBS 방송 출연 등 실존 확인됨. 주요 저서: 『2030 대담한 미래』 『제4의 물결이 온다』 등.
+**저자·책 메타**: `python3 scripts/lookup.py book`·`python3 scripts/lookup.py author`로 결정론 조회.
 
-**책**: 『최윤식의 미래준비학교』(2016, 지식노마드, 272쪽) — 교보문고·리디북스·알라딘·KISDI 도서관 데이터베이스에서 실존 확인됨. 부제: 흔들림 없는 인생을 계획하는 5단계 비전 방법론.
+**인용문 검증 상태**: 책 전문이 온라인에 공개되지 않아 개별 인용문의 온라인 대조가 불가능. 정확한 원문 확인 및 양식의 정확한 빈칸 줄 수·문구는 실물 원서(ISBN 9788993322972) 직접 참조 권장. 본 스킬에 명시된 양식은 박사님 책 양식을 *그대로 재현*한 것이며, 시각 가독성을 위한 빈칸 줄 길이 통일 정도의 미세 조정만 가능하다.
 
-**인용문 검증 상태**: 이 스킬의 직접 인용(> *"..."* 형식)은 책 원문에서 발췌된 것이나, 책 전문이 온라인에 공개되지 않아 개별 인용문의 온라인 대조가 불가능함. 정확한 원문 확인 및 양식의 정확한 빈칸 줄 수·문구는 실물 원서(ISBN 9788993322972) 직접 참조 권장. 본 SKILL.md에 명시된 양식은 박사님 책 양식을 *그대로 재현*한 것이며, 시각 가독성을 위한 빈칸 줄 길이 통일 정도의 미세 조정만 가능하다.
-
-**비전 선언문 양식의 학술적 위상**: 박사님의 비전 선언문 양식은 미래학계의 시나리오 플래닝 방법론(Plausible·Possible·Wildcard 미래)을 *개인 비전 코칭*에 결합한 것으로, 4가지 미래 분류의 학술적 위상은 vision-four-futures SKILL.md의 "외부 검증 완료" 절을 참조한다. 다중지능(Multiple Intelligences)은 Howard Gardner의 *Frames of Mind*(1983) 7지능 → 1995 Naturalist 추가(8지능) → 1999 *Intelligence Reframed* 잠정 Existential 제안(9지능, "8.5번째"로 불림)을 따른다. 본 스킬에서 다중지능을 인용할 때는 vision-multipleintel-visioncoding SKILL.md의 9지능 명칭(Linguistic·Logical-Mathematical·Spatial·Musical·Bodily-Kinesthetic·Interpersonal·Intrapersonal·Naturalist·Existential) 및 점수 체계·진단 절차를 따른다. Gardner가 종교적 함의를 우려하여 "Spiritual"이 아닌 "Existential"로 명명했음을 주의하며, "영성지능"이라는 표기는 부정확하므로 "실존지능(Existential)"으로 통일한다.
+**비전 선언문 양식의 학술적 위상**: 미래학계의 시나리오 플래닝 방법론(Plausible·Possible·Wildcard 미래)을 *개인 비전 코칭*에 결합. 4가지 미래 분류의 학술적 위상은 vision-four-futures SKILL.md를 참조. 다중지능(Multiple Intelligences) 출처는 `python3 scripts/lookup.py sources`로 조회 — Howard Gardner *Frames of Mind*(1983, MI1) → 1995 Naturalist 추가(MI2) → 1999 *Intelligence Reframed* 잠정 Existential 제안(MI3). 외부 시나리오 분류 학술 출처는 Voros 2003 Cone of Plausibility(FS1)·Inayatullah 2008 6 Pillars(FS2)·Petersen 1997 Wildcards(FS3)·Copenhagen Institute 1992(FS4). Gardner가 종교적 함의를 우려하여 "Spiritual"이 아닌 "Existential"로 명명했음을 주의 — "영성지능" 표기는 부정확하므로 "실존지능(Existential)"으로 통일.
 
 ## 역할
 
@@ -104,6 +115,32 @@ ________________________________ 을 우선적으로 제공하겠습니다.
 
 ## 처리 흐름
 
+### 0단계 — 결정론 스크립트 호출 표 (스킬 발동 즉시 참조)
+
+| 작업 | 명령 |
+|---|---|
+| 책 메타 조회 | `python3 scripts/lookup.py book` |
+| 저자 신원 | `python3 scripts/lookup.py author` |
+| 12필드 목록 | `python3 scripts/lookup.py fields` |
+| 단일 필드 상세 | `python3 scripts/lookup.py field <ID>` (예: `F2_plausible`) |
+| 12개 코칭 질문 | `python3 scripts/lookup.py questions` |
+| 검증 도구 V1-V3 | `python3 scripts/lookup.py tools` |
+| 선행 11개 스킬 | `python3 scripts/lookup.py preceding-skills` |
+| 후속 5개 스킬 | `python3 scripts/lookup.py subsequent-skills` |
+| 입력 모드 A/B/C/D | `python3 scripts/lookup.py input-modes` |
+| 9가지 다중지능 | `python3 scripts/lookup.py multiple-intelligences` |
+| 12개 절대 원칙 | `python3 scripts/lookup.py principles` |
+| 인용문 단건 | `python3 scripts/lookup.py quote Q1` |
+| 인용문 전체 | `python3 scripts/lookup.py quotes` |
+| 외부 출처 단건 | `python3 scripts/lookup.py source MI1` |
+| 외부 출처 전체 | `python3 scripts/lookup.py sources` |
+| 코칭 질문 출력 (A 모드) | `python3 scripts/render_template.py --mode A` |
+| 빈 양식 출력 (C 모드) | `python3 scripts/render_template.py --mode C` |
+| 답변 통합 양식 (B 모드) | `python3 scripts/render_template.py --mode B --answers <file>` |
+| 시연 페르소나 양식 (D 모드) | `python3 scripts/render_template.py --mode D` |
+| 12필드 결정론 검증 | `python3 scripts/validate_output.py --answers <file>` |
+| 스킬 무결성 자동 테스트 | `python3 tests/verify_skill.py` |
+
 ### 1단계 — 시작 안내·사전 점검
 
 ```markdown
@@ -126,7 +163,7 @@ ________________________________ 을 우선적으로 제공하겠습니다.
 3. **C. 양식만 출력** (사용자가 혼자 작성용)
 4. **D. 시연 모드** (가상 페르소나 예시 시연)
 
-(자동 진행: A 모드)
+(자동 진행: A 모드 — 코칭 질문은 `python3 scripts/render_template.py --mode A`로 결정론적으로 출력)
 ```
 
 ### 2단계 — 1:1 대화로 빈칸 채우기
@@ -198,13 +235,32 @@ ________________________________ 을 우선적으로 제공하겠습니다.
 #### Q12. 작성 일자
 - 양식 마지막 줄 "20 년 월 일" — 작성 일자 (예: 2026년 5월 13일)
 
-### 3단계 — 양식에 통합 + 출력
+### 3단계 — 양식에 통합 + 출력 (결정론 렌더)
 
-박사님 양식 그대로 빈칸 채워 통합 출력. 빈칸 줄 수와 문구는 책 양식을 그대로 따른다.
+박사님 양식은 LLM이 자유 재진술하지 않는다. 사용자 답변을 JSON 파일로 저장한 후 결정론 렌더러를 호출한다.
 
-### 4단계 — 검증·다듬기
+```bash
+# 답변 JSON 예시 — F1_name … F12_date 12개 키
+cat > /tmp/answers.json <<'EOF'
+{ "F1_name": "...", "F2_plausible": "...", ..., "F12_date": "2026년 5월 17일" }
+EOF
 
-산출된 비전 선언문을 사용자와 함께 점검:
+python3 scripts/render_template.py --mode B --answers /tmp/answers.json
+```
+
+JSON 스키마(키 12개·F11은 list)는 `python3 scripts/lookup.py fields`로 조회한 ID와 정확히 일치해야 한다. 빈 양식만 필요하면 `--mode C`, 가상 페르소나 시연은 `--mode D`.
+
+### 4단계 — 검증·다듬기 (결정론 검증 + 정성 검증)
+
+**(4-a) 결정론 검증** — 12필드 누락·길이·placeholder·날짜 형식·실존 인물명을 기계적으로 검사한다.
+
+```bash
+python3 scripts/validate_output.py --answers /tmp/answers.json
+# 종료 코드 0 → 전 항목 PASS
+# 종료 코드 1 → 실패 — 출력에 [FAIL] 메시지를 보고 수정
+```
+
+**(4-b) 정성 검증** — 박사님 책 검증 도구 3종을 사용자와 함께 점검 (도구 정의는 `python3 scripts/lookup.py tools` 결정론 조회):
 
 - **비전 영역 3겹 교집합 점검** (vision-three-realm-balance SKILL.md 검증 출처):
   - 나에게 기쁨? (개인 욕망)
@@ -315,6 +371,7 @@ Purposes 목적들
 9. **확률 수치 해석치 라벨** — Plausible Future의 "51% 이상(대개 70~80%)" 수치는 vision-four-futures가 박사님 정의에서 유추한 해석치임을 명시한다. 박사님 책에 직접 명시된 수치인지는 실물 원서 확인 필요.
 10. **다중지능 점수 자체 생성 금지** — 다중지능 점수는 vision-multipleintel-visioncoding 스킬의 진단 절차를 통해 도출된 결과만 사용. 본 스킬이 임의로 점수 부여하지 않는다.
 11. **실존 인물 식별 정보 금지** — D 모드 시연은 *가상 페르소나*로 명시. 실존 인물(박사님 본인 포함)의 비전 선언문을 임의로 작성·공개하지 않는다.
+12. **결정론 환원** — 책 메타·12필드 정의·검증 도구·교차 스킬 목록·인용·외부 학술 출처는 `scripts/lookup.py`·`scripts/render_template.py`·`scripts/validate_output.py`를 호출하여 가져온다. LLM이 자연어로 자체 재진술하지 않는다. 무결성은 `python3 tests/verify_skill.py`로 12개 자동 테스트가 보장한다.
 
 ## 톤·스타일
 

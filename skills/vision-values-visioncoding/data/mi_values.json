@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "Howard Gardner 다중지능(Multiple Intelligences) 8지능 + 옵션 9번째(실존지능)별 핵심 가치 매핑. 모든 가치는 value_catalog.json 안의 단어만 사용.",
+    "source_spec": "skills/vision-values-visioncoding/SKILL.md > '## 다중지능 8지능별 가치 매핑'",
+    "external_reference": "Howard Gardner, 'Frames of Mind: The Theory of Multiple Intelligences' (Basic Books, 1983); 'Multiple Intelligences: New Horizons' (Basic Books, 2006). Existential intelligence proposed as a candidate in Gardner 1999."
+  },
+  "intelligences": {
+    "Linguistic":            {"ko": "언어",     "values": ["Truth", "Wisdom", "Communication", "Teaching", "Eloquence", "Clarity"],                  "is_optional": false},
+    "Logical-Mathematical":  {"ko": "논리수학", "values": ["Truth", "Logic", "Discernment", "Order", "Analysis", "Precision"],                       "is_optional": false},
+    "Spatial":               {"ko": "공간",     "values": ["Beauty", "Vision", "Creativity", "Imagination", "Order", "Design"],                      "is_optional": false},
+    "Musical":               {"ko": "음악",     "values": ["Beauty", "Harmony", "Joy", "Worship", "Expression", "Resonance"],                       "is_optional": false},
+    "Bodily-Kinesthetic":    {"ko": "신체운동", "values": ["Discipline", "Courage", "Strength", "Embodiment", "Action", "Vitality"],                "is_optional": false},
+    "Interpersonal":         {"ko": "대인관계", "values": ["Love", "Service", "Empathy", "Community", "Reconciliation", "Connection"],              "is_optional": false},
+    "Intrapersonal":         {"ko": "자기성찰", "values": ["Self-Awareness", "Wisdom", "Integrity", "Discernment", "Reflection", "Authenticity"],    "is_optional": false},
+    "Naturalist":            {"ko": "자연친화", "values": ["Stewardship", "Reverence", "Wonder", "Patience", "Connection", "Sustainability"],       "is_optional": false},
+    "Existential":           {"ko": "실존",     "values": ["Meaning", "Purpose", "Faith", "Hope", "Transcendence", "Reverence"],                    "is_optional": true}
+  },
+  "aliases": {
+    "언어": "Linguistic",
+    "논리수학": "Logical-Mathematical",
+    "수리논리": "Logical-Mathematical",
+    "Logical": "Logical-Mathematical",
+    "Mathematical": "Logical-Mathematical",
+    "공간": "Spatial",
+    "음악": "Musical",
+    "신체운동": "Bodily-Kinesthetic",
+    "신체": "Bodily-Kinesthetic",
+    "Bodily": "Bodily-Kinesthetic",
+    "Kinesthetic": "Bodily-Kinesthetic",
+    "대인관계": "Interpersonal",
+    "인간친화": "Interpersonal",
+    "자기성찰": "Intrapersonal",
+    "내적": "Intrapersonal",
+    "자연친화": "Naturalist",
+    "자연": "Naturalist",
+    "실존": "Existential"
+  }
+}

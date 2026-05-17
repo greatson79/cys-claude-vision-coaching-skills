@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "skill_name": "vision-four-futures",
+  "book": {
+    "title_ko": "최윤식의 미래준비학교",
+    "title_subtitle_ko": "흔들림 없는 인생을 계획하는 5단계 비전 방법론",
+    "authors": ["최윤식", "최현식"],
+    "publisher": "지식노마드",
+    "year": 2016,
+    "pages": 272,
+    "isbn13": "9788993322972",
+    "existence_verified": true,
+    "existence_sources": [
+      "교보문고",
+      "리디북스",
+      "알라딘 (ItemId 85723802)",
+      "KISDI 도서관",
+      "RISS",
+      "북코아"
+    ],
+    "online_full_text_available": false,
+    "quote_verification_caveat": "책 전문이 온라인에 공개되지 않아 개별 인용문의 온라인 1:1 대조는 불가능하다. 정확한 원문 확인은 ISBN 9788993322972 실물 원서 직접 참조가 필요하다."
+  },
+  "futures": [
+    {
+      "id": "F1",
+      "korean_label": "기본미래",
+      "english_label": "Plausible Future",
+      "synonyms_english": ["a Plausible Future", "Baseline Future", "Plausible World"],
+      "probability_band_book_verbatim": "발생할 가능성이 논리적으로 충분한 미래",
+      "probability_quant_in_book": false,
+      "probability_quant_interpretation": "스킬 외부 해석으로 51% 이상 (대개 70~80%)로 통용. 책 본문에 이 숫자가 명시되어 있는지는 실물 원서 확인이 필요하다. 출력에서는 이 수치를 단정 표기하지 말고 '해석치'로 표기한다.",
+      "elements_count": 4,
+      "elements": [
+        {"order": 1, "korean": "트렌드", "note": "변화의 흐름·1·2·3차 효과"},
+        {"order": 2, "korean": "계획", "note": "정부·지자체·회사·가족"},
+        {"order": 3, "korean": "심층원동력", "note": "변화의 숨은 힘 — 메커니즘·패러다임·역사적 사이클·세계관"},
+        {"order": 4, "korean": "현재 대중이 가지고 있는 미래에 대한 이미지", "note": "생각·느낌·기대"}
+      ],
+      "rationale_in_book": false,
+      "rationale_response_template": "박사님은 이것을 기본미래의 4요소로 정의합니다. 각 요소의 상세한 이론적 배경은 원서 직접 참조를 권장합니다."
+    },
+    {
+      "id": "F2",
+      "korean_label": "가능 미래들",
+      "english_label": "Possible Futures",
+      "synonyms_english": ["Possible World"],
+      "probability_band_book_verbatim": "확률적으로 그럴싸한 미래들",
+      "probability_quant_in_book": false,
+      "probability_quant_interpretation": "기본미래보다 낮으나 한 번쯤 생각해 볼 만한 대안. 구체적 수치는 책에 명시되어 있지 않다.",
+      "purpose": [
+        "기본미래가 비관적 방향으로 전개될 것이 예상되어 새로운 가능성 발굴이 필요한 경우",
+        "기본미래 위에 풍부한 상상력을 더해 더 넓은 선택지를 탐색하는 경우"
+      ],
+      "structure": "기본미래 위에 풍부한 상상력을 더해 확장된 가능성·옵션(Option)을 넣은 미래"
+    },
+    {
+      "id": "F3",
+      "korean_label": "뜻밖의 미래",
+      "english_label": "Wildcard Future",
+      "synonyms_english": ["Unexpected Future", "an Unexpected or Wildcard Future"],
+      "dual_naming_evidence": "박사님 책 원문 정의가 'an Unexpected or Wildcard Future'로 두 용어를 동의어 병기.",
+      "probability_band_book_verbatim": "일어날 가능성이 현저히 낮더라도 특정 조건이 충족되면 발생하여 파괴적 영향력을 발휘",
+      "probability_quant_in_book": false,
+      "probability_quant_interpretation": "수치 미명시. 'low probability, high impact' 개념(외부 학술 출처 Petersen 1997·Copenhagen Institute 1992 참조).",
+      "subtypes_count": 2,
+      "subtypes": [
+        {
+          "order": 1,
+          "korean": "비약적 진보에 의한 새로운 미래",
+          "english_label_in_skill": "Quantum Progress",
+          "english_label_in_book_verified": false,
+          "english_label_verification_note": "비약적 진보의 영어 병기 'Quantum Progress'가 박사님 원서에 그대로 표기되어 있는지 실물 확인이 필요하다. 본 스킬에서는 한국어 명칭 '비약적 진보'를 기본으로 사용하고 영어 병기는 '(스킬 표기)'를 부기한다.",
+          "example_from_book_2016": "나노기술 같은 혁신적 기술 — 변화 속도 극단적 가속",
+          "example_caveat": "사용자 맥락에 따른 추가 사례는 책 예시 범위 밖이며 '적용 예시'임을 명시한다."
+        },
+        {
+          "order": 2,
+          "korean": "붕괴 후 새로운 미래",
+          "english_label_in_skill": "Collapse",
+          "english_label_in_book_verified": false,
+          "english_label_verification_note": "영어 병기 'Collapse'가 원서 표기인지 실물 확인이 필요하다.",
+          "example_from_book": "베를린 장벽 붕괴 후 미·러 핵무장 경쟁·EU 재정정책 변화",
+          "example_caveat": "추가 사례는 적용 예시임을 명시한다."
+        }
+      ],
+      "key_principle": "뜻밖의 미래의 *시기 예측*은 어렵다. 시기를 따지지 말고 그것이 *일어날 경우 미칠 잠재적 영향*에 집중한다.",
+      "key_questions_from_book": [
+        "10년 후에 현재 직업의 80%가 사라진다면?",
+        "대한민국이 한 달 이내에 갑작스럽게 통일된다면?",
+        "중국의 거품경제가 갑작스럽게 붕괴한다면?",
+        "H5N1과 같은 강력한 인플루엔자가 전 세계에 창궐한다면?"
+      ]
+    },
+    {
+      "id": "F4",
+      "korean_label": "바람직한 미래",
+      "english_label": "Normative Future",
+      "synonyms_english": ["Preferred Future", "a Preferred Future", "a Normative Future"],
+      "probability_band_book_verbatim": "꿈과 가치가 어우러진 *원하는 미래*. 바람직한 가치가 최대로 반영된 '규범적' 미래.",
+      "probability_quant_in_book": false,
+      "probability_quant_interpretation": "확률 개념이 아님. *규범적·가치 지향* 차원.",
+      "diagram_position": "원하는 미래는 가능한 미래에 일부만 걸쳐 있다. 나머지는 가능한 미래의 영역 밖에 존재한다 (인간의 예측 한계 + 인간이 만들어가는 미래라는 가능성).",
+      "vision_linkage": "비전과 관련된 미래는 원하는 미래에 들어간다."
+    }
+  ],
+  "vision_count_recommended": {
+    "value": "3~4개",
+    "in_book": true,
+    "reasons": [
+      "100% 정확하게 맞출 수 없음",
+      "한 비전만 절대화 위험",
+      "100~120세 시대에 한 비전 유효기간 줄음",
+      "평생 직업 10번 정도 바뀜"
+    ],
+    "deployment": "3~4개 동시 추구 또는 10년·20년 단위로 다르게."
+  },
+  "futures_intersection": {
+    "korean_label": "미래 분기점",
+    "english_label_in_skill": "Futures Intersection",
+    "english_label_in_book_verified": false,
+    "definition": "4가지 가능성의 경로가 나뉘는 순간. 이 분기점 이전까지의 전략이 '공통 전략'이 된다.",
+    "strategy_split": {
+      "before": "공통 전략",
+      "after": "4가지 미래별 다른 전략"
+    }
+  },
+  "vision_candidate_mapping": [
+    {"source": "재능·역량 직접 연결", "target_label": "기본 비전", "matches_future": "F1"},
+    {"source": "미래 유망성이 좋은 것", "target_label": "또 다른 비전", "matches_future": "F2"},
+    {"source": "가치에 부합하는 것", "target_label": "또 다른 비전", "matches_future": "F4"},
+    {"source": "나머지", "target_label": "또 다른 비전", "matches_future": "F3"}
+  ],
+  "input_modes": [
+    {"code": "A", "name": "4가지 미래 풀 작성", "description": "사용자 비전 영역으로 4가지 미래 전체 시나리오 작성"},
+    {"code": "B", "name": "한 미래만 깊이", "description": "특정 한 미래(예: 뜻밖의 미래)만 심층 탐색"},
+    {"code": "C", "name": "기존 미래지도 + 4가지 분류 매핑", "description": "이미 작성된 시나리오에 4가지 분류를 매핑"},
+    {"code": "D", "name": "박사님 본인 AGI 시대 4가지 미래", "description": "박사님 미래학자 본업 — AGI 시대 한국·세계에 대한 4가지 미래 분석"}
+  ],
+  "absolute_principles": [
+    "4가지 미래 명칭 그대로 — Plausible·Possible·Wildcard·Normative",
+    "기본미래 4요소 — 트렌드·계획·심층원동력·대중 이미지",
+    "뜻밖의 미래 2종 — 비약적 진보 + 붕괴",
+    "시기 예측 X, 영향력 O (뜻밖의 미래)",
+    "비전 가능성 3~4개 (한 비전 절대화 금지)",
+    "원하는 미래 = 인간이 만드는 미래 가능성",
+    "박사님 책 인용 — 명시된 인용·정의 외 책 내용을 임의로 추가하거나 유추하지 않는다",
+    "확률 수치(예: 51%·70~80%)는 책에 명시되지 않으므로 단정 금지·해석치임을 표기"
+  ]
+}

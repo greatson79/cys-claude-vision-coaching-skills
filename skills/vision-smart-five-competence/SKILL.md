@@ -229,43 +229,101 @@ OECD DeSeCo 학계 출처: Rychen, D. S., & Salganik, L. H. (Eds.). (2003). *Key
 
 학계 출처: Mortara, L., Kerr, C., Phaal, R., & Probert, D. (2009) *Technology Intelligence: Identifying Threats and Opportunities from New Technologies*. Institute for Manufacturing(IfM), University of Cambridge. ISBN 9781902546513. Mortara 박사는 케임브리지 공대 IfM Centre for Technology Management 소속. 원문 정의: *"Technology intelligence is the collection and delivery of information about new technologies to support the decision-making process within an organisation."*
 
-## 처리 흐름
+## 처리 흐름 — 결정론 엔진 호출 강제
 
-### 1단계 — 5역량 자가 평가 (시작 진단)
+> **절대 규칙**: 아래 모든 단계에서 *사실 조회·번호 매핑·점수 계산·날짜 계산·범위 검사·존재 검증·박사님 책 verbatim 인용*은 LLM 자연어 추론으로 *재생성 금지*. 반드시 `scripts/smart_engine.py` 결정론 엔진을 호출하여 그 출력을 그대로 인용해야 한다. 자연어로 다시 추론하면 할루시네이션 위험이 구조적으로 차단되지 않는다.
 
-각 역량에서 사용자 *현재 수준* 1~10점 자가 평가:
-- Sense: 통찰력·직관 수준 (정보 업데이트·필터링·시뮬레이션 자기 점검)
-- Method: 사고·업무 체계 수준 (인문학·역사·철학 독서 + 업무 효율)
-- Art: 전문성·장인 수준 (1만 시간 누적·전문 분야 깊이)
-- Relationship: 네트워크·집단지성 수준 (인격·커뮤니케이션·연결 능력)
-- Technology: 기술 활용·기술지능 수준 (새 기술 관심도·숙련도)
+### 0단계 — 사실·인용 조회 (모든 단계 공통)
 
-### 2단계 — DeSeCo 대응 매핑
+5역량 정의·DeSeCo 12개국·학계 출처·박사님 책 verbatim 인용을 출력할 때 다음을 호출한다:
 
-OECD 3핵심 역량과 매핑하여 사용자 *국제 표준 비교* 가능 :
-- Sense + Art + Technology → Using tools interactively
-- Relationship → Interacting in heterogeneous groups
-- Method (+ 비전 역량) → Acting autonomously
+```bash
+# 5역량 카탈로그 (5개 그대로·표제·세부)
+python3 scripts/smart_engine.py facts --query competences
+
+# 특정 역량 1개 상세
+python3 scripts/smart_engine.py facts --query competence --key S
+
+# DeSeCo 전체 정보 (12개국·3핵심·기간·출처)
+python3 scripts/smart_engine.py facts --query deseco
+
+# 12개국 명단 (Trier 2001 OECD 보고서 p.3 1차 출처)
+python3 scripts/smart_engine.py facts --query countries
+
+# 학계 출처 1차 인용 (저자·년도·논문)
+python3 scripts/smart_engine.py facts --query source --id ERICSSON_1993
+python3 scripts/smart_engine.py facts --query source --id ERN_1990
+python3 scripts/smart_engine.py facts --query source --id GALTON_1907
+python3 scripts/smart_engine.py facts --query source --id MORTARA_2009
+python3 scripts/smart_engine.py facts --query source --id CARR_1961
+python3 scripts/smart_engine.py facts --query source --id SARTRE_1940
+python3 scripts/smart_engine.py facts --query source --id GETTY_AUTOBIO
+python3 scripts/smart_engine.py facts --query source --id OCKHAM_RAZOR
+python3 scripts/smart_engine.py facts --query source --id JOBS_2005
+python3 scripts/smart_engine.py facts --query source --id CHURCHILL_GIBBON
+
+# 박사님 책 verbatim 인용 (자연어 재구성 금지)
+python3 scripts/smart_engine.py quote --key SMART_DESECO_MATCH
+python3 scripts/smart_engine.py quote --key A_10000_HOURS
+python3 scripts/smart_engine.py quote --key S_INTUITION_8090
+# 그 외 사용 가능 키: S_ERN_DISCOVERY, S_FAILURE_MOTHER, S_FILTERING, S_SIMULATION,
+#   M_OCKHAM, M_INFO_REDUCE, M_BANGALORE,
+#   A_SKILLED_KNOWLEDGE, A_IMAGINATION,
+#   R_GETTY, R_JELLY_BEANS, R_NETWORK, R_PERSONHOOD,
+#   T_SWEAT, T_KNOWLEDGE_TECH, T_PITCHER, T_TECH_INTEL
+```
+
+### 1단계 — 5역량 자가 평가 (시작 진단, 결정론 채점)
+
+각 역량 1~10점 입력 받은 뒤 *반드시* 결정론 엔진으로 채점한다 (자연어 평균·약점 식별 금지):
+
+```bash
+python3 scripts/smart_engine.py assess --scores '{"S":3,"M":4,"A":6,"R":8,"T":5}'
+```
+
+출력 — `scores`(검증된 점수)·`average`·`weakest`(약점 키 동률 처리)·`strongest`(강점 키 동률 처리)·`deseco_group_scores`·`deseco_group_averages`·`recommendations`.
+
+오류 시 종료코드 2 + JSON `{"error":"..."}` — 즉시 사용자에게 그대로 보고하고 재입력 요청.
+
+### 2단계 — DeSeCo 대응 매핑 (결정론 매핑)
+
+SMART → DeSeCo 또는 DeSeCo → SMART 매핑은 *반드시* 결정론 호출 (자연어 재구성 금지):
+
+```bash
+# 사용자가 강한 역량 키들 → 어느 DeSeCo 카테고리로 가는가
+python3 scripts/smart_engine.py map --smart-keys SAT
+
+# 또는 DeSeCo 코드 → SMART 키
+python3 scripts/smart_engine.py map --deseco-code TOOLS
+```
+
+3핵심 코드: `TOOLS`(Using tools interactively) / `GROUPS`(Interacting in heterogeneous groups) / `AUTONOMY`(Acting autonomously). 매핑 결과는 1단계 `deseco_group_scores`에 자동 포함된다.
 
 ### 3단계 — 약점 역량 깊이 코칭
 
-가장 약한 역량 1~2개 선택하여:
-- 박사님 책 인용 (verbatim)
-- 박사님 책 구체 훈련법 제시
+가장 약한 역량(`weakest` 출력)에 대해:
+- 박사님 책 verbatim 인용 — `quote --key` 호출로 가져오기 (자연어 재구성 금지)
+- 박사님 책 구체 훈련법 — `facts --query training --key S/M/A/R/T` 호출
 - 1주일 / 1개월 / 3개월 훈련 계획 (사용자 맥락 반영)
 
 ### 4단계 — 강점 역량 *장인화* 코칭
 
-가장 강한 역량을 *장인 수준*으로 끌어올리기:
-- 1만 시간 계획 (Ericsson 1993 deliberate practice 원칙)
-- 무료 세미나·글 기고 등 박사님 7가지 훈련법
-- 박사님 책 단기 진입 → 장기 장인 진로
+가장 강한 역량(`strongest` 출력)을 *장인 수준*으로 끌어올리기:
+
+```bash
+# 1만 시간 계획 — 일일 투입 시간 입력
+python3 scripts/smart_engine.py tenkhour --daily-hours 2 --current-hours 0 --start-date 2026-05-17
+```
+
+출력 — `days_to_complete`·`years_to_complete`·`completion_date`·`academic_source`(Ericsson 1993)·`caveat`(Macnamara 2014 메타분석·deliberate practice 강조).
+
+박사님 책 7가지 훈련법: `facts --query training --key A` 호출.
 
 ### 5단계 — 5역량 통합 시너지
 
 박사님 책 핵심: *"5역량은 따로가 아니라 통합되어 작동한다"*
 
-*다음 통합 패턴은 박사님 책의 직접 명시가 아닌, 박사님 5역량 구조에서 도출 가능한 코칭 보조 해석이다.*
+*다음 통합 패턴은 박사님 책의 직접 명시가 아닌, 박사님 5역량 구조에서 도출 가능한 코칭 보조 해석임을 명시*.
 
 - Sense + Art = 직관 + 장인 (직관적 거장형)
 - Method + Technology = 분석 + 기술 (전략·도구형)
@@ -279,20 +337,59 @@ OECD 3핵심 역량과 매핑하여 사용자 *국제 표준 비교* 가능 :
 - **D**: 사용자 직업·맥락 맞춤 5역량 적용 (강의자·청년·신학생·CEO 등 사용자가 자신의 역할 지정)
 - **E**: 강의·청년부·신학교 SMART 훈련 도구로 사용 (사용자가 코칭 *제공자* 입장)
 
-## 절대 원칙 — 박사님 책 충실 + 학계 정확성
+## 절대 원칙 — 박사님 책 충실 + 학계 정확성 + 결정론 환원
 
-1. **5역량 명칭·순서 그대로** — Sense·Method·Art·Relationship·Technology
-2. **5역량 박사님 원문 표제 그대로** — "기르라/갖추라/높여라/확보하라/활용하라" 어조 유지
-3. **DeSeCo 대응 명시** — OECD 국제 표준 신뢰성, 원문 영문 병기
-4. **각 역량 박사님 훈련법 그대로** — 변형 금지
+1. **5역량 명칭·순서 그대로** — Sense·Method·Art·Relationship·Technology (결정론 엔진 `facts --query competences`로 조회)
+2. **5역량 박사님 원문 표제 그대로** — "기르라/갖추라/높여라/확보하라/활용하라" 어조 유지 (결정론 엔진 출력 그대로 인용)
+3. **DeSeCo 대응 명시** — OECD 국제 표준 신뢰성, 원문 영문 병기 (결정론 엔진 `map` / `facts --query deseco`로 매핑)
+4. **각 역량 박사님 훈련법 그대로** — 변형 금지 (`facts --query training --key S/M/A/R/T`)
 5. **인문학·역사·철학 3축** Method 사고 훈련 핵심
 6. **정보 업데이트·필터링·시뮬레이션** Sense 훈련 핵심
-7. **1만 시간** Art 장인화 핵심 (Ericsson 1993 *Psychological Review* 100, 363-406 출처)
+7. **1만 시간** Art 장인화 핵심 (Ericsson 1993 *Psychological Review* 100, 363-406 출처. `tenkhour` 결정론 계산기로 일수·년수 산출)
 8. **혼자 100% 아닌 100명 1%씩** Relationship 핵심 (J. Paul Getty)
 9. **기술지능 = 정보 수집·전달 → 의사결정 지원** Technology 명확 정의 (Mortara, Cambridge IfM)
-10. **박사님 책 인용은 verbatim** — 인용문 변형 시 박사님 책 표현으로 환원
-11. **학계 인용은 정확한 저자·년도·논문/저서** 명시 — 박사님이 인용한 외부 사실(ERN·Ericsson·Getty·Carr·Sartre·Mortara·Galton)은 학계 1차 출처 표기
-12. **할루시네이션 금지** — 박사님 책에 명시되지 않은 인용·사실은 *추가 해석* 또는 *학계 보강 자료*로 명확히 구분 표시
+10. **박사님 책 인용은 verbatim** — 자연어 재구성 금지. `quote --key`로 조회한 문자열을 그대로 인용
+11. **학계 인용은 정확한 저자·년도·논문/저서** 명시 — `facts --query source --id <ID>`로 조회. 저자·년도·venue를 그대로 사용
+12. **할루시네이션 금지** — 박사님 책에 명시되지 않은 인용·사실은 *추가 해석* 또는 *학계 보강 자료*로 명확히 구분 표시. 1·3·7·8·9·10·11번은 *모두* 결정론 엔진 출력을 그대로 인용 (자연어 재구성 금지)
+13. **결정론 환원 의무** — 사실 조회·번호 매핑·점수 계산·날짜 계산·범위 검사·존재 검증은 *반드시* `scripts/smart_engine.py`를 호출한다. LLM 자연어 추론으로 재생성 시 즉시 자가 수정하고 결정론 호출로 대체
+14. **DeSeCo 12개국 명단** — 자연어 나열 금지. `facts --query countries` 호출 결과(Trier 2001 OECD 1차 출처 검증) 그대로 인용
+
+## 출력 양식
+
+각 코칭 응답은 다음 5섹션 구성:
+
+### Section A. 결정론 엔진 호출 로그
+- 이번 응답에서 호출한 결정론 명령들을 한 줄로 나열 (사용자가 검증 가능하도록)
+- 예: `assess` → `map --smart-keys SAT` → `quote --key A_10000_HOURS`
+
+### Section B. 박사님 책 인용 (verbatim)
+- `quote` 명령으로 조회한 박사님 책 원문 인용 (자연어 재구성 금지)
+
+### Section C. 학계 1차 출처
+- `facts --query source` 결과의 `primary_citation` 그대로 표기 (저자·년도·논문/저서·페이지)
+- DeSeCo 12개국 인용 시 `Trier 2001 OECD 1차 출처 verbatim` 명시
+
+### Section D. 코칭 본문
+- 1~5단계 처리 흐름 결과 (사용자 맞춤 코칭)
+
+### Section E. 자가 검증 체크
+- ✅ 자연어로 재구성한 사실/인용/매핑이 0건
+- ✅ 결정론 엔진 출력만 사용
+- ✅ 박사님 책 미명시 항목은 *추가 해석* 표시
+
+## 오류 및 예외 처리
+
+| 시나리오 | 처리 |
+|---------|-----|
+| 사용자 점수가 1~10 범위 밖 | `assess`/`validate`가 종료코드 2 + JSON `{"error":"..."}` 반환. 응답에 오류 그대로 보고 + 재입력 요청 |
+| 사용자 점수에 누락 키 또는 추가 키 | 위와 동일. 누락/추가 키 명시 |
+| 사용자가 SMART 외 다른 분류 시도 (예: "지혜·용기·절제") | "본 스킬은 박사님 SMART 5역량(Sense·Method·Art·Relationship·Technology) 전용입니다. 입력을 SMART 5역량 1~10점으로 변환해 주십시오." |
+| 1만 시간 계산기에 0 이하 또는 24 초과 daily-hours | 종료코드 2 + 오류. 사용자에게 합리 범위 안내 |
+| 1만 시간 계산기에 음수 current-hours | 종료코드 2 + 오류 |
+| 박사님 책 미명시 사실을 사용자가 묻는 경우 | "박사님 책 원문에 명시되지 않은 항목입니다. 학계 1차 출처(`facts --query source`)로 답하거나, 코칭 보조 해석임을 명시하겠습니다." |
+| 잘못된 quote 키 / 잘못된 source ID | 종료코드 2 + 가능한 키 목록 출력 |
+| 결정론 엔진 파일/데이터 누락 | 종료코드 3 + 파일 경로 안내. 응답 중단, 사용자에게 보고 |
+| 비SMART/비DeSeCo 코드로 매핑 시도 | 종료코드 2 + 유효 키 안내 |
 
 ## 톤·스타일
 

@@ -1,0 +1,448 @@
+{
+  "_meta": {
+    "purpose": "외부 학계·기관 출처 정규 lookup — SKILL.md 카탈로그의 raw 출처 텍스트를 LLM이 다시 생성하지 못하게 결정론 저장",
+    "principle": "출처 없는 판정은 자동 FAIL — 본 파일에 등재된 인용만 산출물에 사용",
+    "version": "1.0.0",
+    "last_updated": "2026-05-17"
+  },
+  "society": {
+    "short": [
+      {
+        "id": "kr_singleperson_household",
+        "claim": "한국 1인 가구 비율 증가 추세",
+        "data_points": [
+          {"year": 2020, "value_pct": 31.7, "source": "통계청 인구주택총조사"},
+          {"year_estimated": 2024, "value_pct_est": 35.0, "note": "장래가구추계 중위 시나리오 — 추정치"},
+          {"year_estimated": 2030, "value_pct_est": 39.0, "note": "장래가구추계 중위 시나리오 — 추정치"}
+        ],
+        "source": "통계청 '장래가구추계(2020~2050)' 2022년 6월 발표",
+        "certainty": "high",
+        "verify_url_hint": "KOSIS 장래가구추계 최신 보도자료 확인 권장"
+      },
+      {
+        "id": "kr_tfr",
+        "claim": "한국 합계출산율 OECD 최저",
+        "data_points": [
+          {"year": 2023, "value": 0.72, "note": "잠정"}
+        ],
+        "source": "통계청 인구동향조사·OECD Society at a Glance 연간 보고서",
+        "certainty": "high"
+      },
+      {
+        "id": "kr_multicultural",
+        "claim": "한국 다문화 가구 비율 증가",
+        "source": "통계청 인구주택총조사·다문화인구동태통계 추이",
+        "certainty": "high"
+      },
+      {
+        "id": "generations_theory",
+        "claim": "세대 교차 — Z세대·알파세대 명명",
+        "source": "Strauss & Howe (1991) Generations; Mark McCrindle (2014~) 분류",
+        "certainty": "low",
+        "note": "학계 합의 분류 아님 — 연구자·국가별 경계 다름"
+      }
+    ],
+    "mid": [
+      {
+        "id": "kr_population_cliff",
+        "claim": "한국 생산연령인구 급감 (인구절벽)",
+        "data_points": [
+          {"year": 2020, "value_persons": 37380000, "label": "15~64세 인구 약 3,738만"},
+          {"year": 2030, "value_persons": 33810000, "label": "약 3,381만"},
+          {"year": 2040, "value_persons": 28510000, "label": "약 2,851만"}
+        ],
+        "source": "통계청 '장래인구추계(2020~2070)' 2022년 12월 발표 · 중위 시나리오",
+        "certainty": "high"
+      },
+      {
+        "id": "ai_education_transition",
+        "claim": "교육 시스템 AI 보조 학습 확대 가능성",
+        "source": "OECD Digital Education Outlook · UNESCO AI and Education 보고서",
+        "certainty": "mid",
+        "note": "구체 시점·범위 의견 갈림"
+      }
+    ],
+    "long": [
+      {
+        "id": "kr_aging_2050",
+        "claim": "한국 노인 인구 비중 2050년 약 40%대 전망",
+        "source": "통계청 '장래인구추계(2020~2070)' 2022년 12월 발표 · 중위 시나리오",
+        "certainty": "high",
+        "note": "고위/저위 시나리오는 ±5%p 범위 변동"
+      },
+      {
+        "id": "low_fertility_norm",
+        "claim": "합계출산율 1.5명 미만 장기 지속 국가 그룹 (한국·일본·이탈리아 등)",
+        "source": "UN World Population Prospects 2024 개정판",
+        "certainty": "high"
+      }
+    ]
+  },
+  "technology": {
+    "short": [
+      {
+        "id": "genai_industry",
+        "claim": "생성형 AI 산업 전반 통합",
+        "source": "McKinsey State of AI 연간 보고서 — 최신판 확인 권장",
+        "certainty": "high"
+      },
+      {
+        "id": "av_level4",
+        "claim": "자율주행 SAE Level 4 제한 상용",
+        "data_points": [
+          {"company": "Waymo", "year": 2024, "label": "피닉스·LA·SF 상용 운영"},
+          {"company": "Cruise", "year": 2023, "label": "사고 후 운영 중단 → 2024 재개 시도 단계"}
+        ],
+        "source": "SAE J3016 'Taxonomy and Definitions for Terms Related to Driving Automation Systems' (2014 초판, 후속 개정)",
+        "certainty": "high"
+      },
+      {
+        "id": "quantum_computing",
+        "claim": "양자컴퓨팅 큐비트 수 발표 (오류율·실용 알고리즘은 제한적)",
+        "data_points": [
+          {"system": "IBM Condor", "year": 2023, "qubits": 1121},
+          {"system": "IBM Heron", "note": "세대"},
+          {"system": "Google Willow", "year": 2024}
+        ],
+        "source": "IBM/Google 공식 발표",
+        "certainty": "mid"
+      }
+    ],
+    "mid": [
+      {
+        "id": "agi_timing",
+        "claim": "AGI 도래 시점·정의 학계 의견 크게 갈림",
+        "source": "Grace et al. (2024) 'Thousands of AI authors on the future of AI' arXiv:2401.02843 — 2,778명 AI 연구자 설문, 'High-Level Machine Intelligence' 50% 도달 중앙값 2047년 (2022 설문 대비 13년 앞당김); Hinton (2023 Google 사임 발언) 더 이른 가능성; LeCun 회의론",
+        "certainty": "low",
+        "note": "단정 회피"
+      },
+      {
+        "id": "humanoid_robot",
+        "claim": "휴머노이드 로봇 상용 시도",
+        "source": "Tesla Optimus · Figure 01 · 레인보우로보틱스 등 · IDC/MarketsandMarkets 시장 보고서",
+        "certainty": "mid",
+        "note": "가정용 대규모 보급 시점 불확실"
+      },
+      {
+        "id": "bci",
+        "claim": "뇌-컴퓨터 인터페이스 임상",
+        "source": "Neuralink 1차 인간 임상 (2024년 1월 첫 환자 이식 발표)",
+        "certainty": "mid",
+        "note": "의료 적응증 외 일반 보급 불확실"
+      }
+    ],
+    "long": [
+      {
+        "id": "asi_debate",
+        "claim": "ASI(Artificial Superintelligence) 가능성 학계 합의 없음",
+        "source": "Bostrom (2014) Superintelligence: Paths, Dangers, Strategies, Oxford University Press; Hinton 2023 우려; LeCun 회의론",
+        "certainty": "low",
+        "note": "상반된 견해 공존"
+      },
+      {
+        "id": "lev",
+        "claim": "디지털 의식·생명 연장 (LEV·Longevity Escape Velocity) 일부 주장",
+        "source": "Aubrey de Grey (2007) Ending Aging",
+        "certainty": "low",
+        "note": "주류 학계 비주류 — 단정 회피"
+      }
+    ]
+  },
+  "economy": {
+    "short": [
+      {
+        "id": "inflation_highrate",
+        "claim": "인플레이션 후폭풍·고금리",
+        "source": "IMF World Economic Outlook 2024 분석",
+        "certainty": "high"
+      },
+      {
+        "id": "platform_capitalism",
+        "claim": "플랫폼 자본주의 심화 (Big Tech 시가총액 글로벌 지배)",
+        "source": "Apple·Microsoft·Google·Amazon·Meta 시가총액 데이터",
+        "certainty": "high"
+      },
+      {
+        "id": "cbdc",
+        "claim": "CBDC(중앙은행 디지털화폐) 시범",
+        "source": "BIS Survey on CBDC 2023: 130개국 검토 중",
+        "certainty": "high"
+      }
+    ],
+    "mid": [
+      {
+        "id": "ai_labor",
+        "claim": "AI 노동시장 재편",
+        "source": "IMF (2024) 'Gen-AI: Artificial Intelligence and the Future of Work' — 선진국 일자리 60% 영향 추정",
+        "certainty": "mid",
+        "note": "대체 vs 보완 비율 의견 갈림"
+      },
+      {
+        "id": "ubi_pilots",
+        "claim": "UBI(보편적 기본소득) 실험 확대 가능성",
+        "source": "핀란드·캐나다·미국 일부 시범 결과 누적 (주로 OECD 보고)",
+        "certainty": "mid"
+      },
+      {
+        "id": "esg_disclosure",
+        "claim": "ESG 의무공시 본격화",
+        "source": "EU CSRD (2024 시행); 미국 SEC 기후공시 규칙 추이",
+        "certainty": "high"
+      }
+    ],
+    "long": [
+      {
+        "id": "defi_universal",
+        "claim": "탈중앙 경제·DeFi 보편화",
+        "source": "학계·산업계 의견 갈림 — 규제 환경에 따라 시나리오 분기",
+        "certainty": "low"
+      },
+      {
+        "id": "polarization_vs_abundance",
+        "claim": "양극화 vs 풍요 시나리오 공존",
+        "source": "Piketty (2014) Capital in the Twenty-First Century, Harvard University Press — 양극화 지속; 기술 풍요 시나리오 대립",
+        "certainty": "mid"
+      }
+    ]
+  },
+  "environment": {
+    "short": [
+      {
+        "id": "extreme_weather",
+        "claim": "폭염·홍수 일상화",
+        "source": "IPCC AR6 (Sixth Assessment Report, 2021~2023) — 산업화 이전 대비 1.1°C 이미 상승, 극단 기후 빈도 증가",
+        "certainty": "high"
+      },
+      {
+        "id": "sea_level",
+        "claim": "해수면 상승",
+        "source": "IPCC AR6: 2050년 약 0.15~0.29m 상승 추정 (SSP1-2.6 ~ SSP5-8.5)",
+        "certainty": "high"
+      },
+      {
+        "id": "food_price",
+        "claim": "식량 가격 변동 확대",
+        "source": "FAO Food Price Index 추이",
+        "certainty": "high"
+      }
+    ],
+    "mid": [
+      {
+        "id": "climate_refugees",
+        "claim": "기후난민",
+        "source": "World Bank Groundswell 2021 — 2050년까지 최대 2.16억 명 국내 이주 가능성 추정",
+        "certainty": "mid"
+      },
+      {
+        "id": "renewable_share",
+        "claim": "재생에너지 비중 확대",
+        "source": "IEA World Energy Outlook 2024 — 2030년 재생 비중 50%+ 시나리오",
+        "certainty": "mid"
+      },
+      {
+        "id": "fusion_iter",
+        "claim": "핵융합 ITER D-T 실험",
+        "source": "ITER Organization 공식 발표 — 2035년 전후 계획; 상업 발전은 2050년 이후 주류 의견; Commonwealth Fusion 등 민간 더 이른 도전 별개 시나리오",
+        "certainty": "mid"
+      },
+      {
+        "id": "water_scarcity",
+        "claim": "물 부족",
+        "source": "UN World Water Development Report 2024",
+        "certainty": "high"
+      }
+    ],
+    "long": [
+      {
+        "id": "climate_threshold_15",
+        "claim": "1.5°C/2°C 임계점 도달 가능성",
+        "source": "IPCC AR6 — 현 추세 시 1.5°C는 2030년대 초중반 도달 가능성 (학계 합의)",
+        "certainty": "high"
+      },
+      {
+        "id": "geoengineering",
+        "claim": "지구공학 (SRM·CDR) 시도",
+        "source": "학계·정치 논쟁 격렬 — 시도 시점·범위 불확실",
+        "certainty": "low"
+      },
+      {
+        "id": "space_migration",
+        "claim": "우주이주",
+        "source": "SpaceX 등 일부 기업 비전; 학계 주류는 거주 가능 우주 이주 시점 미확정",
+        "certainty": "low",
+        "note": "단정 회피"
+      }
+    ]
+  },
+  "politics": {
+    "short": [
+      {
+        "id": "us_china_hegemony",
+        "claim": "미중 패권 경쟁 (무역·기술·반도체·대만)",
+        "source": "CSIS·Brookings Institution 분석",
+        "certainty": "high"
+      },
+      {
+        "id": "korea_peninsula",
+        "claim": "한반도 — 북핵·통일 시나리오",
+        "source": "전문가 의견 갈림",
+        "certainty": "low"
+      },
+      {
+        "id": "eu_political_fracture",
+        "claim": "EU 정치 균열 — 우파 정당 약진",
+        "source": "European Parliament 2024 선거 결과",
+        "certainty": "high"
+      },
+      {
+        "id": "digital_rights_law",
+        "claim": "디지털 권리 입법",
+        "source": "EU AI Act (2024), GDPR, DSA 시행",
+        "certainty": "high"
+      }
+    ],
+    "mid": [
+      {
+        "id": "aging_politics",
+        "claim": "인구 고령화 정치 — 고령층 표결권 비중 확대",
+        "source": "통계청 인구추계 + 중앙선거관리위원회 선거인 통계 추세",
+        "certainty": "high"
+      },
+      {
+        "id": "ai_governance",
+        "claim": "AI 거버넌스 — UN·OECD 권고안 발전",
+        "source": "UN AI Advisory Body Report 2024; OECD AI Principles",
+        "certainty": "mid",
+        "note": "글로벌 합의 불확실"
+      },
+      {
+        "id": "multipolar_order",
+        "claim": "다극 체제 (미·중·러·인·EU·중동) 가능성",
+        "source": "Foreign Affairs 분석 다수",
+        "certainty": "mid"
+      }
+    ],
+    "long": [
+      {
+        "id": "new_international_order",
+        "claim": "Bretton Woods 체제 이후 새 국제 질서 가능성",
+        "source": "시나리오 분기 — 학계 합의 없음",
+        "certainty": "low"
+      },
+      {
+        "id": "ai_robot_rights",
+        "claim": "AI·로봇 권리 논쟁",
+        "source": "Floridi (Information Ethics), Bostrom, Coeckelbergh 등 윤리·법 학계 논의",
+        "certainty": "low"
+      }
+    ]
+  },
+  "spirituality": {
+    "short": [
+      {
+        "id": "kr_church_decline",
+        "claim": "한국 교회 쇠퇴",
+        "data_points": [
+          {"year": 1984, "religious_pct": 44},
+          {"year": 2021, "religious_pct": 40, "breakdown": {"protestant": 17, "buddhist": 16, "catholic": 6}}
+        ],
+        "source": "한국갤럽 '한국인의 종교 1984-2021' (2021) 보고서; 목회데이터연구소 한국교회 추적조사 정기 보고서",
+        "certainty": "high"
+      },
+      {
+        "id": "new_spirituality",
+        "claim": "신영성 운동 — 뉴에이지·명상·디지털 영성",
+        "source": "Pew Research Center Religion 시리즈 (미국 기준); 2021 한국갤럽 종교 조사 — 한국 무종교 60% 도달",
+        "certainty": "mid"
+      },
+      {
+        "id": "meaning_seeking",
+        "claim": "의미 추구",
+        "source": "Viktor Frankl (1946) Man's Search for Meaning — Logotherapy; Csikszentmihalyi (1990) Flow — 몰입 이론",
+        "certainty": "high",
+        "note": "학술적으로 확립된 심리학 분야"
+      }
+    ],
+    "mid": [
+      {
+        "id": "ai_human_meaning",
+        "claim": "AI 시대 인간 의미 재정의 학계 논의",
+        "source": "Yuval Harari (2017) Homo Deus; Nick Bostrom (2014) Superintelligence; 신학계 응답 (AI and Theology 다수 논문)",
+        "certainty": "low",
+        "note": "결론·시점 의견 갈림"
+      },
+      {
+        "id": "global_religion_shift",
+        "claim": "종교 인구 변동",
+        "source": "Pew Research Center (2015) 'The Future of World Religions: Population Growth Projections, 2010-2050' — 무슬림 비중 약 30% 수준 추계, 기독교 정체 또는 소폭 증가, 무종교 상대 감소 시나리오",
+        "certainty": "mid",
+        "note": "출산율 가설 기반 — 가정 의존성 큼"
+      }
+    ],
+    "long": [
+      {
+        "id": "secularization_debate",
+        "claim": "post-종교 시대 vs 신종교 부흥 학계 의견 갈림",
+        "source": "세속화 가설: Peter Berger (1967) The Sacred Canopy; Steve Bruce (2002) God is Dead. 탈세속화: Peter Berger (1999) The Desecularization of the World; Habermas (2008) Notes on a Post-Secular Society",
+        "certainty": "low"
+      },
+      {
+        "id": "digital_consciousness",
+        "claim": "디지털 영성·의식 과학",
+        "source": "Giulio Tononi 통합정보이론(IIT); Stanislas Dehaene 전역 작업공간 이론(GWT)",
+        "certainty": "low",
+        "note": "철학·신학·과학 교차 논쟁"
+      }
+    ]
+  },
+  "wildcards": [
+    {
+      "id": "pandemic",
+      "label": "팬데믹",
+      "source": "COVID-19 (2020~) 사례 — WHO·Johns Hopkins CSSE 추적; 차세대 팬데믹 가능성 학계 의견 갈림 (Bill Gates 2015 TED 경고; Anthony Fauci 학계 우려)",
+      "certainty": "low"
+    },
+    {
+      "id": "earthquake",
+      "label": "거대 지진·자연재해",
+      "source": "한반도 동남부 활성단층 (KIGAM 한국지질자원연구원 보고서); 미국 캐스케이디아·일본 난카이 트로프 재해 시나리오",
+      "certainty": "low"
+    },
+    {
+      "id": "war_terror",
+      "label": "전쟁·테러",
+      "source": "우크라이나-러시아 전쟁(2022~); 이스라엘-하마스(2023~); 미중 대만 시나리오; SIPRI 군비 데이터; CSIS 분석",
+      "certainty": "mid"
+    },
+    {
+      "id": "financial_crisis",
+      "label": "금융 위기",
+      "source": "2008 GFC; 2020 코로나 충격; IMF Global Financial Stability Report",
+      "certainty": "mid"
+    },
+    {
+      "id": "ai_alignment_failure",
+      "label": "AI 정렬 실패",
+      "source": "Bostrom (2014); Stuart Russell (2019) Human Compatible; OpenAI·Anthropic·DeepMind alignment 연구",
+      "certainty": "low"
+    },
+    {
+      "id": "emp_cyber",
+      "label": "EMP·사이버 대규모 공격",
+      "source": "미국 EMP Commission 보고서; 국가정보원 자료",
+      "certainty": "low"
+    },
+    {
+      "id": "spiritual_revival",
+      "label": "돌연한 영적 부흥 또는 영적 붕괴",
+      "source": "역사 사례 — 평양 대부흥(1907); 웨일스 부흥(1904)",
+      "certainty": "low"
+    },
+    {
+      "id": "tech_breakthrough",
+      "label": "돌발 기술 도약",
+      "source": "핵융합 조기 성공·양자컴퓨팅 RSA 깨기 등 low probability·high impact",
+      "certainty": "low"
+    }
+  ]
+}

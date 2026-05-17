@@ -1,0 +1,114 @@
+{
+  "scenarios": [
+    {
+      "id": "r2_01_12_year_old",
+      "description": "12세 초등학생 — 너무 어린 사용자, 17세 이하 youth 범주, 의대·법대 학력 미달로 자동 제외",
+      "profile": {
+        "age": 12,
+        "education": "below_middle",
+        "interests": ["로봇", "게임"],
+        "raw_input": "초등학생인데 미래 직업 알려주세요. 12살이에요."
+      }
+    },
+    {
+      "id": "r2_02_mid50_phd_transition",
+      "description": "55세 박사 — 학력 박사로 모든 직업 학력 통과, max_age 가까운 직업 borderline 검증",
+      "profile": {
+        "age": 55,
+        "education": "doctorate",
+        "mbti": "INTJ",
+        "enneagram": "5",
+        "interests": ["연구", "글쓰기", "강의"],
+        "current_job": "교수",
+        "raw_input": "55세 박사 교수입니다. 정년 후 진로 고민입니다."
+      }
+    },
+    {
+      "id": "r2_03_explicit_english_directive",
+      "description": "한국어 텍스트지만 'respond in english' 명시 → 영어 응답 강제",
+      "profile": {
+        "age": 35,
+        "education": "bachelor",
+        "raw_input": "저는 한국 사람인데 영어 공부 중이에요. Please respond in English."
+      }
+    },
+    {
+      "id": "r2_04_associate_degree_marketing",
+      "description": "27세 전문대졸 마케터 — college2yr 학력으로 의대/법대/박사급 자동 제외",
+      "profile": {
+        "age": 27,
+        "education": "전문대",
+        "mbti": "ENFP",
+        "enneagram": "7",
+        "current_job": "마케팅 어시스턴트",
+        "raw_input": "27세 전문대 졸업 마케터인데 추천 부탁드립니다."
+      }
+    },
+    {
+      "id": "r2_05_75_widow_volunteer",
+      "description": "75세 권사, 일반인 — 미래 직업 슬롯 max_age 통과 검증",
+      "profile": {
+        "age": 75,
+        "education": "high",
+        "values": ["Service", "Wisdom", "Peace"],
+        "raw_input": "75세 권사인데 정년 후 봉사할 일을 찾고 있습니다."
+      }
+    },
+    {
+      "id": "r2_06_60_secular_high_pay",
+      "description": "60세 학사 비신앙 — Type 4(high_pay)에서 max_age 가까운 직업 borderline/제외 검증",
+      "profile": {
+        "age": 60,
+        "education": "bachelor",
+        "interests": ["고소득", "임원"],
+        "faith_disclosed": false,
+        "raw_input": "60세 학사 출신입니다. 정년 직전 고소득 직업 추천 부탁드립니다."
+      }
+    },
+    {
+      "id": "r2_07_master_pivot_to_developer",
+      "description": "32세 석사가 개발자 진로 전환 — 학력 정합 + 카탈로그 직업 일관성 검증",
+      "profile": {
+        "age": 32,
+        "education": "master",
+        "mbti": "ISTJ",
+        "interests": ["소프트웨어", "AI", "개발"],
+        "current_job": "회계사",
+        "raw_input": "회계사인데 32살 석사 학위 있고 개발자로 진로 전환하고 싶습니다."
+      }
+    },
+    {
+      "id": "r2_08_disabled_ageless",
+      "description": "교육 미명시 + 나이 60 + 신앙명시 — 신앙 봉사 우선순위 검증",
+      "profile": {
+        "age": 60,
+        "values": ["Faith", "Community"],
+        "faith_disclosed": true,
+        "raw_input": "60세 기독교인이고 학력은 비공개입니다. 봉사 직업 알려주세요."
+      }
+    },
+    {
+      "id": "r2_09_18yr_high_school_grad",
+      "description": "18세 갓 고졸 — young_adult 카테고리, 학사 필요 직업 borderline 또는 제외 검증",
+      "profile": {
+        "age": 18,
+        "education": "high",
+        "mbti": "ESFP",
+        "interests": ["디자인", "패션"],
+        "raw_input": "18세 고졸이고 대학 안 가려고 합니다. 직업 추천해주세요."
+      }
+    },
+    {
+      "id": "r2_10_50_doctor_career_continuation",
+      "description": "50세 박사 의사 — Type 4에서 의사 PASS, Type 1 미래 직업 학력 통과 검증",
+      "profile": {
+        "age": 50,
+        "education": "doctorate",
+        "current_job": "의사",
+        "mbti": "INTJ",
+        "interests": ["정밀의료", "AI 헬스케어"],
+        "raw_input": "50세 박사 의사인데 정밀의료 미래 직업 추천 부탁드립니다."
+      }
+    }
+  ]
+}

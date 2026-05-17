@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0.0",
+  "source_book": {
+    "author": "최윤식",
+    "title": "미래준비학교",
+    "year": 2016,
+    "chapter_topic": "SMART 미래인재 5역량"
+  },
+  "competences": [
+    {
+      "key": "S",
+      "name_en": "Sense",
+      "name_ko": "감각·판단력·통찰",
+      "book_heading": "어떤 사물이나 현상에 대한 감각·판단력·통찰을 기르라",
+      "details": ["직관적 통찰력", "훈련된 통찰력"],
+      "emoji": "🪞",
+      "order": 1
+    },
+    {
+      "key": "M",
+      "name_en": "Method",
+      "name_ko": "조직적·체계적 방법",
+      "book_heading": "조직적이고 체계적인 방법을 갖추라",
+      "details": ["체계적 사고", "체계적 업무 처리 능력"],
+      "emoji": "🛠",
+      "order": 2
+    },
+    {
+      "key": "A",
+      "name_en": "Art",
+      "name_ko": "예술성·장인의 지식",
+      "book_heading": "예술성을 높여라 (자신의 지식과 기술을 예술의 경지로 높여 장인이 되어라)",
+      "details": ["숙련된 지식", "예술성(예술적 감성디자인·예술적 커뮤니케이션 능력)"],
+      "emoji": "🎨",
+      "order": 3
+    },
+    {
+      "key": "R",
+      "name_en": "Relationship",
+      "name_ko": "친근하고 친밀한 관계",
+      "book_heading": "친근하고 친밀한 관계를 확보하라",
+      "details": ["집단지성", "지능적 네트워크", "인격/인성"],
+      "emoji": "💬",
+      "order": 4
+    },
+    {
+      "key": "T",
+      "name_en": "Technology",
+      "name_ko": "최신 기술 활용·기술지능",
+      "book_heading": "최신 기술을 적극적으로 활용하라",
+      "details": ["Hardware·Software 활용 능력", "기술지능"],
+      "emoji": "🔧",
+      "order": 5
+    }
+  ],
+  "deseco": {
+    "project_name": "DeSeCo (Defining and Selecting Key Competencies)",
+    "organization": "OECD (Organisation for Economic Co-operation and Development)",
+    "start_year": 1997,
+    "end_year": 2003,
+    "participating_countries_count": 12,
+    "participating_countries": [
+      "Austria",
+      "Belgium (Flanders)",
+      "Denmark",
+      "Finland",
+      "France",
+      "Germany",
+      "Netherlands",
+      "New Zealand",
+      "Norway",
+      "Sweden",
+      "Switzerland",
+      "United States"
+    ],
+    "participating_countries_verbatim_source": "Trier, U. P. (2001). 12 Countries Contributing to DeSeCo – A Summary Report. October 2001. SFSO/DeSeCo. p.3. 원문 verbatim: 'Twelve countries (Austria, Belgium [Flanders], Denmark, Finland, France, Germany, Netherlands, New Zealand, Norway, Sweden, Switzerland and the United States) participated in the CCP and submitted country reports.'",
+    "key_competencies": [
+      {
+        "code": "TOOLS",
+        "name_en": "Using tools interactively",
+        "name_ko": "도구를 상호적으로 사용하기",
+        "mapped_smart_keys": ["S", "A", "T"]
+      },
+      {
+        "code": "GROUPS",
+        "name_en": "Interacting in heterogeneous groups",
+        "name_ko": "이질적 집단과 상호작용하기",
+        "mapped_smart_keys": ["R"]
+      },
+      {
+        "code": "AUTONOMY",
+        "name_en": "Acting autonomously",
+        "name_ko": "자율적으로 행동하기",
+        "mapped_smart_keys": ["M"],
+        "note": "박사님 책: Method + 비전 역량"
+      }
+    ],
+    "primary_source": {
+      "type": "book",
+      "citation": "Rychen, D. S., & Salganik, L. H. (Eds.). (2003). Key Competencies for a Successful Life and a Well-Functioning Society. Göttingen: Hogrefe & Huber.",
+      "publisher": "Hogrefe & Huber",
+      "role": "DeSeCo 프로젝트 최종 보고서"
+    },
+    "secondary_source": {
+      "type": "summary",
+      "citation": "OECD (2005). The Definition and Selection of Key Competencies — Executive Summary. Paris: OECD."
+    },
+    "ccp_source": {
+      "type": "report",
+      "citation": "Trier, U. P. (2001). 12 Countries Contributing to DeSeCo – A Summary Report. October 2001. University of Neuchâtel, on behalf of the Swiss Federal Statistical Office (SFSO).",
+      "role": "DeSeCo Country Contribution Process (CCP) 12개국 명단 1차 출처 (p.3)",
+      "url": "https://www.deseco.ch/bfs/deseco/en/index/05.parsys.1992.downloadList.41429.DownloadFile.tmp/sfsodesecoccpsummaryreport.pdf"
+    }
+  },
+  "academic_sources": [
+    {
+      "id": "ERN_1990",
+      "topic": "Sense — ERN (Error Related Negativity)",
+      "discoverer": "Michael Falkenstein",
+      "year_first": 1990,
+      "primary_citation": "Falkenstein, M., Hohnsbein, J., Hoormann, J., & Blanke, L. (1990). Effects of errors in choice reaction tasks on the ERP under focused and divided attention. In C. H. M. Brunia, A. W. K. Gaillard, & A. Kok (Eds.), Psychophysiological Brain Research (pp. 192-195). Tilburg University Press.",
+      "secondary_citation": "Falkenstein, M., Hohnsbein, J., Hoormann, J., & Blanke, L. (1991). Effects of crossmodal divided attention on late ERP components. II. Error processing in choice reaction tasks. Electroencephalography and Clinical Neurophysiology, 78(6), 447-455.",
+      "institution": "독일 도르트문트 노동생리학·신경생리학 연구소 (Institut für Arbeitsphysiologie an der Universität Dortmund)",
+      "independent_co_discovery": "W. J. Gehring 그룹 (University of Michigan)이 동시기 독립 발견",
+      "book_quote": "미하엘 팔켄슈타인이라는 신경학자가 1990년대 초반에 ERN(Error Related Negativity)이라고 불리는 뇌파를 발견했다"
+    },
+    {
+      "id": "ERICSSON_1993",
+      "topic": "Art — 1만 시간 deliberate practice",
+      "authors": ["K. Anders Ericsson", "Ralf T. Krampe", "Clemens Tesch-Römer"],
+      "year": 1993,
+      "primary_citation": "Ericsson, K. A., Krampe, R. T., & Tesch-Römer, C. (1993). The role of deliberate practice in the acquisition of expert performance. Psychological Review, 100(3), 363-406.",
+      "venue": "Psychological Review, 100(3), 363-406",
+      "subject_study": "베를린 음악 아카데미 바이올린 학생 연구",
+      "key_finding": "최상위 학생은 20세까지 평균 10,000시간의 의도적 연습(deliberate practice) 누적",
+      "popularization": "Malcolm Gladwell, Outliers (2008)",
+      "caveat": "Macnamara, B. N., Hambrick, D. Z., & Oswald, F. L. (2014). Deliberate practice and performance in music, games, sports, education, and professions: A meta-analysis. Psychological Science, 25(8), 1608-1618. — 영역 의존적·과장 가능성 보고. Ericsson 본인도 단순 시간 누적이 아닌 *deliberate practice* 강조."
+    },
+    {
+      "id": "GETTY_AUTOBIO",
+      "topic": "Relationship — 100명의 1% 노력",
+      "person": "J. Paul Getty",
+      "primary_citation": "Getty, J. P. (1976). As I See It: The Autobiography of J. Paul Getty. Englewood Cliffs, NJ: Prentice-Hall.",
+      "original_quote_en": "I would rather have 1% of the efforts of 100 men than 100% of my own efforts.",
+      "book_quote_ko": "나는 나 자신의 100% 노력보다는 100사람의 1% 노력을 갖겠다.",
+      "note": "다수 비즈니스 출처에서 변형 인용. 박사님 책의 한국어 표현을 우선 사용."
+    },
+    {
+      "id": "GALTON_1907",
+      "topic": "Relationship — 집단지성·항아리 속 젤리 실험의 원조",
+      "person": "Francis Galton",
+      "year": 1907,
+      "primary_citation": "Galton, F. (1907). Vox Populi. Nature, 75(1949), 450-451.",
+      "original_experiment": "1907년 영국 플리머스(Plymouth) 가축전람회에서 황소 무게 추측 — 800명 추측 평균이 실제 무게(1,198 lbs)와 거의 일치(1,197 lbs).",
+      "popularization": "Surowiecki, J. (2004). The Wisdom of Crowds. New York: Doubleday.",
+      "note": "박사님 책의 *항아리 속 젤리(Jelly Beans in the Jar)* 변형 실험은 같은 원리의 대중적 변형. 황소 무게 추측이 학계 원조."
+    },
+    {
+      "id": "CARR_1961",
+      "topic": "Method — 역사 = 과거와 현재의 대화",
+      "person": "E. H. Carr",
+      "year": 1961,
+      "primary_citation": "Carr, E. H. (1961). What is History? Cambridge: Cambridge University Press / London: Macmillan.",
+      "original_quote_en": "History is a continuous process of interaction between the historian and his facts, an unending dialogue between the present and the past.",
+      "book_quote_ko": "역사는 과거와 현재의 끊임없는 대화",
+      "note": "박사님 책의 *과거를 해석하면 미래를 통찰할 수 있다*는 박사님의 추가 해석으로 명시."
+    },
+    {
+      "id": "SARTRE_1940",
+      "topic": "Art — 인식 능력 3가지 (지각·상상·사유)",
+      "person": "Jean-Paul Sartre",
+      "year": 1940,
+      "primary_citation": "Sartre, J.-P. (1940). L'Imaginaire: Psychologie phénoménologique de l'imagination. Paris: Gallimard.",
+      "english_edition": "Sartre, J.-P. (2004). The Imaginary: A Phenomenological Psychology of the Imagination (J. Webber, Trans.). London: Routledge. (Original work published 1940)",
+      "key_concepts": ["perception (지각)", "imagination (상상)", "conception/thought (사유)"],
+      "note": "박사님 책에서 *상상*에 해당하는 부분을 강조."
+    },
+    {
+      "id": "MORTARA_2009",
+      "topic": "Technology — 기술지능(Technology Intelligence) 정의",
+      "person": "Letizia Mortara",
+      "year": 2009,
+      "primary_citation": "Mortara, L., Kerr, C. I. V., Phaal, R., & Probert, D. R. (2009). Technology Intelligence: Identifying Threats and Opportunities from New Technologies. Cambridge: Institute for Manufacturing (IfM), University of Cambridge.",
+      "isbn": "9781902546513",
+      "institution": "Centre for Technology Management, Institute for Manufacturing (IfM), University of Cambridge",
+      "original_definition_en": "Technology intelligence is the collection and delivery of information about new technologies to support the decision-making process within an organisation.",
+      "book_quote_ko": "기술지능이란 새로운 기술에 대한 정보를 수집 및 전달하여 조직의 의사결정 과정을 지원하는 것"
+    },
+    {
+      "id": "OCKHAM_RAZOR",
+      "topic": "Method — 윌리엄 오컴의 격언 (오컴의 면도날)",
+      "person": "William of Ockham",
+      "approx_year": 1323,
+      "primary_citation": "Ockham, William of. (c. 1323). Summa Totius Logicae.",
+      "latin_quote": "Frustra fit per plura quod potest fieri per pauciora.",
+      "translation_ko": "더 적은 것으로 할 수 있는 것을 더 많은 것으로 하는 것은 헛되다.",
+      "book_quote_ko": "더 적은 것으로 할 수 있는 것을 더 많은 것으로 하는 건 허영이다",
+      "note": "13세기 학파적 격언으로 흔히 사용. 오컴의 면도날(Ockham's razor) 정신의 한 표현."
+    },
+    {
+      "id": "JOBS_2005",
+      "topic": "Method — 인문학·직관 (스티브 잡스)",
+      "person": "Steve Jobs",
+      "year": 2005,
+      "event": "Stanford University Commencement Address",
+      "primary_citation": "Jobs, S. (2005, June 12). 'You've got to find what you love,' Jobs says. Stanford University 114th Commencement Address. Stanford News, June 14, 2005. https://news.stanford.edu/2005/06/14/jobs-061505/",
+      "quote_en": "You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. You have to trust in something — your gut, destiny, life, karma, whatever.",
+      "book_quote_ko_paraphrase": "내가 나의 호기심과 '직관'을 따라 가다가 부딪힌 것들 중 많은 것들은 나중에 값으로 매길 수 없는 가치들로 나타났습니다... 가장 중요한 것은, 당신의 마음과 '직관'을 따라가는 용기를 가지라!",
+      "note": "박사님 책 한국어 인용은 잡스 연설의 핵심 메시지 의역. 정확한 verbatim은 Stanford News (June 14, 2005) 공식 텍스트 참조."
+    },
+    {
+      "id": "CHURCHILL_GIBBON",
+      "topic": "Method — 처칠의 역사 독서",
+      "person": "Winston S. Churchill",
+      "primary_citation": "Churchill, W. S. (1930). My Early Life: A Roving Commission. London: Thornton Butterworth.",
+      "book_read": "Edward Gibbon (1776-1789), The History of the Decline and Fall of the Roman Empire",
+      "context": "Churchill가 인도(Bangalore) 군 복무 중 다독한 일화."
+    }
+  ],
+  "training_methods": {
+    "S": {
+      "training_count": 3,
+      "items": [
+        {"id": "S1", "ko": "정보 업데이트 (Updating)", "summary": "끊임없는 학습으로 새 정보·경험을 의식·무의식에 저장. 실수도 중요한 훈련 ('실패는 성공의 어머니'의 신경과학적 증명)."},
+        {"id": "S2", "ko": "정보 필터링 (Filtering)", "summary": "직관 흐리는 왜곡된 정보·경험의 장애물 제거. 많이 축적이 아니라 잘못된 정보 무분별 흡수 차단이 핵심."},
+        {"id": "S3", "ko": "시뮬레이션 (Simulating)", "summary": "비행기 조종사 시뮬레이터 비유 — 가상 경험으로 직관을 짧은 시간 내 강력하게 훈련."}
+      ]
+    },
+    "M": {
+      "thinking_training_count": 3,
+      "work_training_count": 3,
+      "thinking": [
+        {"id": "M-T1", "ko": "인문학의 눈으로 세상을 보라", "summary": "스티브 잡스·빌 게이츠·피터 드러커·이병철·정주영 — 인문학이 상상력의 원천."},
+        {"id": "M-T2", "ko": "역사를 통해 세상을 읽어라", "summary": "처칠의 『로마제국쇠망사』(기번 1776-1789) 독서, E.H. 카의 '과거와 현재의 대화'."},
+        {"id": "M-T3", "ko": "철학으로 사유하라", "summary": "플라톤 『국가』·아리스토텔레스 『정치학』·애덤 스미스 『국부론』. 인간 사고 능력 극대화 + 비판적 상상력."}
+      ],
+      "work": [
+        {"id": "M-W1", "ko": "일벌레가 되지 말고, 최소의 일로 최대 효과를 먼저 생각하라", "summary": "윌리엄 오컴 격언. 하루 중요한 일은 한두 가지를 넘지 않도록."},
+        {"id": "M-W2", "ko": "정보의 양을 줄이는 방법을 터득하라", "summary": "쏟아지는 정보의 99%는 일과 무관. 지금 하는 일·목표와 직접 관련된 정보만."},
+        {"id": "M-W3", "ko": "절대 혼자 일하지 말고, 다른 사람들과 함께 일하라 (아웃소싱)", "summary": "실리콘밸리 디팩 방갈로르 (사믹사 SAMIXA 회장) 인용. 두레·품앗이 전통. 80%의 비생산적 일에서 벗어나는 비법."}
+      ]
+    },
+    "A": {
+      "training_count": 7,
+      "items": [
+        {"id": "A1", "ko": "관심 분야 전문가를 만나서 조언 듣기"},
+        {"id": "A2", "ko": "단체 2~3곳 가입·정기 참석"},
+        {"id": "A3", "ko": "베스트셀러 3~4권 읽고 한 페이지 요약"},
+        {"id": "A4", "ko": "방송 자료 활용·요약"},
+        {"id": "A5", "ko": "무료 세미나 직접 열기"},
+        {"id": "A6", "ko": "신문·잡지 글 기고 제안"},
+        {"id": "A7", "ko": "1만 시간 투자 (Ericsson 1993 deliberate practice)"}
+      ],
+      "ten_thousand_hours": 10000
+    },
+    "R": {
+      "core_axes": [
+        {"id": "R1", "ko": "집단지성 — 항아리 속 젤리 실험 (Galton 1907 황소 무게 추측이 원조)"},
+        {"id": "R2", "ko": "감성 디자인 + 스토리 커뮤니케이션 (소리·영상·음악·텍스트)"},
+        {"id": "R3", "ko": "인격·인성 (지식의 가공·유통 담당자의 인성이 미래 핵심 가치)"}
+      ]
+    },
+    "T": {
+      "training_count": 3,
+      "items": [
+        {"id": "T1", "ko": "새 기술에 대한 관심도", "summary": "익숙한 도구에서 벗어나기. 새 기술이 경쟁력 있는 시기에 만나기."},
+        {"id": "T2", "ko": "직간접 경험", "summary": "지식은 머릿속에, 기술은 근육과 뼈에. 책·영상만으로 안 됨 → 몸으로 익혀야. 기술 능숙한 타인 모방 추천."},
+        {"id": "T3", "ko": "숙련도", "summary": "확실한 몇 가지를 가장 탁월하게 던질 수 있어야 정상급 투수. 자기 일과 관련된 특정 기술에 집중."}
+      ],
+      "technology_intelligence_source": "MORTARA_2009"
+    }
+  },
+  "book_quotes_verbatim": {
+    "SMART_DESECO_MATCH": "필자의 5가지 'SMART 미래인재 역량'은 놀랍게도 OECD(경제협력개발기구)의 12개 회원국이 참여하여 1997년부터 2003년까지 수행한 'DeSeCo Defining and Selecting Key Competencies 프로젝트'에서 추출한 미래사회에 필요한 생애 핵심역량 3가지와 정확히 대응한다.",
+    "S_INTUITION_8090": "어느 특정한 영역에서 성공한 사람들은 대부분 성공적인 판단의 80~90%를 직관에 의존한다.",
+    "S_ERN_DISCOVERY": "미하엘 팔켄슈타인이라는 신경학자가 1990년대 초반에 ERN(Error Related Negativity)이라고 불리는 뇌파를 발견했다... 이런 것을 '오류 정정 시스템(Error Related Negativity)' 혹은 '실수 감시 시스템'이라고 부른다.",
+    "S_FAILURE_MOTHER": "실수도 아주 중요한 훈련이다. '실패는 성공의 어머니다'라는 말은 틀림없는 진리다. 뇌의 신경학적인 메커니즘 때문에 그렇다.",
+    "S_FILTERING": "직관을 흐리게 하는 정보나 경험의 장애물을 제거하거나 걸러서(Filtering) 저장하는 것... 우리의 주위에 산재해 있는 왜곡되어 있는 잘못된 정보를 무분별하게 흡수해서 기억화시켜 놓으면 결국은 잘못된 직관적 통찰력을 발휘할 수 밖에 없게 된다.",
+    "S_SIMULATION": "비행기 조종사들은 실제로 비행기 조종을 하기 전에 수 많은 시간을 시뮬레이션 기계 안에서 보낸다... 이러한 시뮬레이션을 통한 훈련은 짧은 시간 내에 직관을 강력하게 훈련시킴으로써 실전에서 빠르고 올바른 통찰력을 발휘할 수 있도록 하는데 효과가 크다.",
+    "M_OCKHAM": "더 적은 것으로 할 수 있는 것을 더 많은 것으로 하는 건 허영이다",
+    "M_INFO_REDUCE": "정보가 폭발적으로 증가하는 시대일수록 정보량 줄이기가 중요... 쏟아지는 정보의 99%는 사실 우리 일과 무관",
+    "M_BANGALORE": "실리콘밸리의 경쟁력은 '사회적 네트워크'에서 나온다. 이 네트워크를 통해 실리콘밸리의 기업인들은 서로가 무엇을 생각하고 연구하는지 다 알고 있다.",
+    "A_SKILLED_KNOWLEDGE": "미래사회는 숙련된 지식근로자만 살아남는 시대가 된다.",
+    "A_10000_HOURS": "대체적으로 어느 분야든 세계적인 전문가가 되는데 필요한 시간이 대략 1만 시간이다",
+    "A_IMAGINATION": "백남준이 없었다면, 스티브 잡스가 없었다면, 파블로 피카소가 없었다면... 미래는 너무 따분한 세상일지도 모른다.",
+    "R_GETTY": "나는 나 자신의 100% 노력보다는 100사람의 1% 노력을 갖겠다.",
+    "R_JELLY_BEANS": "젤리가 가득 담긴 유리 항아리를 여러 사람들에게 보여주고, 이 항아리 속에 들어 있는 젤리의 개수를 맞춰보라고 했다. 사람들은 각자 나름의 방식으로 젤리의 수를 추측했지만 정확한 답을 맞히지 못했다. 하지만 실험을 주관하는 사람들이 비록 틀린 답이지만 개개인의 답의 평균을 구해 봤다. 그 결과 놀라운 사실을 발견했다. 항아리 속에는 2,845개의 젤리가 들어 있었는데, 이 숫자는 놀랍게도 사람들이 제시한 답의 평균과 정확히 일치했다.",
+    "R_NETWORK": "좋은 네트워크는 기계나 컴퓨터가 만들어 주는 것이 아니다. 좋은 네트워크는 탁월한 커뮤니케이션 능력을 가진 사람에 의해서 만들어진다.",
+    "R_PERSONHOOD": "미래사회는 지식이야 얼마든지 구할 수 있기 때문에 지식보다는 그 지식의 가공과 유통을 담당하는 사람의 인성이 더욱 중요한 가치로 자리 잡을 것이다.",
+    "T_SWEAT": "기술을 활용하지 않고 순수하게 땀 흘려 일하는 모습은 아름답다. 하지만 땀 흘려 일하는 것이 반드시 좋은 결과를 만들어내지는 않는다.",
+    "T_KNOWLEDGE_TECH": "지식은 머릿속에, 기술은 근육과 뼈에",
+    "T_PITCHER": "확실한 몇 가지를 가장 탁월하게 던질 수 있어야 정상급 투수",
+    "T_TECH_INTEL": "기술지능이란 새로운 기술에 대한 정보를 수집 및 전달하여 조직의 의사결정 과정을 지원하는 것"
+  }
+}
