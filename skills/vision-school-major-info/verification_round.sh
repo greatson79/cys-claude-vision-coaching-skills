@@ -1,7 +1,14 @@
 #!/bin/bash
 # vision-school-major-info — 검증 라운드 (네트워크·API 키 없이도 작동하는 결정론 검증).
+# 검증은 *항상* 격리된 빈 키 디렉터리를 사용해 박사님 실 키 등록 여부와 무관하게 결정론적이어야 한다.
 
 cd "$(dirname "$0")"
+VISION_SMI_TMP="$(mktemp -d -t vision-smi-verify-XXXXXX)"
+export VISION_SMI_CONFIG_DIR="$VISION_SMI_TMP"
+export VISION_SMI_KEYS_PATH="$VISION_SMI_TMP/api_keys.json"
+export VISION_SMI_CACHE_DIR="$VISION_SMI_TMP/cache"
+trap 'rm -rf "$VISION_SMI_TMP"' EXIT
+
 PY="python3 school_major_lib.py"
 PASS=0
 FAIL=0

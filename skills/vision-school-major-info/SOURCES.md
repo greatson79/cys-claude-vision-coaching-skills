@@ -55,17 +55,20 @@
 ## B. 미국 — O*NET Web Services
 
 ### B-01. O*NET Web Services v2.0
-- URL: <https://services.onetcenter.org/>
+- **Base URL (실 호출용)**: <https://api-v2.onetcenter.org/>
+- 포털·계정 관리: <https://services.onetcenter.org/developer/>
 - API 사인업: <https://services.onetcenter.org/developer/signup>
 - API Reference: <https://services.onetcenter.org/reference/>
+- 공식 샘플 (Python·JS 등 7 언어): <https://github.com/onetcenter/web-services-v2-samples>
 - 운영기관: U.S. Department of Labor, Employment and Training Administration
-- 데이터 통계 (2026-02 시점, ONET 28.3 release):
+- 데이터 통계 (2026-02 시점·실측 about endpoint 응답: api_version 2.0.0 / taxonomy O*NET-SOC 2019 / database O*NET 30.2):
   - **923개 ONET data-level 직업** / 1,016개 SOC 코드
   - **277개 descriptors** (Knowledge·Skills·Abilities·Work Activities·Tasks·Work Styles·Interests 등)
   - **19,000+ task statements** · 2,000 detailed work activities · 325 intermediate · 41 generalized
   - **분기별 갱신** — 2026-02에 886 직업 업데이트, 다음 2026-05 예정
 - 라이선스: **CC BY 4.0** (Creative Commons Attribution 4.0 International)
-- 호출 방식: REST + HTTPS, Basic Auth (username:password)
+- 호출 방식: REST + HTTPS · **`X-API-Key` HTTP 헤더 전용** (Basic Auth 폐지·쿼리 파라미터 폐지·POST body 폐지)
+- 인증 헤더 예: `X-API-Key: <발급된_API_key>`
 - 무료
 
 ### B-02. ONET-SOC 분류 체계

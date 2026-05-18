@@ -118,7 +118,7 @@ def test_check_api_keys_onet_only():
 def test_validate_endpoints():
     out = L.validate_api_endpoints_sync()
     expect("endpoints 7개 등록", out["ok"] and out["actual_kr"] == 7)
-    expect("ONET base url HTTPS", out["onet_base"].startswith("https://services.onetcenter.org"))
+    expect("ONET base url HTTPS api-v2", out["onet_base"].startswith("https://api-v2.onetcenter.org"))
     expect("missing IDs 비어있음", out["missing_dataset_ids"] == [])
     expect("extra IDs 비어있음", out["extra_dataset_ids"] == [])
     expect("invalid URLs 비어있음", out["invalid_urls"] == [])

@@ -37,9 +37,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # 0. 키 저장·진입 가드
 # ---------------------------------------------------------------------------
 
-CONFIG_DIR = os.path.expanduser("~/.config/vision-school-major-info")
-KEYS_PATH = os.path.join(CONFIG_DIR, "api_keys.json")
-CACHE_DIR = os.path.expanduser("~/.cache/vision-school-major-info")
+CONFIG_DIR = os.environ.get("VISION_SMI_CONFIG_DIR") or os.path.expanduser("~/.config/vision-school-major-info")
+KEYS_PATH = os.environ.get("VISION_SMI_KEYS_PATH") or os.path.join(CONFIG_DIR, "api_keys.json")
+CACHE_DIR = os.environ.get("VISION_SMI_CACHE_DIR") or os.path.expanduser("~/.cache/vision-school-major-info")
 
 VALID_KEY_NAMES = ("data_go_kr", "onet")
 
@@ -68,7 +68,7 @@ DATA_GO_KR_DATASETS = {
     "15116816": "KCUE 대학 및 전문대학정보",
 }
 
-ONET_BASE_URL = "https://services.onetcenter.org/ws/"
+ONET_BASE_URL = "https://api-v2.onetcenter.org/"
 
 # 캐시 TTL (초)
 KR_CACHE_TTL_SEC = 24 * 3600         # 24 시간
@@ -94,10 +94,11 @@ vision-school-major-info — API 키 등록 안내
   3) 마이페이지 → 개발계정 → 일반 인증키(Encoding) 복사
   4) python3 school_major_lib.py setup_api_key --name data_go_kr --value "복사한_키"
 
-【선택】 ONET Web Services — 미국 직업 (유학·해외 진로용)
+【선택】 ONET Web Services v2.0 — 미국 직업 (유학·해외 진로용)
   1) https://services.onetcenter.org/developer/signup 회원가입
-  2) 조직·프로젝트 정보 입력 → 승인 이메일 1~2일 대기
-  3) 발급된 API v2.0 키 복사
+  2) 회원가입 후 https://services.onetcenter.org/developer/ "My Account"
+     → "API Keys" 섹션에서 "Generate New Key" → API key 발급(즉시 활성).
+  3) 발급된 API key를 그대로 복사 (X-API-Key 헤더 전용·Basic Auth 폐지)
   4) python3 school_major_lib.py setup_api_key --name onet --value "복사한_키"
 
 ★ 한국만 쓰실 거면 필수 1개만 등록.
@@ -223,13 +224,13 @@ def validate_api_keys() -> dict:
         }
 
     if keys.get("onet"):
-        import base64
-        token = base64.b64encode(keys["onet"].encode("utf-8")).decode("ascii")
-        url = ONET_BASE_URL + "online/occupations/15-1252.00/details"
+        # ONET v2.0 — X-API-Key 헤더 전용 + api-v2.onetcenter.org base URL.
+        # 공식 샘플: https://github.com/onetcenter/web-services-v2-samples/python/OnetWebService.py
+        url = ONET_BASE_URL + "about/"
         req = Request(
             url,
             headers={
-                "Authorization": f"Basic {token}",
+                "X-API-Key": keys["onet"],
                 "Accept": "application/json",
                 "User-Agent": "vision-school-major-info/1.0",
             },
@@ -540,13 +541,12 @@ def _onet_get(path: str, timeout: float = 20.0) -> tuple[int, Any]:
     cached = _cache_get("onet", cache_key, ONET_CACHE_TTL_SEC)
     if cached is not None:
         return 200, cached
-    import base64
-    token = base64.b64encode(key.encode("utf-8")).decode("ascii")
+    # ONET v2.0 — X-API-Key 헤더 전용 (Basic Auth 폐지·query string 폐지).
     url = ONET_BASE_URL + path.lstrip("/")
     req = Request(
         url,
         headers={
-            "Authorization": f"Basic {token}",
+            "X-API-Key": key,
             "Accept": "application/json",
             "User-Agent": "vision-school-major-info/1.0",
         },
@@ -585,7 +585,8 @@ ONET_SOC_PATTERN = re.compile(r"^\d{2}-\d{4}\.\d{2}$")
 def onet_occupation_detail(soc_code: Any) -> dict:
     if not isinstance(soc_code, str) or not ONET_SOC_PATTERN.match(soc_code.strip()):
         return {"ok": False, "reason": "soc_code must be in format NN-NNNN.NN (e.g., 15-1252.00)"}
-    status, data = _onet_get(f"online/occupations/{soc_code.strip()}/details")
+    # ONET v2.0: /online/occupations/{soc}/ (overview). /details/* sub-paths는 별도 호출.
+    status, data = _onet_get(f"online/occupations/{soc_code.strip()}/")
     return {
         "ok": status == 200,
         "status": status,

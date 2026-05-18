@@ -55,12 +55,13 @@ python3 school_major_lib.py check_api_keys
 
 ### 2-B. 미국 (ONET_API_KEY — 선택)
 
-- **O\*NET Web Services v2.0** (services.onetcenter.org)
+- **O\*NET Web Services v2.0** — 실 호출 base URL `https://api-v2.onetcenter.org/`
+- 인증: **`X-API-Key` HTTP 헤더 전용** (Basic Auth 폐지·쿼리 파라미터 폐지)
 - **923개 ONET data-level 직업 / 1,016 SOC 코드 / 277 descriptors / 19,000+ tasks**
 - Content Model: Knowledge·Skills·Abilities·Work Activities·Tasks
 - 분기별 갱신 (2026-02에 886 직업 업데이트·다음 2026-05)
 - **CC-BY 4.0 라이선스** — 사용 시 attribution 자동 삽입 (결정론 함수가 처리)
-- 무료·등록 후 승인 이메일 대기 (1~2일)
+- 무료·계정 생성 즉시 사용 가능 (services.onetcenter.org/developer/ My Account → API Keys)
 
 ---
 
