@@ -1600,6 +1600,206 @@ def validate_three_realm_sync() -> dict:
 
 
 # ---------------------------------------------------------------------------
+# 23. ystory/korea-universities 캐시 통합 (런타임 캐시 + 7일 TTL)
+# ---------------------------------------------------------------------------
+# 데이터 출처: https://github.com/ystory/korea-universities
+# 라이선스: 원 저장소 LICENSE 준수. 데이터 = 커리어넷 + 한국유학종합시스템 공공자료.
+# 캐시 정책: 첫 호출 시 GitHub raw에서 fetch → ~/.cache/vision-grill-with-docs/에 저장
+#           7일 경과 후 자동 재fetch. 네트워크 실패 시 stale 캐시 사용.
+
+KOREA_UNI_RAW_URL = (
+    "https://raw.githubusercontent.com/ystory/korea-universities/main/"
+    "src/data/universities-final.json"
+)
+KOREA_UNI_META_URL = (
+    "https://raw.githubusercontent.com/ystory/korea-universities/main/"
+    "src/data/metadata.json"
+)
+KOREA_UNI_CACHE_DIR = os.path.expanduser("~/.cache/vision-grill-with-docs")
+KOREA_UNI_CACHE_PATH = os.path.join(KOREA_UNI_CACHE_DIR, "universities-final.json")
+KOREA_UNI_META_PATH = os.path.join(KOREA_UNI_CACHE_DIR, "metadata.json")
+KOREA_UNI_TTL_SECONDS = 7 * 24 * 3600  # 7 days
+
+
+def _cache_age_seconds(path: str) -> float | None:
+    if not os.path.exists(path):
+        return None
+    import time
+    return time.time() - os.path.getmtime(path)
+
+
+def _fetch_json(url: str, timeout: float = 30.0) -> Any:
+    """결정론적 GitHub raw fetch. urllib만 사용 (외부 의존성 0)."""
+    from urllib.request import Request, urlopen
+    req = Request(url, headers={"User-Agent": "vision-grill-with-docs/1.0"})
+    with urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def refresh_university_cache(force: bool = False) -> dict:
+    """ystory/korea-universities 캐시 갱신 (TTL 7일).
+
+    force=True면 TTL 무시하고 강제 fetch.
+    네트워크 실패 시 stale 캐시 사용 + warning.
+    """
+    os.makedirs(KOREA_UNI_CACHE_DIR, exist_ok=True)
+    age = _cache_age_seconds(KOREA_UNI_CACHE_PATH)
+
+    fresh = (age is not None) and (age < KOREA_UNI_TTL_SECONDS)
+    if fresh and not force:
+        return {
+            "ok": True,
+            "cached": True,
+            "fetched": False,
+            "age_seconds": int(age),
+            "ttl_seconds": KOREA_UNI_TTL_SECONDS,
+            "path": KOREA_UNI_CACHE_PATH,
+        }
+
+    # fetch
+    try:
+        data = _fetch_json(KOREA_UNI_RAW_URL)
+        meta = _fetch_json(KOREA_UNI_META_URL)
+    except Exception as e:
+        # network failure → stale fallback
+        if age is not None:
+            return {
+                "ok": True,
+                "cached": True,
+                "fetched": False,
+                "stale": True,
+                "age_seconds": int(age),
+                "warning": f"fetch failed ({type(e).__name__}: {e}); using stale cache",
+                "path": KOREA_UNI_CACHE_PATH,
+            }
+        return {
+            "ok": False,
+            "reason": f"fetch failed and no cache: {type(e).__name__}: {e}",
+        }
+
+    # 검증 — 응답 형식
+    if not isinstance(data, list) or not data:
+        return {"ok": False, "reason": "invalid universities data (not a non-empty list)"}
+    if not isinstance(meta, dict):
+        return {"ok": False, "reason": "invalid metadata"}
+
+    # atomic write
+    tmp1 = KOREA_UNI_CACHE_PATH + ".tmp"
+    tmp2 = KOREA_UNI_META_PATH + ".tmp"
+    with open(tmp1, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False)
+    with open(tmp2, "w", encoding="utf-8") as f:
+        json.dump(meta, f, ensure_ascii=False)
+    os.replace(tmp1, KOREA_UNI_CACHE_PATH)
+    os.replace(tmp2, KOREA_UNI_META_PATH)
+
+    return {
+        "ok": True,
+        "cached": True,
+        "fetched": True,
+        "count": len(data),
+        "metadata": meta,
+        "path": KOREA_UNI_CACHE_PATH,
+    }
+
+
+def _load_university_cache() -> list[dict] | None:
+    if not os.path.exists(KOREA_UNI_CACHE_PATH):
+        return None
+    try:
+        with open(KOREA_UNI_CACHE_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            return data
+    except (OSError, json.JSONDecodeError):
+        pass
+    return None
+
+
+def lookup_korean_university(
+    name: Any = None,
+    region: Any = None,
+    level: Any = None,
+    accredited_degree: Any = None,
+    limit: int = 20,
+) -> dict:
+    """캐시된 한국 대학 데이터에서 조건 검색.
+
+    인자:
+        name: 학교명 부분 일치 (한국어)
+        region: 지역 (예: "서울특별시", "경기도")
+        level: "대학(4년제)" | "전문대학(2-3년제)" | "대학원대학"
+        accredited_degree: True면 학위과정 인증 학교만
+        limit: 반환 개수 (기본 20)
+    """
+    # 캐시 자동 갱신
+    refresh_result = refresh_university_cache()
+    if not refresh_result.get("ok"):
+        return {"ok": False, "reason": refresh_result.get("reason", "cache failed"), "results": []}
+
+    data = _load_university_cache()
+    if data is None:
+        return {"ok": False, "reason": "cache load failed", "results": []}
+
+    results = []
+    for u in data:
+        if not isinstance(u, dict):
+            continue
+        if name and isinstance(name, str):
+            if name.strip() not in (u.get("nameKr") or ""):
+                continue
+        if region and isinstance(region, str):
+            if region.strip() != (u.get("region") or ""):
+                continue
+        if level and isinstance(level, str):
+            if level.strip() not in (u.get("level") or ""):
+                continue
+        if accredited_degree is True:
+            acc = u.get("accreditation") or {}
+            if not acc.get("degree"):
+                continue
+        results.append(u)
+        if len(results) >= max(1, int(limit)):
+            break
+
+    return {
+        "ok": True,
+        "count": len(results),
+        "results": results,
+        "cache_age_seconds": int(_cache_age_seconds(KOREA_UNI_CACHE_PATH) or 0),
+    }
+
+
+def validate_university_cache_sync() -> dict:
+    """캐시 무결성·신선도 + metadata 출처 검증."""
+    if not os.path.exists(KOREA_UNI_CACHE_PATH):
+        return {"ok": False, "reason": "no cache yet — call refresh_university_cache first"}
+    data = _load_university_cache()
+    if data is None:
+        return {"ok": False, "reason": "cache load failed (corrupt JSON?)"}
+    age = _cache_age_seconds(KOREA_UNI_CACHE_PATH) or 0
+    meta = None
+    if os.path.exists(KOREA_UNI_META_PATH):
+        try:
+            with open(KOREA_UNI_META_PATH, "r", encoding="utf-8") as f:
+                meta = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            pass
+
+    expected_min = 400  # ystory/korea-universities 데이터 보수 하한 (현재 491개)
+    return {
+        "ok": len(data) >= expected_min,
+        "count": len(data),
+        "expected_min": expected_min,
+        "age_seconds": int(age),
+        "ttl_seconds": KOREA_UNI_TTL_SECONDS,
+        "stale": age >= KOREA_UNI_TTL_SECONDS,
+        "metadata": meta,
+        "sources": (meta or {}).get("sources", []),
+    }
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -1714,6 +1914,18 @@ def main() -> int:
     p = sub.add_parser("validate_ldr_chain")
     p.add_argument("--base", required=True)
 
+    p = sub.add_parser("refresh_university_cache")
+    p.add_argument("--force", action="store_true")
+
+    p = sub.add_parser("lookup_korean_university")
+    p.add_argument("--name", default=None)
+    p.add_argument("--region", default=None)
+    p.add_argument("--level", default=None)
+    p.add_argument("--accredited-degree", default="false", dest="acc_deg")
+    p.add_argument("--limit", type=int, default=20)
+
+    sub.add_parser("validate_university_cache_sync")
+
     args = parser.parse_args()
 
     if args.cmd == "route_mode":
@@ -1810,6 +2022,18 @@ def main() -> int:
         out = validate_context_integrity(args.base)
     elif args.cmd == "validate_ldr_chain":
         out = validate_ldr_chain(args.base)
+    elif args.cmd == "refresh_university_cache":
+        out = refresh_university_cache(force=bool(args.force))
+    elif args.cmd == "lookup_korean_university":
+        out = lookup_korean_university(
+            name=args.name,
+            region=args.region,
+            level=args.level,
+            accredited_degree=_bool_arg(args.acc_deg),
+            limit=args.limit,
+        )
+    elif args.cmd == "validate_university_cache_sync":
+        out = validate_university_cache_sync()
     else:  # pragma: no cover
         parser.error(f"unknown command: {args.cmd}")
         return 2
