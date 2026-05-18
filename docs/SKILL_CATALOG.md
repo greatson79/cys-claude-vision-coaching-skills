@@ -1,8 +1,8 @@
 <!-- AUTO:TITLE_COUNT -->
-# 27개 스킬 카탈로그 / 27 Skills Catalog
+# 28개 스킬 카탈로그 / 28 Skills Catalog
 
-> 최윤식 박사 『미래준비학교』 토대 27개 Claude Code 스킬 전체 카탈로그
-> Complete catalog of 27 Claude Code skills based on Dr. Choi's *Future Preparation School*
+> 최윤식 박사 『미래준비학교』 토대 28개 Claude Code 스킬 전체 카탈로그
+> Complete catalog of 28 Claude Code skills based on Dr. Choi's *Future Preparation School*
 <!-- /AUTO:TITLE_COUNT -->
 
 > **📍 전체 카탈로그·8단계 흐름도·사용자 유형별 패키지·상세 카드는 [../README.md](../README.md)에서 한 번에 보세요.**
@@ -23,7 +23,8 @@
 | 3 | **박사님 책 토대 — 살·근육 + 응용 (Flesh + Applied)** | 7 | 2·3·4·7단계 |
 | 4 | **처방·실행 (Prescription)** | 7 | 5·7·8단계 |
 | 5 | **메타 인터뷰 (Cross-stage) (Meta-Interview)** | 1 | 전 단계 |
-| | **합계** | **27** | |
+| 6 | **데이터 백본 (External API) (Data Backbone)** | 1 | 1·3·7단계 보조 |
+| | **합계** | **28** | |
 <!-- /AUTO:CATEGORY_TABLE -->
 
 ---
@@ -62,6 +63,7 @@
 | Prescription | `vision-follow-through-habits` | 8 | 결심·계획이 습관·일상 시스템으로 정착하도록 설계하는 실행 지속력 코칭 스킬. BJ Fogg(Tiny Habits, 2019)… |
 | Prescription | `vision-progress-review` | 8 | 사용자의 비전·목표·행동 계획 진척을 주간·월간·분기·연간 4단위 정기 점검으로 추적·평가·재조정하는 진척 추적 스킬. 결정론… |
 | Meta-Interview | `vision-grill-with-docs` | — | 미래비전코칭의 모든 단계에서 사용자가 난관에 부딪히거나 생각이 정리되지 않을 때 호출하는 다목적 인터뷰 엔진 스킬. Matt… |
+| Data Backbone | `vision-school-major-info` | 1·3·7 | 한국 대학·학과·진로 정보(공공데이터포털 7개 API 통합)와 미국 직업 정보(ONET)를 결정론적으로 조회·매핑·진로 추천에… |
 <!-- /AUTO:SKILL_INDEX -->
 
 ---

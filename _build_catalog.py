@@ -72,6 +72,12 @@ CATEGORIES = {
         "stages_ko": "전 단계",
         "order": 5,
     },
+    "data": {
+        "label_ko": "데이터 백본 (External API)",
+        "label_en": "Data Backbone",
+        "stages_ko": "1·3·7단계 보조",
+        "order": 6,
+    },
 }
 
 STAGE_TITLES = {
@@ -114,6 +120,7 @@ DEFAULT_META = {
     "vision-follow-through-habits": ("prescription", [8]),
     "vision-progress-review": ("prescription", [8]),
     "vision-grill-with-docs": ("meta", []),
+    "vision-school-major-info": ("data", [1, 3, 7]),
 }
 
 
